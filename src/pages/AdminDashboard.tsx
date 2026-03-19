@@ -20,6 +20,7 @@ const AdminDashboard = () => {
       <nav className="border-b bg-card">
         <div className="container mx-auto flex items-center justify-between h-16 px-4">
           <div className="flex items-center gap-3">
+            <img src="/src/assets/logo-ilac.png" alt="ILAC" className="h-7 w-auto" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
             <span className="font-display text-xl font-bold text-primary">PACE ADMIN</span>
             <span className="text-xs bg-destructive/10 text-destructive px-2 py-0.5 rounded-full font-medium">Administrador</span>
           </div>
