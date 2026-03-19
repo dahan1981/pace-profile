@@ -20,6 +20,7 @@ const AdminDashboard = () => {
       <nav className="border-b bg-card">
         <div className="container mx-auto flex items-center justify-between h-16 px-4">
           <div className="flex items-center gap-3">
+            <img src="/src/assets/logo-ilac.png" alt="ILAC" className="h-7 w-auto" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
             <span className="font-display text-xl font-bold text-primary">PACE ADMIN</span>
             <span className="text-xs bg-destructive/10 text-destructive px-2 py-0.5 rounded-full font-medium">Administrador</span>
           </div>
@@ -31,7 +32,7 @@ const AdminDashboard = () => {
 
       <div className="container mx-auto px-4 py-8">
         <h1 className="font-display text-2xl md:text-3xl font-bold mb-2">Painel Administrativo</h1>
-        <p className="text-muted-foreground mb-8">Gerencie a plataforma Método PACE.</p>
+        <p className="text-muted-foreground mb-8">Gerencie a plataforma ILAC — Método PACE.</p>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           <Card><CardContent className="p-5"><p className="text-xs text-muted-foreground">Empresas</p><p className="text-2xl font-bold">3</p></CardContent></Card>

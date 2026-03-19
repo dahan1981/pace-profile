@@ -25,7 +25,9 @@ const Cadastro = () => {
           <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-4">
             <ArrowLeft className="h-4 w-4" /> Voltar ao início
           </Link>
+          <img src="/src/assets/logo-ilac.png" alt="ILAC" className="h-12 w-auto mx-auto mb-2" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
           <h1 className="font-display text-3xl font-bold text-primary">MÉTODO PACE</h1>
+          <p className="text-xs text-muted-foreground">ILAC — Instituto Latino Americano de Coaching</p>
           <p className="text-muted-foreground mt-1">Crie sua conta</p>
         </div>
 
