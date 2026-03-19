@@ -182,8 +182,10 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-12 px-4 border-t bg-muted/30">
         <div className="container mx-auto text-center">
+          <img src="/src/assets/logo-ilac.png" alt="ILAC" className="h-10 w-auto mx-auto mb-3" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
           <span className="font-display text-lg font-bold text-primary">MÉTODO PACE</span>
-          <p className="text-sm text-muted-foreground mt-2">
+          <p className="text-sm text-muted-foreground mt-1">ILAC — Instituto Latino Americano de Coaching</p>
+          <p className="text-xs text-muted-foreground mt-1">
             Padrões de Ação e Comportamento Essencial © {new Date().getFullYear()}
           </p>
         </div>

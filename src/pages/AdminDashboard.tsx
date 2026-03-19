@@ -32,7 +32,7 @@ const AdminDashboard = () => {
 
       <div className="container mx-auto px-4 py-8">
         <h1 className="font-display text-2xl md:text-3xl font-bold mb-2">Painel Administrativo</h1>
-        <p className="text-muted-foreground mb-8">Gerencie a plataforma Método PACE.</p>
+        <p className="text-muted-foreground mb-8">Gerencie a plataforma ILAC — Método PACE.</p>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           <Card><CardContent className="p-5"><p className="text-xs text-muted-foreground">Empresas</p><p className="text-2xl font-bold">3</p></CardContent></Card>
