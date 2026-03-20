@@ -97,6 +97,45 @@ const mapSupabaseProfile = (profile: {
   createdAt: profile.created_at,
 });
 
+const ensureSupabaseProfile = async (user: {
+  id: string;
+  email?: string;
+  user_metadata?: Record<string, unknown>;
+}) => {
+  if (!supabase || !user.email) return null;
+
+  const fullName = String(user.user_metadata?.full_name ?? '').trim();
+  const role = (String(user.user_metadata?.role ?? 'user') as AccountRole) || 'user';
+  const companyName = user.user_metadata?.company_name
+    ? String(user.user_metadata.company_name)
+    : null;
+
+  const { error } = await supabase.from('profiles').upsert({
+    id: user.id,
+    full_name: fullName || user.email,
+    email: normalizeEmail(user.email),
+    role,
+    company_name: companyName,
+    is_admin: DEFAULT_ADMIN_EMAILS.includes(normalizeEmail(user.email)),
+  });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  const { data: profile, error: profileError } = await supabase
+    .from('profiles')
+    .select('id, full_name, email, role, company_name, is_admin, created_at')
+    .eq('id', user.id)
+    .maybeSingle();
+
+  if (profileError || !profile) {
+    throw new Error(profileError?.message ?? 'Perfil não encontrado.');
+  }
+
+  return mapSupabaseProfile(profile);
+};
+
 export const registerAccount = async (input: Omit<AccountRecord, 'id' | 'createdAt' | 'isAdmin'>) => {
   const email = normalizeEmail(input.email);
 
@@ -172,9 +211,13 @@ export const loginAccount = async (email: string, password: string) => {
     .from('profiles')
     .select('id, full_name, email, role, company_name, is_admin, created_at')
     .eq('id', data.user.id)
-    .single();
+    .maybeSingle();
 
-  if (profileError || !profile) throw new Error(profileError?.message ?? 'Perfil não encontrado.');
+  if (profileError) throw new Error(profileError.message);
+  if (!profile) {
+    return await ensureSupabaseProfile(data.user);
+  }
+
   return mapSupabaseProfile(profile);
 };
 
@@ -195,9 +238,12 @@ export const getCurrentAccount = async (): Promise<AccountRecord | null> => {
     .from('profiles')
     .select('id, full_name, email, role, company_name, is_admin, created_at')
     .eq('id', user.id)
-    .single();
+    .maybeSingle();
 
-  if (error || !profile) return null;
+  if (error) return null;
+  if (!profile) {
+    return await ensureSupabaseProfile(user);
+  }
   return mapSupabaseProfile(profile);
 };
 
