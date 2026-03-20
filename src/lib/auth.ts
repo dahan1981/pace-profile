@@ -135,19 +135,6 @@ export const registerAccount = async (input: Omit<AccountRecord, 'id' | 'created
   if (error) throw new Error(error.message);
   if (!data.user) throw new Error('Não foi possível criar a conta.');
 
-  const isAdmin = DEFAULT_ADMIN_EMAILS.includes(email);
-
-  const { error: profileError } = await supabase.from('profiles').upsert({
-    id: data.user.id,
-    full_name: input.name,
-    email,
-    role: input.role,
-    company_name: input.companyName ?? null,
-    is_admin: isAdmin,
-  });
-
-  if (profileError) throw new Error(profileError.message);
-
   return {
     id: data.user.id,
     name: input.name,
@@ -155,7 +142,7 @@ export const registerAccount = async (input: Omit<AccountRecord, 'id' | 'created
     password: '',
     role: input.role,
     companyName: input.companyName,
-    isAdmin,
+    isAdmin: DEFAULT_ADMIN_EMAILS.includes(email),
     createdAt: new Date().toISOString(),
   };
 };
