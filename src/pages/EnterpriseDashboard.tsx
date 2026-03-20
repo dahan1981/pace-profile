@@ -1,12 +1,11 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import Brand from '@/components/Brand';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Cell, PieChart, Pie } from 'recharts';
-import { Building2, Users, CreditCard, BarChart3, UserPlus, Link as LinkIcon, Download, LogOut, CheckCircle, Clock, Send } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Bar, BarChart, CartesianGrid, Cell, ResponsiveContainer, XAxis, YAxis } from 'recharts';
+import { BarChart3, CheckCircle, Clock, CreditCard, Download, Link as LinkIcon, LogOut, Send, UserPlus, Users } from 'lucide-react';
 
 const mockTeamData = [
   { name: 'Propulsor', value: 35, color: 'hsl(0, 84%, 60%)' },
@@ -28,125 +27,128 @@ const EnterpriseDashboard = () => {
   const totalCredits = 50;
   const usedCredits = 12;
   const availableCredits = totalCredits - usedCredits;
-  const completedCount = mockCollaborators.filter(c => c.status === 'completed').length;
-  const pendingCount = mockCollaborators.filter(c => c.status === 'pending').length;
+  const completedCount = mockCollaborators.filter((collaborator) => collaborator.status === 'completed').length;
+  const pendingCount = mockCollaborators.filter((collaborator) => collaborator.status === 'pending').length;
 
   return (
-    <div className="min-h-screen bg-background">
-      <nav className="border-b bg-card">
-        <div className="container mx-auto flex items-center justify-between h-16 px-4">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(12,33,84,0.1),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(199,45,62,0.1),_transparent_28%),linear-gradient(180deg,_#f8fafc_0%,_#eef2f7_100%)]">
+      <nav className="border-b border-white/70 bg-background/80 backdrop-blur-xl">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <div className="flex items-center gap-3">
-            <img src="/src/assets/logo-ilac.png" alt="ILAC" className="h-7 w-auto" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-            <span className="font-display text-xl font-bold text-primary">MÉTODO PACE</span>
-            <span className="text-xs bg-secondary/10 text-secondary px-2 py-0.5 rounded-full font-medium">Empresarial</span>
+            <Brand iconClassName="h-7 w-7" />
+            <span className="rounded-full bg-secondary/10 px-3 py-1 text-xs font-medium text-secondary">Empresarial</span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-muted-foreground hidden md:block">Empresa Demo LTDA</span>
+          <div className="flex items-center gap-3">
+            <span className="hidden text-sm text-muted-foreground md:block">Empresa Demo LTDA</span>
             <Button variant="ghost" size="sm" onClick={() => navigate('/')} className="gap-2">
-              <LogOut className="h-4 w-4" /> Sair
+              <LogOut className="h-4 w-4" />
+              Sair
             </Button>
           </div>
         </div>
       </nav>
 
-      <div className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h1 className="font-display text-2xl md:text-3xl font-bold">Painel Empresarial</h1>
-          <p className="text-muted-foreground mt-1">Gerencie avaliações e equipes.</p>
-        </div>
+      <div className="container mx-auto max-w-6xl px-4 py-8">
+        <div className="mb-8 grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+          <Card className="border-white/80 bg-white/88 shadow-xl shadow-slate-200/50">
+            <CardContent className="p-8">
+              <div className="text-sm font-semibold uppercase tracking-[0.18em] text-primary/65">Painel empresarial</div>
+              <h1 className="mt-2 font-display text-4xl font-bold text-slate-950">Uma visão clara da equipe, sem atrito operacional.</h1>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600">
+                Convide colaboradores, acompanhe a taxa de conclusão e visualize a distribuição dos perfis de forma rápida e apresentável.
+              </p>
+              <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                {[
+                  ['Créditos disponíveis', availableCredits.toString()],
+                  ['Avaliações concluídas', completedCount.toString()],
+                  ['Pendências abertas', pendingCount.toString()],
+                ].map(([label, value]) => (
+                  <div key={label} className="rounded-2xl bg-slate-50 px-4 py-4">
+                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{label}</div>
+                    <div className="mt-2 text-lg font-semibold text-slate-950">{value}</div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
 
-        {/* KPIs */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          <Card>
-            <CardContent className="p-5">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-primary/10"><CreditCard className="h-5 w-5 text-primary" /></div>
+          <Card className="border-white/80 bg-white/88 shadow-xl shadow-slate-200/50">
+            <CardContent className="p-8">
+              <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-xs text-muted-foreground">Créditos</p>
-                  <p className="text-2xl font-bold">{availableCredits}<span className="text-sm text-muted-foreground font-normal">/{totalCredits}</span></p>
+                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Uso do pacote</div>
+                  <h2 className="mt-2 font-display text-3xl font-bold text-slate-950">{usedCredits}/{totalCredits}</h2>
+                </div>
+                <div className="rounded-2xl bg-primary/10 p-3 text-primary">
+                  <CreditCard className="h-6 w-6" />
                 </div>
               </div>
-              <Progress value={(usedCredits / totalCredits) * 100} className="mt-3 h-1.5" />
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="p-5">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-consolidador/10"><Users className="h-5 w-5 text-consolidador" /></div>
-                <div>
-                  <p className="text-xs text-muted-foreground">Colaboradores</p>
-                  <p className="text-2xl font-bold">{mockCollaborators.length}</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="p-5">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-consolidador/10"><CheckCircle className="h-5 w-5 text-consolidador" /></div>
-                <div>
-                  <p className="text-xs text-muted-foreground">Concluídas</p>
-                  <p className="text-2xl font-bold">{completedCount}</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="p-5">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-secondary/10"><Clock className="h-5 w-5 text-secondary" /></div>
-                <div>
-                  <p className="text-xs text-muted-foreground">Pendentes</p>
-                  <p className="text-2xl font-bold">{pendingCount}</p>
-                </div>
+              <p className="mt-3 text-sm leading-7 text-slate-600">
+                Você ainda tem margem para convidar mais pessoas sem gerar complexidade na operação.
+              </p>
+              <Progress value={(usedCredits / totalCredits) * 100} className="mt-6 h-3" />
+              <div className="mt-6 flex gap-2">
+                <Button className="gap-2 rounded-xl shadow-lg shadow-primary/20">
+                  <CreditCard className="h-4 w-4" />
+                  Comprar mais créditos
+                </Button>
+                <Button variant="outline" className="gap-2 rounded-xl bg-white">
+                  <Download className="h-4 w-4" />
+                  Exportar dados
+                </Button>
               </div>
             </CardContent>
           </Card>
         </div>
 
         <Tabs defaultValue="equipe" className="space-y-6">
-          <TabsList>
-            <TabsTrigger value="equipe" className="gap-2"><Users className="h-4 w-4" />Equipe</TabsTrigger>
-            <TabsTrigger value="relatorios" className="gap-2"><BarChart3 className="h-4 w-4" />Relatórios</TabsTrigger>
-            <TabsTrigger value="pacote" className="gap-2"><CreditCard className="h-4 w-4" />Pacote</TabsTrigger>
+          <TabsList className="rounded-2xl bg-white/88 p-1 shadow-sm">
+            <TabsTrigger value="equipe" className="gap-2 rounded-xl"><Users className="h-4 w-4" />Equipe</TabsTrigger>
+            <TabsTrigger value="relatorios" className="gap-2 rounded-xl"><BarChart3 className="h-4 w-4" />Relatórios</TabsTrigger>
+            <TabsTrigger value="pacote" className="gap-2 rounded-xl"><CreditCard className="h-4 w-4" />Pacote</TabsTrigger>
           </TabsList>
 
           <TabsContent value="equipe" className="space-y-6">
             <div className="flex flex-wrap gap-3">
-              <Button className="gap-2"><UserPlus className="h-4 w-4" /> Adicionar colaborador</Button>
-              <Button variant="outline" className="gap-2"><LinkIcon className="h-4 w-4" /> Gerar link</Button>
-              <Button variant="outline" className="gap-2"><Send className="h-4 w-4" /> Enviar convites</Button>
-              <Button variant="outline" className="gap-2"><Download className="h-4 w-4" /> Exportar</Button>
+              <Button className="gap-2 rounded-xl"><UserPlus className="h-4 w-4" />Adicionar colaborador</Button>
+              <Button variant="outline" className="gap-2 rounded-xl bg-white"><LinkIcon className="h-4 w-4" />Gerar link</Button>
+              <Button variant="outline" className="gap-2 rounded-xl bg-white"><Send className="h-4 w-4" />Enviar convites</Button>
+              <Button variant="outline" className="gap-2 rounded-xl bg-white"><Download className="h-4 w-4" />Exportar</Button>
             </div>
-            <Card>
+
+            <Card className="border-white/80 bg-white/88 shadow-xl shadow-slate-200/50">
               <CardContent className="p-0">
                 <div className="overflow-x-auto">
-                  <table className="w-full">
+                  <table className="w-full min-w-[720px]">
                     <thead>
-                      <tr className="border-b bg-muted/30">
-                        <th className="text-left p-4 text-xs font-medium text-muted-foreground">COLABORADOR</th>
-                        <th className="text-left p-4 text-xs font-medium text-muted-foreground">E-MAIL</th>
-                        <th className="text-left p-4 text-xs font-medium text-muted-foreground">STATUS</th>
-                        <th className="text-left p-4 text-xs font-medium text-muted-foreground">PERFIL</th>
-                        <th className="text-left p-4 text-xs font-medium text-muted-foreground">AÇÕES</th>
+                      <tr className="border-b bg-slate-50">
+                        <th className="p-4 text-left text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Colaborador</th>
+                        <th className="p-4 text-left text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">E-mail</th>
+                        <th className="p-4 text-left text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Status</th>
+                        <th className="p-4 text-left text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Perfil</th>
+                        <th className="p-4 text-left text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Ações</th>
                       </tr>
                     </thead>
                     <tbody>
-                      {mockCollaborators.map(c => (
-                        <tr key={c.id} className="border-b last:border-0 hover:bg-muted/20">
-                          <td className="p-4 font-medium text-sm">{c.name}</td>
-                          <td className="p-4 text-sm text-muted-foreground">{c.email}</td>
+                      {mockCollaborators.map((collaborator) => (
+                        <tr key={collaborator.id} className="border-b last:border-0 hover:bg-slate-50/70">
+                          <td className="p-4 text-sm font-semibold text-slate-950">{collaborator.name}</td>
+                          <td className="p-4 text-sm text-slate-500">{collaborator.email}</td>
                           <td className="p-4">
-                            <span className={`inline-flex items-center gap-1 text-xs font-medium px-2 py-1 rounded-full ${
-                              c.status === 'completed' ? 'bg-consolidador/10 text-consolidador' : 'bg-secondary/10 text-secondary'
+                            <span className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium ${
+                              collaborator.status === 'completed' ? 'bg-consolidador/10 text-consolidador' : 'bg-secondary/10 text-secondary'
                             }`}>
-                              {c.status === 'completed' ? <><CheckCircle className="h-3 w-3" /> Concluído</> : <><Clock className="h-3 w-3" /> Pendente</>}
+                              {collaborator.status === 'completed' ? <><CheckCircle className="h-3 w-3" />Concluído</> : <><Clock className="h-3 w-3" />Pendente</>}
                             </span>
                           </td>
-                          <td className="p-4 text-sm">{c.profile ? `${c.profile} (${c.percentage}%)` : '—'}</td>
+                          <td className="p-4 text-sm text-slate-700">
+                            {collaborator.profile ? `${collaborator.profile} (${collaborator.percentage}%)` : '—'}
+                          </td>
                           <td className="p-4">
-                            {c.status === 'completed' && (
-                              <Button variant="ghost" size="sm" className="text-xs">Ver devolutiva</Button>
+                            {collaborator.status === 'completed' ? (
+                              <Button variant="ghost" size="sm" className="rounded-xl text-xs">Ver devolutiva</Button>
+                            ) : (
+                              <Button variant="ghost" size="sm" className="rounded-xl text-xs">Reenviar</Button>
                             )}
                           </td>
                         </tr>
@@ -158,74 +160,49 @@ const EnterpriseDashboard = () => {
             </Card>
           </TabsContent>
 
-          <TabsContent value="relatorios" className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card>
-                <CardHeader><CardTitle className="text-lg">Distribuição de Perfis da Equipe</CardTitle></CardHeader>
+          <TabsContent value="relatorios">
+            <div className="grid gap-6 md:grid-cols-2">
+              <Card className="border-white/80 bg-white/88 shadow-xl shadow-slate-200/50">
+                <CardHeader><CardTitle>Distribuição dos perfis</CardTitle></CardHeader>
                 <CardContent>
-                  <ResponsiveContainer width="100%" height={250}>
+                  <ResponsiveContainer width="100%" height={260}>
                     <BarChart data={mockTeamData}>
                       <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                       <XAxis dataKey="name" tick={{ fontSize: 12 }} stroke="hsl(var(--muted-foreground))" />
                       <YAxis tick={{ fontSize: 12 }} stroke="hsl(var(--muted-foreground))" unit="%" />
-                      <Bar dataKey="value" radius={[6, 6, 0, 0]}>
-                        {mockTeamData.map((e, i) => <Cell key={i} fill={e.color} />)}
+                      <Bar dataKey="value" radius={[8, 8, 0, 0]}>
+                        {mockTeamData.map((entry, index) => (
+                          <Cell key={index} fill={entry.color} />
+                        ))}
                       </Bar>
                     </BarChart>
                   </ResponsiveContainer>
                 </CardContent>
               </Card>
 
-              <Card>
-                <CardHeader><CardTitle className="text-lg">Taxa de Conclusão</CardTitle></CardHeader>
+              <Card className="border-white/80 bg-white/88 shadow-xl shadow-slate-200/50">
+                <CardHeader><CardTitle>Taxa de conclusão</CardTitle></CardHeader>
                 <CardContent>
                   <div className="text-center">
-                    <div className="text-5xl font-bold text-primary mb-2">
-                      {Math.round((completedCount / mockCollaborators.length) * 100)}%
-                    </div>
-                    <p className="text-muted-foreground text-sm">
+                    <div className="text-5xl font-bold text-primary">{Math.round((completedCount / mockCollaborators.length) * 100)}%</div>
+                    <p className="mt-3 text-sm text-slate-600">
                       {completedCount} de {mockCollaborators.length} avaliações concluídas
                     </p>
-                    <div className="mt-4">
-                      <Progress value={(completedCount / mockCollaborators.length) * 100} className="h-3" />
-                    </div>
+                    <Progress value={(completedCount / mockCollaborators.length) * 100} className="mt-6 h-3" />
                   </div>
                 </CardContent>
               </Card>
             </div>
           </TabsContent>
 
-          <TabsContent value="pacote" className="space-y-6">
-            <Card>
-              <CardHeader><CardTitle className="text-lg">Seu Pacote</CardTitle></CardHeader>
-              <CardContent>
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div className="text-center p-6 rounded-xl bg-muted/50">
-                    <p className="text-4xl font-bold text-primary">{totalCredits}</p>
-                    <p className="text-sm text-muted-foreground mt-1">Créditos contratados</p>
-                  </div>
-                  <div className="text-center p-6 rounded-xl bg-muted/50">
-                    <p className="text-4xl font-bold text-consolidador">{usedCredits}</p>
-                    <p className="text-sm text-muted-foreground mt-1">Utilizados</p>
-                  </div>
-                  <div className="text-center p-6 rounded-xl bg-muted/50">
-                    <p className="text-4xl font-bold text-secondary">{availableCredits}</p>
-                    <p className="text-sm text-muted-foreground mt-1">Disponíveis</p>
-                  </div>
-                </div>
-                <div className="mt-6 text-center">
-                  <Button className="gap-2"><CreditCard className="h-4 w-4" /> Adquirir mais créditos</Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            <div className="grid md:grid-cols-4 gap-4">
-              {[10, 25, 50, 100].map(qty => (
-                <Card key={qty} className="text-center hover:shadow-md transition-shadow cursor-pointer border-2 hover:border-primary/20">
-                  <CardContent className="p-6">
-                    <p className="text-3xl font-bold text-primary mb-1">{qty}</p>
-                    <p className="text-sm text-muted-foreground mb-4">avaliações</p>
-                    <Button variant="outline" size="sm" className="w-full">Selecionar</Button>
+          <TabsContent value="pacote">
+            <div className="grid gap-6 md:grid-cols-4">
+              {[10, 25, 50, 100].map((quantity) => (
+                <Card key={quantity} className="border-white/80 bg-white/88 shadow-lg shadow-slate-200/40 transition-transform hover:-translate-y-1">
+                  <CardContent className="p-6 text-center">
+                    <div className="text-4xl font-bold text-primary">{quantity}</div>
+                    <p className="mt-1 text-sm text-slate-500">avaliações</p>
+                    <Button variant="outline" size="sm" className="mt-5 w-full rounded-xl bg-white">Selecionar</Button>
                   </CardContent>
                 </Card>
               ))}

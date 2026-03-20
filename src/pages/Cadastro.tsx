@@ -1,96 +1,146 @@
 import { useState } from 'react';
 import { useSearchParams, Link, useNavigate } from 'react-router-dom';
+import Brand from '@/components/Brand';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Building2, User, ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Building2, User } from 'lucide-react';
+import { currentUserCanAccessAdmin, registerAccount } from '@/lib/auth';
 
 const Cadastro = () => {
   const [searchParams] = useSearchParams();
   const isEmpresa = searchParams.get('type') === 'empresa';
   const [tab, setTab] = useState(isEmpresa ? 'empresa' : 'usuario');
+  const [userName, setUserName] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [userPassword, setUserPassword] = useState('');
+  const [companyName, setCompanyName] = useState('');
+  const [companyDocument, setCompanyDocument] = useState('');
+  const [companyOwner, setCompanyOwner] = useState('');
+  const [companyEmail, setCompanyEmail] = useState('');
+  const [companyPassword, setCompanyPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSignup = (e: React.FormEvent, type: string) => {
+  const handleSignup = async (e: React.FormEvent, type: 'usuario' | 'empresa') => {
     e.preventDefault();
-    navigate(type === 'empresa' ? '/empresa' : '/usuario');
+
+    try {
+      const account = await (type === 'usuario'
+        ? registerAccount({
+            name: userName,
+            email: userEmail,
+            password: userPassword,
+            role: 'user',
+          })
+        : registerAccount({
+            name: companyOwner,
+            email: companyEmail,
+            password: companyPassword,
+            role: 'company',
+            companyName: `${companyName} • ${companyDocument}`,
+          }));
+
+      if (await currentUserCanAccessAdmin()) {
+        navigate('/admin');
+        return;
+      }
+
+      navigate(account.role === 'company' ? '/empresa' : '/usuario');
+    } catch (error) {
+      window.alert(error instanceof Error ? error.message : 'Não foi possível criar a conta.');
+    }
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-4">
-            <ArrowLeft className="h-4 w-4" /> Voltar ao início
-          </Link>
-          <img src="/src/assets/logo-ilac.png" alt="ILAC" className="h-12 w-auto mx-auto mb-2" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-          <h1 className="font-display text-3xl font-bold text-primary">MÉTODO PACE</h1>
-          <p className="text-xs text-muted-foreground">ILAC — Instituto Latino Americano de Coaching</p>
-          <p className="text-muted-foreground mt-1">Crie sua conta</p>
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_right,_rgba(12,33,84,0.12),_transparent_28%),radial-gradient(circle_at_bottom_left,_rgba(199,45,62,0.15),_transparent_28%),linear-gradient(180deg,_#f8fafc_0%,_#eef2f7_100%)] px-4 py-8">
+      <div className="mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-6xl items-center gap-10 lg:grid lg:grid-cols-[0.9fr_0.78fr]">
+        <div className="hidden lg:block">
+          <Brand iconClassName="h-10 w-10" titleClassName="text-2xl" subtitle="ILAC • Instituto Latino Americano de Coaching" />
+          <h1 className="mt-8 max-w-xl font-display text-5xl font-bold leading-tight text-slate-950">
+            Crie seu acesso sem fricção e comece a descobrir seu perfil.
+          </h1>
+          <p className="mt-5 max-w-xl text-lg leading-8 text-slate-600">
+            As contas criadas aqui passam a existir de verdade na aplicação, com sessão, histórico de avaliações e possibilidade de acesso administrativo quando liberado.
+          </p>
         </div>
 
-        <Card>
-          <CardContent className="pt-6">
-            <Tabs value={tab} onValueChange={setTab}>
-              <TabsList className="grid w-full grid-cols-2 mb-6">
-                <TabsTrigger value="usuario" className="gap-2"><User className="h-4 w-4" />Pessoa Física</TabsTrigger>
-                <TabsTrigger value="empresa" className="gap-2"><Building2 className="h-4 w-4" />Empresa</TabsTrigger>
-              </TabsList>
+        <div className="w-full">
+          <div className="mb-6 text-center lg:hidden">
+            <Brand stacked iconClassName="h-12 w-12" titleClassName="text-3xl" subtitle="ILAC • Instituto Latino Americano de Coaching" />
+          </div>
+          <Card className="overflow-hidden border-white/80 bg-white/88 shadow-2xl shadow-slate-200/70 backdrop-blur">
+            <CardContent className="p-7 md:p-8">
+              <Link to="/" className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
+                <ArrowLeft className="h-4 w-4" />
+                Voltar ao início
+              </Link>
 
-              <TabsContent value="usuario">
-                <form onSubmit={(e) => handleSignup(e, 'usuario')} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label>Nome completo</Label>
-                    <Input placeholder="Seu nome" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label>E-mail</Label>
-                    <Input type="email" placeholder="seu@email.com" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label>Senha</Label>
-                    <Input type="password" placeholder="Mín. 8 caracteres" required />
-                  </div>
-                  <Button type="submit" className="w-full">Criar conta</Button>
-                  <p className="text-center text-sm text-muted-foreground">
-                    Já tem conta? <Link to="/login" className="text-primary hover:underline">Entrar</Link>
-                  </p>
-                </form>
-              </TabsContent>
+              <div className="mb-6">
+                <div className="text-sm font-semibold uppercase tracking-[0.18em] text-primary/65">Cadastro</div>
+                <h2 className="mt-2 font-display text-4xl font-bold text-slate-950">Crie sua conta</h2>
+              </div>
 
-              <TabsContent value="empresa">
-                <form onSubmit={(e) => handleSignup(e, 'empresa')} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label>Nome da empresa</Label>
-                    <Input placeholder="Empresa LTDA" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label>CNPJ</Label>
-                    <Input placeholder="00.000.000/0000-00" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label>Nome do responsável</Label>
-                    <Input placeholder="Seu nome" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label>E-mail corporativo</Label>
-                    <Input type="email" placeholder="admin@empresa.com" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label>Senha</Label>
-                    <Input type="password" placeholder="Mín. 8 caracteres" required />
-                  </div>
-                  <Button type="submit" className="w-full">Cadastrar empresa</Button>
-                  <p className="text-center text-sm text-muted-foreground">
-                    Já tem conta? <Link to="/login?type=empresa" className="text-primary hover:underline">Entrar</Link>
-                  </p>
-                </form>
-              </TabsContent>
-            </Tabs>
-          </CardContent>
-        </Card>
+              <Tabs value={tab} onValueChange={setTab}>
+                <TabsList className="mb-6 grid w-full grid-cols-2 rounded-2xl bg-slate-100 p-1">
+                  <TabsTrigger value="usuario" className="gap-2 rounded-xl"><User className="h-4 w-4" />Pessoa física</TabsTrigger>
+                  <TabsTrigger value="empresa" className="gap-2 rounded-xl"><Building2 className="h-4 w-4" />Empresa</TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="usuario">
+                  <form onSubmit={(e) => handleSignup(e, 'usuario')} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Nome completo</Label>
+                      <Input id="name" value={userName} onChange={(e) => setUserName(e.target.value)} placeholder="Seu nome" required className="h-11 rounded-xl bg-white" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">E-mail</Label>
+                      <Input id="email" value={userEmail} onChange={(e) => setUserEmail(e.target.value)} type="email" placeholder="seu@email.com" required className="h-11 rounded-xl bg-white" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="password">Senha</Label>
+                      <Input id="password" value={userPassword} onChange={(e) => setUserPassword(e.target.value)} type="password" placeholder="Mínimo de 8 caracteres" required className="h-11 rounded-xl bg-white" />
+                    </div>
+                    <Button type="submit" className="h-11 w-full rounded-xl shadow-lg shadow-primary/20">Criar conta</Button>
+                    <p className="text-center text-sm text-muted-foreground">
+                      Já tem acesso? <Link to="/login" className="font-medium text-primary hover:underline">Entrar</Link>
+                    </p>
+                  </form>
+                </TabsContent>
+
+                <TabsContent value="empresa">
+                  <form onSubmit={(e) => handleSignup(e, 'empresa')} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="company">Nome da empresa</Label>
+                      <Input id="company" value={companyName} onChange={(e) => setCompanyName(e.target.value)} placeholder="Empresa LTDA" required className="h-11 rounded-xl bg-white" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="cnpj">CNPJ</Label>
+                      <Input id="cnpj" value={companyDocument} onChange={(e) => setCompanyDocument(e.target.value)} placeholder="00.000.000/0000-00" required className="h-11 rounded-xl bg-white" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="owner">Responsável</Label>
+                      <Input id="owner" value={companyOwner} onChange={(e) => setCompanyOwner(e.target.value)} placeholder="Nome do responsável" required className="h-11 rounded-xl bg-white" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email-company">E-mail corporativo</Label>
+                      <Input id="email-company" value={companyEmail} onChange={(e) => setCompanyEmail(e.target.value)} type="email" placeholder="time@empresa.com" required className="h-11 rounded-xl bg-white" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="password-company">Senha</Label>
+                      <Input id="password-company" value={companyPassword} onChange={(e) => setCompanyPassword(e.target.value)} type="password" placeholder="Mínimo de 8 caracteres" required className="h-11 rounded-xl bg-white" />
+                    </div>
+                    <Button type="submit" className="h-11 w-full rounded-xl shadow-lg shadow-primary/20">Cadastrar empresa</Button>
+                    <p className="text-center text-sm text-muted-foreground">
+                      Já tem acesso? <Link to="/login?type=empresa" className="font-medium text-primary hover:underline">Entrar</Link>
+                    </p>
+                  </form>
+                </TabsContent>
+              </Tabs>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
