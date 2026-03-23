@@ -31,6 +31,7 @@ const Assessment = () => {
 
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
 
   const answeredCount = Object.keys(answers).length;
@@ -43,25 +44,36 @@ const Assessment = () => {
     setAnswers((prev) => ({ ...prev, [question.id]: letter }));
   };
 
-  const finish = () => {
-    const account = getCurrentAccount();
+  const finish = async () => {
+    if (isSubmitting) return;
 
-    if (!account) {
-      window.alert('Faça login antes de finalizar a avaliação.');
-      navigate('/login');
-      return;
+    setIsSubmitting(true);
+
+    try {
+      const account = await getCurrentAccount();
+
+      if (!account) {
+        window.alert('Faça login antes de finalizar a avaliação.');
+        navigate('/login');
+        return;
+      }
+
+      const result = calculateResults(answers);
+
+      await saveReport({
+        questionnaireType: type,
+        accountEmail: account.email,
+        accountName: account.role === 'company' && account.companyName ? account.companyName : account.name,
+        result,
+      });
+
+      navigate('/resultado');
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Não foi possível finalizar a avaliação.';
+      window.alert(message);
+    } finally {
+      setIsSubmitting(false);
     }
-
-    const result = calculateResults(answers);
-
-    saveReport({
-      questionnaireType: type,
-      accountEmail: account.email,
-      accountName: account.role === 'company' && account.companyName ? account.companyName : account.name,
-      result,
-    });
-
-    navigate('/resultado');
   };
 
   return (
@@ -204,11 +216,11 @@ const Assessment = () => {
                   ) : (
                     <Button
                       onClick={finish}
-                      disabled={!allAnswered}
+                      disabled={!allAnswered || isSubmitting}
                       className="gap-2 rounded-xl shadow-lg shadow-primary/20"
                     >
                       <CheckCircle2 className="h-4 w-4" />
-                      Ver meu resultado
+                      {isSubmitting ? 'Salvando...' : 'Ver meu resultado'}
                     </Button>
                   )}
                 </div>
