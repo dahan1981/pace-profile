@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import Brand from '@/components/Brand';
 import ProfileMark from '@/components/ProfileMark';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { getLastResult } from '@/lib/auth';
+import { getCurrentAccount, getLastResult, getReportById, getReportsForEmail } from '@/lib/auth';
 import { downloadResultPdf } from '@/lib/pdf';
 import { AssessmentResult } from '@/lib/scoring';
 import { PROFILES } from '@/data/profiles';
@@ -13,16 +13,41 @@ import { ArrowLeft, Compass, Download, MapPin, Printer, ShieldAlert, Sparkles, T
 
 const Result = () => {
   const [result, setResult] = useState<AssessmentResult | null>(null);
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const data = getLastResult();
-    if (!data) {
-      navigate('/');
-      return;
-    }
-    setResult(data);
-  }, [navigate]);
+    const loadResult = async () => {
+      const reportId = searchParams.get('report');
+
+      if (reportId) {
+        const report = await getReportById(reportId);
+        if (report) {
+          setResult(report.result);
+          return;
+        }
+      }
+
+      const account = await getCurrentAccount();
+      if (account) {
+        const reports = await getReportsForEmail(account.email);
+        if (reports.length > 0) {
+          setResult(reports[0].result);
+          return;
+        }
+      }
+
+      const data = getLastResult();
+      if (data) {
+        setResult(data);
+        return;
+      }
+
+      navigate('/usuario');
+    };
+
+    void loadResult();
+  }, [navigate, searchParams]);
 
   if (!result) return null;
 

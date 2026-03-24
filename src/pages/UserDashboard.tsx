@@ -106,7 +106,7 @@ const UserDashboard = () => {
                 </div>
                 <p className="mt-5 text-sm leading-7 text-slate-600">{primary.shortDescription}</p>
                 <div className="mt-6 flex gap-2">
-                  <Link to="/resultado">
+                  <Link to={`/resultado?report=${history[0]?.id ?? ''}`}>
                     <Button variant="outline" size="sm" className="gap-2 rounded-xl bg-white">
                       <BarChart3 className="h-4 w-4" />
                       Ver detalhes
@@ -182,10 +182,12 @@ const UserDashboard = () => {
                           </p>
                         </div>
                       </div>
-                      <Button variant="ghost" size="sm" className="gap-1 rounded-xl">
-                        <BarChart3 className="h-3 w-3" />
-                        Ver
-                      </Button>
+                      <Link to={`/resultado?report=${entry.id}`}>
+                        <Button variant="ghost" size="sm" className="gap-1 rounded-xl">
+                          <BarChart3 className="h-3 w-3" />
+                          Ver
+                        </Button>
+                      </Link>
                     </div>
                   );
                 })}

@@ -447,4 +447,9 @@ export const getReportsForEmail = async (email: string) => {
   return reports.filter((report) => normalizeEmail(report.accountEmail) === normalized);
 };
 
+export const getReportById = async (reportId: string) => {
+  const reports = await getReports();
+  return reports.find((report) => report.id === reportId) ?? null;
+};
+
 export const getLastResult = () => readJson<AssessmentResult | null>(LAST_RESULT_KEY, null);
