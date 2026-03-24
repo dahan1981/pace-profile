@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Brand from '@/components/Brand';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import ProfileMark from '@/components/ProfileMark';
-import { QUESTIONNAIRES } from '@/data/questions';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PROFILES } from '@/data/profiles';
+import { QUESTIONNAIRES } from '@/data/questions';
+import { clearCurrentSession, getCurrentAccount, getReportsForEmail } from '@/lib/auth';
 import { AssessmentResult } from '@/lib/scoring';
 import { BarChart3, Clock, Download, FileText, LogOut, PlayCircle, User } from 'lucide-react';
-import { clearCurrentSession, getCurrentAccount, getReportsForEmail } from '@/lib/auth';
 
 const UserDashboard = () => {
   const [lastResult, setLastResult] = useState<AssessmentResult | null>(null);
@@ -171,9 +171,9 @@ const UserDashboard = () => {
                       <div className="flex items-center gap-4">
                         <ProfileMark profile={profile} size="sm" />
                         <div>
-                          <p className="text-sm font-semibold text-slate-950">{profile.name} • {entry.result.scores[0].percentage}%</p>
+                          <p className="text-sm font-semibold text-slate-950">{profile.name} - {entry.result.scores[0].percentage}%</p>
                           <p className="text-xs text-slate-500">
-                            {QUESTIONNAIRES[entry.questionnaireType]?.title} • {new Date(entry.submittedAt).toLocaleDateString('pt-BR')}
+                            {QUESTIONNAIRES[entry.questionnaireType]?.title} - {new Date(entry.submittedAt).toLocaleDateString('pt-BR')}
                           </p>
                         </div>
                       </div>

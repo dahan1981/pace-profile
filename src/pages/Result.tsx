@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Brand from '@/components/Brand';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import ProfileMark from '@/components/ProfileMark';
-import { PROFILES } from '@/data/profiles';
-import { AssessmentResult } from '@/lib/scoring';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import { getLastResult } from '@/lib/auth';
-import { BarChart, Bar, CartesianGrid, Cell, Radar, RadarChart, PolarAngleAxis, PolarGrid, PolarRadiusAxis, ResponsiveContainer, XAxis, YAxis } from 'recharts';
+import { AssessmentResult } from '@/lib/scoring';
+import { PROFILES } from '@/data/profiles';
+import { Bar, BarChart, CartesianGrid, Cell, PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 import { ArrowLeft, Compass, Download, MapPin, Printer, ShieldAlert, Sparkles, Trophy } from 'lucide-react';
 
 const Result = () => {
