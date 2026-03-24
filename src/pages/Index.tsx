@@ -1,22 +1,10 @@
 import { Link } from 'react-router-dom';
 import Brand from '@/components/Brand';
-import EditorialIcon from '@/components/EditorialIcon';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import ProfileMark from '@/components/ProfileMark';
 import { PROFILES, PROFILE_ORDER } from '@/data/profiles';
-import {
-  ArrowRight,
-  BrainCircuit,
-  Building2,
-  Compass,
-  HeartHandshake,
-  Layers3,
-  ShieldCheck,
-  Sparkles,
-  Target,
-  Users,
-} from 'lucide-react';
+import { ArrowRight, BrainCircuit, Building2, ShieldCheck } from 'lucide-react';
 
 const profileColors: Record<string, string> = {
   propulsor: 'bg-propulsor',
@@ -36,23 +24,20 @@ const experiencePillars = [
   {
     title: 'Leve para responder',
     description: 'A experiência não parece prova nem formulário duro. Ela conduz a pessoa com clareza e ritmo.',
-    icon: Sparkles,
-    tone: 'ruby' as const,
-    label: 'leve',
+    note: 'ritmo bom',
+    tone: 'bg-[rgba(199,45,62,0.14)] text-[rgb(145,36,49)]',
   },
   {
     title: 'Elegante para apresentar',
     description: 'O resultado chega limpo, visual e fácil de explicar para indivíduos, líderes ou equipes.',
-    icon: Layers3,
-    tone: 'navy' as const,
-    label: 'claro',
+    note: 'boa leitura',
+    tone: 'bg-[rgba(12,33,84,0.12)] text-[rgb(21,58,134)]',
   },
   {
     title: 'Útil de verdade',
     description: 'A leitura vira repertório prático para desenvolvimento, liderança, comunicação e composição de time.',
-    icon: Target,
-    tone: 'gold' as const,
-    label: 'prático',
+    note: 'vai para a prática',
+    tone: 'bg-[rgba(176,118,20,0.12)] text-[rgb(145,99,20)]',
   },
 ];
 
@@ -78,23 +63,20 @@ const useCases = [
   {
     title: 'Para a pessoa',
     description: 'Um retrato mais claro da forma de agir, decidir, se relacionar e se posicionar sob pressão.',
-    icon: Compass,
-    tone: 'sky' as const,
-    label: 'indivíduo',
+    note: 'individual',
+    tone: 'bg-[rgba(46,112,181,0.12)] text-[rgb(35,97,161)]',
   },
   {
     title: 'Para coaches e consultores',
     description: 'Uma ferramenta mais bonita e mais fácil de aplicar em programas, turmas e processos individuais.',
-    icon: HeartHandshake,
-    tone: 'ruby' as const,
-    label: 'aplicação',
+    note: 'aplicação',
+    tone: 'bg-[rgba(199,45,62,0.12)] text-[rgb(145,36,49)]',
   },
   {
     title: 'Para equipes',
     description: 'Leitura rápida de composição comportamental, histórico e visão mais madura para RH e liderança.',
-    icon: Users,
-    tone: 'forest' as const,
-    label: 'time',
+    note: 'coletivo',
+    tone: 'bg-[rgba(43,124,84,0.12)] text-[rgb(38,108,73)]',
   },
 ];
 
@@ -110,6 +92,17 @@ const trustSignals = [
   'Diagnóstico com linguagem simples',
   'Fluxo pronto para pessoa e empresa',
 ];
+
+const Marker = ({ note, tone }: { note: string; tone: string }) => (
+  <div className="mb-5 flex items-center gap-3">
+    <div className="relative h-8 w-12">
+      <span className={`absolute left-0 top-3 h-2.5 w-2.5 rounded-full ${tone}`} />
+      <span className="absolute left-3 top-4 h-px w-9 bg-slate-300" />
+      <span className="absolute left-7 top-1 h-4 w-4 rounded-full border border-slate-200 bg-white/80" />
+    </div>
+    <span className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">{note}</span>
+  </div>
+);
 
 const Index = () => {
   return (
@@ -247,17 +240,15 @@ const Index = () => {
           </div>
 
           <div className="grid gap-5 lg:grid-cols-3">
-            {experiencePillars.map((item) => {
-              return (
-                <Card key={item.title} className="border-white/70 bg-white/82 shadow-lg shadow-slate-200/45 backdrop-blur">
-                  <CardContent className="p-6">
-                    <EditorialIcon icon={item.icon} tone={item.tone} label={item.label} />
-                    <h3 className="-mt-1 font-display text-2xl font-semibold text-slate-950">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+            {experiencePillars.map((item) => (
+              <Card key={item.title} className="border-white/70 bg-white/82 shadow-lg shadow-slate-200/45 backdrop-blur">
+                <CardContent className="p-6">
+                  <Marker note={item.note} tone={item.tone} />
+                  <h3 className="font-display text-2xl font-semibold text-slate-950">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -327,24 +318,22 @@ const Index = () => {
           </div>
 
           <div className="grid gap-5 lg:grid-cols-3">
-            {useCases.map((item) => {
-              return (
-                <Card key={item.title} className="border-white/70 bg-white/84 shadow-lg shadow-slate-200/45">
-                  <CardContent className="p-6">
-                    <EditorialIcon icon={item.icon} tone={item.tone} label={item.label} />
-                    <h3 className="-mt-1 font-display text-2xl text-slate-950">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+            {useCases.map((item) => (
+              <Card key={item.title} className="border-white/70 bg-white/84 shadow-lg shadow-slate-200/45">
+                <CardContent className="p-6">
+                  <Marker note={item.note} tone={item.tone} />
+                  <h3 className="font-display text-2xl text-slate-950">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
 
           <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_1fr]">
             <Card className="overflow-hidden border-white/70 bg-white/84 shadow-xl shadow-slate-200/50">
               <CardContent className="p-8">
-                <EditorialIcon icon={Target} tone="gold" label="entrega" />
-                <h3 className="-mt-1 font-display text-3xl font-bold text-slate-950">O que a pessoa recebe</h3>
+                <Marker note="entrega" tone="bg-[rgba(176,118,20,0.12)] text-[rgb(145,99,20)]" />
+                <h3 className="font-display text-3xl font-bold text-slate-950">O que a pessoa recebe</h3>
                 <div className="mt-5 space-y-3">
                   {deliverables.map((item) => (
                     <div key={item} className="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700">
