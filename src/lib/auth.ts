@@ -19,6 +19,14 @@ export interface SessionRecord {
   email: string;
 }
 
+export interface AssessmentAnswerRecord {
+  questionId: number;
+  questionText: string;
+  selectedLetter: string;
+  selectedText: string;
+  selectedMeaning?: string;
+}
+
 export interface AssessmentReportRecord {
   id: string;
   submittedAt: string;
@@ -26,6 +34,12 @@ export interface AssessmentReportRecord {
   accountEmail: string;
   accountName: string;
   result: AssessmentResult;
+  answers: AssessmentAnswerRecord[];
+}
+
+export interface RegisterAccountResult {
+  account: AccountRecord;
+  requiresEmailConfirmation: boolean;
 }
 
 const ACCOUNTS_KEY = 'pace_accounts';
@@ -136,7 +150,7 @@ const ensureSupabaseProfile = async (user: {
   return mapSupabaseProfile(profile);
 };
 
-export const registerAccount = async (input: Omit<AccountRecord, 'id' | 'createdAt' | 'isAdmin'>) => {
+export const registerAccount = async (input: Omit<AccountRecord, 'id' | 'createdAt' | 'isAdmin'>): Promise<RegisterAccountResult> => {
   const email = normalizeEmail(input.email);
 
   if (!isSupabaseConfigured || !supabase) {
@@ -155,7 +169,10 @@ export const registerAccount = async (input: Omit<AccountRecord, 'id' | 'created
 
     accounts.unshift(account);
     saveLocalAccounts(accounts);
-    return account;
+    return {
+      account,
+      requiresEmailConfirmation: false,
+    };
   }
 
   const { data, error } = await supabase.auth.signUp({
@@ -171,18 +188,26 @@ export const registerAccount = async (input: Omit<AccountRecord, 'id' | 'created
     },
   });
 
-  if (error) throw new Error(error.message);
+  if (error) {
+    if (/email.*confirm/i.test(error.message)) {
+      throw new Error('Confirme seu e-mail antes de entrar.');
+    }
+    throw new Error(error.message);
+  }
   if (!data.user) throw new Error('Não foi possível criar a conta.');
 
   return {
-    id: data.user.id,
-    name: input.name,
-    email,
-    password: '',
-    role: input.role,
-    companyName: input.companyName,
-    isAdmin: DEFAULT_ADMIN_EMAILS.includes(email),
-    createdAt: new Date().toISOString(),
+    account: {
+      id: data.user.id,
+      name: input.name,
+      email,
+      password: '',
+      role: input.role,
+      companyName: input.companyName,
+      isAdmin: DEFAULT_ADMIN_EMAILS.includes(email),
+      createdAt: new Date().toISOString(),
+    },
+    requiresEmailConfirmation: !data.session,
   };
 };
 
@@ -355,7 +380,10 @@ export const saveReport = async (report: Omit<AssessmentReportRecord, 'id' | 'su
       primary_profile: report.result.primaryProfile,
       secondary_profile: report.result.secondaryProfile,
       total_answers: report.result.totalAnswers,
-      result: report.result,
+      result: {
+        ...report.result,
+        answers: report.answers,
+      },
     })
     .select('id, submitted_at')
     .single();
@@ -371,7 +399,10 @@ export const saveReport = async (report: Omit<AssessmentReportRecord, 'id' | 'su
 
 export const getReports = async (): Promise<AssessmentReportRecord[]> => {
   if (!isSupabaseConfigured || !supabase) {
-    return getLocalReports();
+    return getLocalReports().map((report) => ({
+      ...report,
+      answers: Array.isArray(report.answers) ? report.answers : [],
+    }));
   }
 
   const { data, error } = await supabase
@@ -401,6 +432,7 @@ export const getReports = async (): Promise<AssessmentReportRecord[]> => {
       ? item.profiles.company_name
       : item.profiles?.full_name ?? '',
     result: item.result as AssessmentResult,
+    answers: Array.isArray(item.result?.answers) ? item.result.answers : [],
   }));
 };
 

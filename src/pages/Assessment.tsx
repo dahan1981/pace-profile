@@ -59,12 +59,25 @@ const Assessment = () => {
       }
 
       const result = calculateResults(answers);
+      const answerDetails = questions.map((item) => {
+        const selectedLetter = answers[item.id];
+        const selectedOption = item.options.find((option) => option.letter === selectedLetter);
+
+        return {
+          questionId: item.id,
+          questionText: item.text,
+          selectedLetter,
+          selectedText: selectedOption?.text ?? '',
+          selectedMeaning: selectedLetter ? optionMeaning[selectedLetter] : undefined,
+        };
+      });
 
       await saveReport({
         questionnaireType: type,
         accountEmail: account.email,
         accountName: account.role === 'company' && account.companyName ? account.companyName : account.name,
         result,
+        answers: answerDetails,
       });
 
       navigate('/resultado');
