@@ -1,5 +1,5 @@
-import { AssessmentResult } from '@/lib/scoring';
 import { QuestionnaireType } from '@/data/questions';
+import { AssessmentResult } from '@/lib/scoring';
 import { isSupabaseConfigured, supabase } from '@/lib/supabase';
 
 export type AccountRole = 'user' | 'company';
@@ -48,6 +48,11 @@ const ADMINS_KEY = 'pace_admin_emails';
 const REPORTS_KEY = 'pace_assessment_reports';
 const LAST_RESULT_KEY = 'pace_last_result';
 const DEFAULT_ADMIN_EMAILS = ['equipejoaodahan@gmail.com'];
+
+const getEmailConfirmationRedirectUrl = () => {
+  if (typeof window === 'undefined') return undefined;
+  return `${window.location.origin}/login?confirmed=1`;
+};
 
 const readJson = <T,>(key: string, fallback: T): T => {
   if (typeof window === 'undefined') return fallback;
@@ -144,7 +149,7 @@ const ensureSupabaseProfile = async (user: {
     .maybeSingle();
 
   if (profileError || !profile) {
-    throw new Error(profileError?.message ?? 'Perfil não encontrado.');
+    throw new Error(profileError?.message ?? 'Perfil nao encontrado.');
   }
 
   return mapSupabaseProfile(profile);
@@ -156,7 +161,7 @@ export const registerAccount = async (input: Omit<AccountRecord, 'id' | 'created
   if (!isSupabaseConfigured || !supabase) {
     const accounts = getLocalAccounts();
     if (accounts.some((account) => normalizeEmail(account.email) === email)) {
-      throw new Error('Já existe uma conta com esse e-mail.');
+      throw new Error('Ja existe uma conta com esse e-mail.');
     }
 
     const account: AccountRecord = {
@@ -179,7 +184,7 @@ export const registerAccount = async (input: Omit<AccountRecord, 'id' | 'created
     email,
     password: input.password,
     options: {
-      emailRedirectTo: undefined,
+      emailRedirectTo: getEmailConfirmationRedirectUrl(),
       data: {
         full_name: input.name,
         role: input.role,
@@ -188,13 +193,8 @@ export const registerAccount = async (input: Omit<AccountRecord, 'id' | 'created
     },
   });
 
-  if (error) {
-    if (/email.*confirm/i.test(error.message)) {
-      throw new Error('Confirme seu e-mail antes de entrar.');
-    }
-    throw new Error(error.message);
-  }
-  if (!data.user) throw new Error('Não foi possível criar a conta.');
+  if (error) throw new Error(error.message);
+  if (!data.user) throw new Error('Nao foi possivel criar a conta.');
 
   return {
     account: {
@@ -217,7 +217,7 @@ export const loginAccount = async (email: string, password: string) => {
   if (!isSupabaseConfigured || !supabase) {
     const account = getLocalAccounts().find((item) => normalizeEmail(item.email) === normalized);
     if (!account || account.password !== password) {
-      throw new Error('E-mail ou senha inválidos.');
+      throw new Error('E-mail ou senha invalidos.');
     }
 
     setLocalSession(account.email);
@@ -229,8 +229,13 @@ export const loginAccount = async (email: string, password: string) => {
     password,
   });
 
-  if (error) throw new Error(error.message);
-  if (!data.user) throw new Error('Não foi possível iniciar sessão.');
+  if (error) {
+    if (/email.*confirm/i.test(error.message)) {
+      throw new Error('Confirme seu e-mail antes de entrar.');
+    }
+    throw new Error(error.message);
+  }
+  if (!data.user) throw new Error('Nao foi possivel iniciar sessao.');
 
   const { data: profile, error: profileError } = await supabase
     .from('profiles')
@@ -299,7 +304,7 @@ export const getAccounts = async (): Promise<AccountRecord[]> => {
     .select('id, full_name, email, role, company_name, is_admin, created_at')
     .order('created_at', { ascending: false });
 
-  if (error || !data) throw new Error(error?.message ?? 'Não foi possível carregar as contas.');
+  if (error || !data) throw new Error(error?.message ?? 'Nao foi possivel carregar as contas.');
   return data.map(mapSupabaseProfile);
 };
 
@@ -313,7 +318,7 @@ export const getAdminEmails = async (): Promise<string[]> => {
     .select('email')
     .eq('is_admin', true);
 
-  if (error || !data) throw new Error(error?.message ?? 'Não foi possível carregar os admins.');
+  if (error || !data) throw new Error(error?.message ?? 'Nao foi possivel carregar os admins.');
   return Array.from(new Set([...DEFAULT_ADMIN_EMAILS, ...data.map((item) => normalizeEmail(item.email))]));
 };
 
@@ -370,7 +375,7 @@ export const saveReport = async (report: Omit<AssessmentReportRecord, 'id' | 'su
   }
 
   const account = await getCurrentAccount();
-  if (!account) throw new Error('Conta não encontrada para salvar o relatório.');
+  if (!account) throw new Error('Conta nao encontrada para salvar o relatorio.');
 
   const { data, error } = await supabase
     .from('assessment_reports')
@@ -388,7 +393,7 @@ export const saveReport = async (report: Omit<AssessmentReportRecord, 'id' | 'su
     .select('id, submitted_at')
     .single();
 
-  if (error || !data) throw new Error(error?.message ?? 'Não foi possível salvar o relatório.');
+  if (error || !data) throw new Error(error?.message ?? 'Nao foi possivel salvar o relatorio.');
 
   return {
     ...report,
@@ -421,7 +426,7 @@ export const getReports = async (): Promise<AssessmentReportRecord[]> => {
     `)
     .order('submitted_at', { ascending: false });
 
-  if (error || !data) throw new Error(error?.message ?? 'Não foi possível carregar os relatórios.');
+  if (error || !data) throw new Error(error?.message ?? 'Nao foi possivel carregar os relatorios.');
 
   return data.map((item: any) => ({
     id: item.id,
