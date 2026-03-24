@@ -13,6 +13,9 @@ const csvEscape = (value: string | number) => `"${String(value ?? '').replace(/"
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
+  const [questionnaireFilter, setQuestionnaireFilter] = useState<'todos' | 'empresarial' | 'religioso' | 'esportivo'>('todos');
+  const [profileFilter, setProfileFilter] = useState<'todos' | 'propulsor' | 'articulador' | 'consolidador' | 'estrategista'>('todos');
+  const [selectedReportId, setSelectedReportId] = useState<string | null>(null);
   const [accounts, setAccounts] = useState<Awaited<ReturnType<typeof getAccounts>>>([]);
   const [adminEmails, setAdminEmails] = useState<string[]>([]);
   const [reports, setReports] = useState<Awaited<ReturnType<typeof getReports>>>([]);
@@ -34,15 +37,29 @@ const AdminDashboard = () => {
 
   const filteredReports = useMemo(() => {
     const term = query.trim().toLowerCase();
-    if (!term) return reports;
 
     return reports.filter((report) =>
-      [report.accountName, report.accountEmail, report.questionnaireType, report.result.primaryProfile]
+      (questionnaireFilter === 'todos' || report.questionnaireType === questionnaireFilter) &&
+      (profileFilter === 'todos' || report.result.primaryProfile === profileFilter) &&
+      [report.accountName, report.accountEmail, report.questionnaireType, report.result.primaryProfile, report.result.secondaryProfile]
         .join(' ')
         .toLowerCase()
         .includes(term),
     );
-  }, [query, reports]);
+  }, [profileFilter, query, questionnaireFilter, reports]);
+
+  useEffect(() => {
+    if (filteredReports.length === 0) {
+      setSelectedReportId(null);
+      return;
+    }
+
+    if (!filteredReports.some((report) => report.id === selectedReportId)) {
+      setSelectedReportId(filteredReports[0].id);
+    }
+  }, [filteredReports, selectedReportId]);
+
+  const selectedReport = filteredReports.find((report) => report.id === selectedReportId) ?? null;
 
   const reportSummary = useMemo(() => {
     return {
@@ -172,15 +189,40 @@ const AdminDashboard = () => {
           </TabsList>
 
           <TabsContent value="relatorios" className="space-y-4">
-            <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-              <div className="relative max-w-md flex-1">
-                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                <Input
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Buscar por nome, e-mail, tipo ou perfil..."
-                  className="rounded-xl bg-white pl-9"
-                />
+            <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
+              <div className="flex flex-1 flex-col gap-3 lg:flex-row">
+                <div className="relative max-w-md flex-1">
+                  <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                  <Input
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    placeholder="Buscar por nome, e-mail, tipo ou perfil..."
+                    className="rounded-xl bg-white pl-9"
+                  />
+                </div>
+
+                <select
+                  value={questionnaireFilter}
+                  onChange={(e) => setQuestionnaireFilter(e.target.value as typeof questionnaireFilter)}
+                  className="h-11 rounded-xl border border-input bg-white px-4 text-sm text-slate-700"
+                >
+                  <option value="todos">Todos os questionarios</option>
+                  <option value="empresarial">Empresarial</option>
+                  <option value="religioso">Religioso</option>
+                  <option value="esportivo">Esportivo</option>
+                </select>
+
+                <select
+                  value={profileFilter}
+                  onChange={(e) => setProfileFilter(e.target.value as typeof profileFilter)}
+                  className="h-11 rounded-xl border border-input bg-white px-4 text-sm text-slate-700"
+                >
+                  <option value="todos">Todos os perfis</option>
+                  <option value="propulsor">Propulsor</option>
+                  <option value="articulador">Articulador</option>
+                  <option value="consolidador">Consolidador</option>
+                  <option value="estrategista">Estrategista</option>
+                </select>
               </div>
 
               <Button onClick={exportReports} disabled={filteredReports.length === 0} className="gap-2 rounded-xl shadow-lg shadow-primary/20">
@@ -189,47 +231,123 @@ const AdminDashboard = () => {
               </Button>
             </div>
 
-            <Card className="border-white/80 bg-white/88 shadow-xl shadow-slate-200/50">
-              <CardHeader>
-                <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-                  <CardTitle>Relatorios recebidos</CardTitle>
-                  <div className="text-sm text-slate-500">
-                    A exportacao inclui dados principais e todas as respostas salvas.
+            <div className="grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
+              <Card className="border-white/80 bg-white/88 shadow-xl shadow-slate-200/50">
+                <CardHeader>
+                  <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+                    <CardTitle>Relatorios recebidos</CardTitle>
+                    <div className="text-sm text-slate-500">{filteredReports.length} resultado(s) encontrados.</div>
                   </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {filteredReports.length === 0 ? (
-                  <div className="rounded-2xl bg-slate-50 px-4 py-6 text-sm text-slate-500">
-                    Nenhum relatorio encontrado com esse filtro.
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  {filteredReports.length === 0 ? (
+                    <div className="rounded-2xl bg-slate-50 px-4 py-6 text-sm text-slate-500">
+                      Nenhum relatorio encontrado com esse filtro.
+                    </div>
+                  ) : (
+                    filteredReports.map((report) => {
+                      const isSelected = report.id === selectedReportId;
+                      return (
+                        <button
+                          key={report.id}
+                          type="button"
+                          onClick={() => setSelectedReportId(report.id)}
+                          className={`w-full rounded-2xl border px-4 py-4 text-left transition-all ${
+                            isSelected
+                              ? 'border-primary/30 bg-primary/5 shadow-md'
+                              : 'border-transparent bg-slate-50 hover:border-primary/15 hover:bg-white'
+                          }`}
+                        >
+                          <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+                            <div>
+                              <div className="text-sm font-semibold text-slate-950">{report.accountName}</div>
+                              <div className="text-xs text-slate-500">{report.accountEmail}</div>
+                            </div>
+                            <div className="text-sm text-slate-600">
+                              {report.questionnaireType} - {new Date(report.submittedAt).toLocaleString('pt-BR')}
+                            </div>
+                          </div>
+                          <div className="mt-3 flex flex-wrap gap-2">
+                            {report.result.scores.slice(0, 2).map((score) => (
+                              <span key={score.key} className="rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700 shadow-sm">
+                                {score.name}: {score.percentage}%
+                              </span>
+                            ))}
+                            <span className="rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700 shadow-sm">
+                              Respostas salvas: {report.answers.length}
+                            </span>
+                          </div>
+                        </button>
+                      );
+                    })
+                  )}
+                </CardContent>
+              </Card>
+
+              <Card className="border-white/80 bg-white/88 shadow-xl shadow-slate-200/50">
+                <CardHeader>
+                  <div className="flex flex-col gap-2">
+                    <CardTitle>Detalhes do relatorio</CardTitle>
+                    <div className="text-sm text-slate-500">Abra um relatorio para ver perfis, data e respostas.</div>
                   </div>
-                ) : (
-                  filteredReports.map((report) => (
-                    <div key={report.id} className="rounded-2xl bg-slate-50 px-4 py-4">
-                      <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-                        <div>
-                          <div className="text-sm font-semibold text-slate-950">{report.accountName}</div>
-                          <div className="text-xs text-slate-500">{report.accountEmail}</div>
-                        </div>
-                        <div className="text-sm text-slate-600">
-                          {report.questionnaireType} - {new Date(report.submittedAt).toLocaleString('pt-BR')}
+                </CardHeader>
+                <CardContent>
+                  {!selectedReport ? (
+                    <div className="rounded-2xl bg-slate-50 px-4 py-6 text-sm text-slate-500">
+                      Selecione um relatorio para visualizar os detalhes.
+                    </div>
+                  ) : (
+                    <div className="space-y-5">
+                      <div className="rounded-2xl bg-slate-50 px-4 py-4">
+                        <div className="text-sm font-semibold text-slate-950">{selectedReport.accountName}</div>
+                        <div className="mt-1 text-xs text-slate-500">{selectedReport.accountEmail}</div>
+                        <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                          <div className="rounded-xl bg-white px-3 py-3 text-sm text-slate-700 shadow-sm">
+                            Tipo: {selectedReport.questionnaireType}
+                          </div>
+                          <div className="rounded-xl bg-white px-3 py-3 text-sm text-slate-700 shadow-sm">
+                            Enviado em {new Date(selectedReport.submittedAt).toLocaleString('pt-BR')}
+                          </div>
+                          <div className="rounded-xl bg-white px-3 py-3 text-sm text-slate-700 shadow-sm">
+                            Perfil principal: {selectedReport.result.primaryProfile}
+                          </div>
+                          <div className="rounded-xl bg-white px-3 py-3 text-sm text-slate-700 shadow-sm">
+                            Perfil secundario: {selectedReport.result.secondaryProfile}
+                          </div>
                         </div>
                       </div>
-                      <div className="mt-3 flex flex-wrap gap-2">
-                        {report.result.scores.slice(0, 2).map((score) => (
-                          <span key={score.key} className="rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700 shadow-sm">
-                            {score.name}: {score.percentage}%
-                          </span>
-                        ))}
-                        <span className="rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700 shadow-sm">
-                          Respostas salvas: {report.answers.length}
-                        </span>
+
+                      <div className="space-y-2">
+                        <div className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Pontuacao</div>
+                        <div className="grid gap-2">
+                          {selectedReport.result.scores.map((score) => (
+                            <div key={score.key} className="rounded-xl bg-slate-50 px-3 py-3 text-sm text-slate-700">
+                              {score.name}: {score.percentage}% ({score.points} respostas)
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <div className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Respostas</div>
+                        <div className="max-h-[32rem] space-y-2 overflow-y-auto pr-1">
+                          {selectedReport.answers.map((answer) => (
+                            <div key={answer.questionId} className="rounded-xl bg-slate-50 px-3 py-3 text-sm text-slate-700">
+                              <div className="font-medium text-slate-900">Pergunta {answer.questionId}</div>
+                              <div className="mt-1">{answer.questionText}</div>
+                              <div className="mt-2 text-xs uppercase tracking-[0.14em] text-slate-500">
+                                {answer.selectedLetter}{answer.selectedMeaning ? ` - ${answer.selectedMeaning}` : ''}
+                              </div>
+                              <div className="mt-1 text-sm">{answer.selectedText}</div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  ))
-                )}
-              </CardContent>
-            </Card>
+                  )}
+                </CardContent>
+              </Card>
+            </div>
           </TabsContent>
 
           <TabsContent value="acessos">

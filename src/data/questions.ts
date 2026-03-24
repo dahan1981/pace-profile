@@ -147,20 +147,21 @@ const esportivoQuestions: Question[] = [
 export const QUESTIONNAIRES: Record<QuestionnaireType, Questionnaire> = {
   empresarial: {
     type: 'empresarial',
-    title: 'Question√°rio Empresarial',
-    description: 'Avalia√ß√£o do perfil comportamental no contexto corporativo e de gest√£o.',
+    title: 'Question·rio Empresarial',
+    description: 'AvaliaÁ„o do perfil comportamental no contexto corporativo e de gest„o.',
     questions: empresarialQuestions,
   },
   religioso: {
     type: 'religioso',
-    title: 'Question√°rio Religioso',
-    description: 'Avalia√ß√£o do perfil comportamental no contexto da viv√™ncia espiritual e comunit√°ria.',
+    title: 'Question·rio Religioso',
+    description: 'AvaliaÁ„o do perfil comportamental no contexto da vivÍncia espiritual e comunit·ria.',
     questions: religiosoQuestions,
   },
   esportivo: {
     type: 'esportivo',
-    title: 'Question√°rio Esportivo',
-    description: 'Avalia√ß√£o do perfil comportamental no contexto esportivo e de performance atl√©tica.',
+    title: 'Question·rio Esportivo',
+    description: 'AvaliaÁ„o do perfil comportamental no contexto esportivo e de performance atlÈtica.',
     questions: esportivoQuestions,
   },
 };
+
