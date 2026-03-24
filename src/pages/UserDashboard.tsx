@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PROFILES } from '@/data/profiles';
 import { QUESTIONNAIRES } from '@/data/questions';
 import { clearCurrentSession, getCurrentAccount, getReportsForEmail } from '@/lib/auth';
+import { downloadResultPdf } from '@/lib/pdf';
 import { AssessmentResult } from '@/lib/scoring';
 import { BarChart3, Clock, Download, FileText, LogOut, PlayCircle, User } from 'lucide-react';
 
@@ -111,7 +112,11 @@ const UserDashboard = () => {
                       Ver detalhes
                     </Button>
                   </Link>
-                  <Button size="sm" className="gap-2 rounded-xl shadow-lg shadow-primary/20">
+                  <Button
+                    size="sm"
+                    onClick={() => lastResult && downloadResultPdf(lastResult)}
+                    className="gap-2 rounded-xl shadow-lg shadow-primary/20"
+                  >
                     <Download className="h-4 w-4" />
                     PDF
                   </Button>

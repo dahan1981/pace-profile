@@ -5,6 +5,7 @@ import ProfileMark from '@/components/ProfileMark';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { getLastResult } from '@/lib/auth';
+import { downloadResultPdf } from '@/lib/pdf';
 import { AssessmentResult } from '@/lib/scoring';
 import { PROFILES } from '@/data/profiles';
 import { Bar, BarChart, CartesianGrid, Cell, PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
@@ -56,7 +57,11 @@ const Result = () => {
               <Printer className="h-4 w-4" />
               Imprimir
             </Button>
-            <Button size="sm" className="gap-2 rounded-xl shadow-lg shadow-primary/20">
+            <Button
+              size="sm"
+              onClick={() => downloadResultPdf(result)}
+              className="gap-2 rounded-xl shadow-lg shadow-primary/20"
+            >
               <Download className="h-4 w-4" />
               PDF
             </Button>
