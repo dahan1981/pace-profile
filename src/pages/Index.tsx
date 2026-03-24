@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Brand from '@/components/Brand';
+import EditorialIcon from '@/components/EditorialIcon';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import ProfileMark from '@/components/ProfileMark';
@@ -36,16 +37,22 @@ const experiencePillars = [
     title: 'Leve para responder',
     description: 'A experiência não parece prova nem formulário duro. Ela conduz a pessoa com clareza e ritmo.',
     icon: Sparkles,
+    tone: 'ruby' as const,
+    label: 'leve',
   },
   {
     title: 'Elegante para apresentar',
     description: 'O resultado chega limpo, visual e fácil de explicar para indivíduos, líderes ou equipes.',
     icon: Layers3,
+    tone: 'navy' as const,
+    label: 'claro',
   },
   {
     title: 'Útil de verdade',
     description: 'A leitura vira repertório prático para desenvolvimento, liderança, comunicação e composição de time.',
     icon: Target,
+    tone: 'gold' as const,
+    label: 'prático',
   },
 ];
 
@@ -72,16 +79,22 @@ const useCases = [
     title: 'Para a pessoa',
     description: 'Um retrato mais claro da forma de agir, decidir, se relacionar e se posicionar sob pressão.',
     icon: Compass,
+    tone: 'sky' as const,
+    label: 'indivíduo',
   },
   {
     title: 'Para coaches e consultores',
     description: 'Uma ferramenta mais bonita e mais fácil de aplicar em programas, turmas e processos individuais.',
     icon: HeartHandshake,
+    tone: 'ruby' as const,
+    label: 'aplicação',
   },
   {
     title: 'Para equipes',
     description: 'Leitura rápida de composição comportamental, histórico e visão mais madura para RH e liderança.',
     icon: Users,
+    tone: 'forest' as const,
+    label: 'time',
   },
 ];
 
@@ -235,14 +248,11 @@ const Index = () => {
 
           <div className="grid gap-5 lg:grid-cols-3">
             {experiencePillars.map((item) => {
-              const Icon = item.icon;
               return (
                 <Card key={item.title} className="border-white/70 bg-white/82 shadow-lg shadow-slate-200/45 backdrop-blur">
                   <CardContent className="p-6">
-                    <div className="inline-flex rounded-2xl bg-primary/10 p-3 text-primary">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <h3 className="mt-5 font-display text-2xl font-semibold text-slate-950">{item.title}</h3>
+                    <EditorialIcon icon={item.icon} tone={item.tone} label={item.label} />
+                    <h3 className="-mt-1 font-display text-2xl font-semibold text-slate-950">{item.title}</h3>
                     <p className="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
                   </CardContent>
                 </Card>
@@ -318,14 +328,11 @@ const Index = () => {
 
           <div className="grid gap-5 lg:grid-cols-3">
             {useCases.map((item) => {
-              const Icon = item.icon;
               return (
                 <Card key={item.title} className="border-white/70 bg-white/84 shadow-lg shadow-slate-200/45">
                   <CardContent className="p-6">
-                    <div className="inline-flex rounded-2xl bg-primary/10 p-3 text-primary">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <h3 className="mt-5 font-display text-2xl text-slate-950">{item.title}</h3>
+                    <EditorialIcon icon={item.icon} tone={item.tone} label={item.label} />
+                    <h3 className="-mt-1 font-display text-2xl text-slate-950">{item.title}</h3>
                     <p className="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
                   </CardContent>
                 </Card>
@@ -336,10 +343,8 @@ const Index = () => {
           <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_1fr]">
             <Card className="overflow-hidden border-white/70 bg-white/84 shadow-xl shadow-slate-200/50">
               <CardContent className="p-8">
-                <div className="inline-flex rounded-2xl bg-primary/10 p-3 text-primary">
-                  <Target className="h-6 w-6" />
-                </div>
-                <h3 className="mt-6 font-display text-3xl font-bold text-slate-950">O que a pessoa recebe</h3>
+                <EditorialIcon icon={Target} tone="gold" label="entrega" />
+                <h3 className="-mt-1 font-display text-3xl font-bold text-slate-950">O que a pessoa recebe</h3>
                 <div className="mt-5 space-y-3">
                   {deliverables.map((item) => (
                     <div key={item} className="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700">
