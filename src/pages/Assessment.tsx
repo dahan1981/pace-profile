@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { QUESTIONNAIRES, QuestionnaireType } from '@/data/questions';
-import { calculateResults } from '@/lib/scoring';
 import { getCurrentAccount, saveReport } from '@/lib/auth';
+import { calculateResults } from '@/lib/scoring';
 import { CheckCircle2, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 
 const optionTone: Record<string, string> = {
@@ -183,20 +183,26 @@ const Assessment = () => {
                         }`}
                       >
                         <div className="flex items-start gap-4">
-                          <div className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-sm font-bold ${
-                            selected ? 'bg-white text-slate-950' : 'bg-white text-slate-500'
-                          }`}>
+                          <div
+                            className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-sm font-bold ${
+                              selected ? 'bg-white text-slate-950' : 'bg-white text-slate-500'
+                            }`}
+                          >
                             {option.letter}
                           </div>
                           <div className="min-w-0 flex-1">
-                            <div className={`text-xs font-semibold uppercase tracking-[0.18em] ${
-                              selected ? 'text-current' : 'text-slate-400'
-                            }`}>
+                            <div
+                              className={`text-xs font-semibold uppercase tracking-[0.18em] ${
+                                selected ? 'text-current' : 'text-slate-400'
+                              }`}
+                            >
                               {optionMeaning[option.letter]}
                             </div>
-                            <p className={`mt-2 text-sm leading-7 md:text-base ${
-                              selected ? 'font-medium text-slate-900' : 'text-slate-600'
-                            }`}>
+                            <p
+                              className={`mt-2 text-sm leading-7 md:text-base ${
+                                selected ? 'font-medium text-slate-900' : 'text-slate-600'
+                              }`}
+                            >
                               {option.text}
                             </p>
                           </div>
