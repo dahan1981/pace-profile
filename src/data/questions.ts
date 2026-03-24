@@ -159,20 +159,20 @@ const normalizeQuestions = (questions: Question[]): Question[] =>
 export const QUESTIONNAIRES: Record<QuestionnaireType, Questionnaire> = {
   empresarial: {
     type: 'empresarial',
-    title: 'Questionário Empresarial',
-    description: 'Avaliação do perfil comportamental no contexto corporativo e de gestão.',
+    title: 'Question\u00e1rio Empresarial',
+    description: 'Avalia\u00e7\u00e3o do perfil comportamental no contexto corporativo e de gest\u00e3o.',
     questions: normalizeQuestions(empresarialQuestions),
   },
   religioso: {
     type: 'religioso',
-    title: 'Questionário Religioso',
-    description: 'Avaliação do perfil comportamental no contexto da vivência espiritual e comunitária.',
+    title: 'Question\u00e1rio Religioso',
+    description: 'Avalia\u00e7\u00e3o do perfil comportamental no contexto da viv\u00eancia espiritual e comunit\u00e1ria.',
     questions: normalizeQuestions(religiosoQuestions),
   },
   esportivo: {
     type: 'esportivo',
-    title: 'Questionário Esportivo',
-    description: 'Avaliação do perfil comportamental no contexto esportivo e de performance atlética.',
+    title: 'Question\u00e1rio Esportivo',
+    description: 'Avalia\u00e7\u00e3o do perfil comportamental no contexto esportivo e de performance atl\u00e9tica.',
     questions: normalizeQuestions(esportivoQuestions),
   },
 };
