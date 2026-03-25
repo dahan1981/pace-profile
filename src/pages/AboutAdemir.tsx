@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import Brand from '@/components/Brand';
 import { Button } from '@/components/ui/button';
 import {
@@ -165,3 +165,4 @@ const AboutAdemir = () => {
 };
 
 export default AboutAdemir;
+
