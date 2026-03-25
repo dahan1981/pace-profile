@@ -179,7 +179,7 @@ const Index = () => {
               </Link>
             </div>
             <div className="mt-12 max-w-2xl border-l border-primary/15 pl-6 text-sm leading-7 text-slate-600">
-              Uma boa página de entrada cria clima, contexto e vontade de continuar. Não basta abrir a porta da avaliação.
+              O ILAC apresenta o método com clareza, presença e profundidade antes mesmo da primeira resposta.
             </div>
           </div>
 
