@@ -458,15 +458,15 @@ const Index = () => {
 
           <div className="grid gap-4 animate-fade-in-soft">
             <div className="flow-card rounded-[2rem] border border-slate-200 bg-white/74 p-8">
-              <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary/70">Próximo passo</div>
+              <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary/70">Formação</div>
               <p className="mt-4 text-base leading-8 text-slate-600">
-                A home agora conduz com mais respiro, alterna temperatura visual entre seções e cria uma jornada mais contínua.
+                O ILAC organiza formação, leitura comportamental e desenvolvimento humano em uma experiência mais clara, madura e aplicável.
               </p>
             </div>
             <div className="flow-card rounded-[2rem] border border-slate-200 bg-[#efe6da] p-8">
-              <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary/70">Mais presença</div>
+              <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary/70">Aplicação</div>
               <p className="mt-4 text-base leading-8 text-slate-600">
-                Quando você mandar as fotos do Ademir, a página Sobre vai ganhar o peso humano que falta para fechar o conjunto.
+                O método serve tanto para quem busca autoconhecimento quanto para coaches, consultores, liderança e equipes.
               </p>
             </div>
           </div>
