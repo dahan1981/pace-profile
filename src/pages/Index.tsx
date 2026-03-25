@@ -120,7 +120,7 @@ const Index = () => {
   }, [processApi]);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#f5f3ee] text-slate-950">
+    <div className="min-h-screen overflow-x-hidden bg-[#f6f1ea] text-slate-950">
       <nav className="fixed top-0 z-50 w-full border-b border-white/60 bg-background/82 backdrop-blur-xl">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <Brand
@@ -146,8 +146,8 @@ const Index = () => {
         </div>
       </nav>
 
-      <section className="relative overflow-hidden px-4 pb-24 pt-28 md:pb-32">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(199,45,62,0.15),_transparent_24%),radial-gradient(circle_at_top_right,_rgba(12,33,84,0.12),_transparent_28%)]" />
+      <section className="relative overflow-hidden bg-[linear-gradient(180deg,_#f6f1ea_0%,_#f3eee7_100%)] px-4 pb-24 pt-28 md:pb-32">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(199,45,62,0.14),_transparent_24%),radial-gradient(circle_at_top_right,_rgba(12,33,84,0.1),_transparent_30%)]" />
         <div className="container relative mx-auto grid gap-14 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
           <div className="max-w-4xl animate-reveal-up">
             <SectionLabel>Método PACE</SectionLabel>
@@ -215,7 +215,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="jornada" className="relative bg-slate-950 px-4 py-24 text-white">
+      <section id="jornada" className="relative bg-[linear-gradient(180deg,_#162347_0%,_#0f172a_100%)] px-4 py-24 text-white">
         <div className="section-divider-light absolute left-0 top-0 h-24 w-full" />
         <div className="container relative mx-auto grid gap-14 lg:grid-cols-[0.88fr_1.12fr]">
           <div className="animate-reveal-up">
@@ -252,7 +252,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="processo" className="relative bg-white px-4 py-24">
+      <section id="processo" className="relative bg-[linear-gradient(180deg,_#ffffff_0%,_#faf7f2_100%)] px-4 py-24">
         <div className="container mx-auto">
           <div className="max-w-3xl animate-reveal-up">
             <SectionLabel>Como a experiência se move</SectionLabel>
@@ -321,8 +321,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="perfis" className="relative bg-[#eee6dc] px-4 py-24">
-        <div className="section-divider-light absolute inset-x-0 top-0 h-24" />
+      <section id="perfis" className="relative bg-[linear-gradient(180deg,_#efe7dc_0%,_#ebe2d4_100%)] px-4 py-24">
+        <div className="section-divider-warm absolute inset-x-0 top-0 h-24" />
         <div className="container relative mx-auto">
           <div className="max-w-3xl animate-reveal-up">
             <SectionLabel>Perfis PACE</SectionLabel>
@@ -378,8 +378,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[linear-gradient(135deg,_rgba(12,33,84,1)_0%,_rgba(24,50,112,1)_56%,_rgba(199,45,62,0.93)_100%)] px-4 py-24 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.08),_transparent_28%)]" />
+      <section className="relative overflow-hidden bg-[linear-gradient(135deg,_rgba(12,33,84,1)_0%,_rgba(26,52,114,0.98)_54%,_rgba(160,39,51,0.95)_100%)] px-4 py-24 text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.08),_transparent_28%),radial-gradient(circle_at_bottom_left,_rgba(255,255,255,0.05),_transparent_34%)]" />
         <div className="container relative mx-auto grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="animate-reveal-up">
             <SectionLabel light>O que a pessoa leva</SectionLabel>
@@ -427,7 +427,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="relative bg-[#f3eee7] px-4 py-24">
+      <section className="relative bg-[linear-gradient(180deg,_#f2ebe1_0%,_#f7f4ef_100%)] px-4 py-24">
         <div className="section-divider-dark absolute inset-x-0 top-0 h-20 opacity-20" />
         <div className="container mx-auto grid gap-8 lg:grid-cols-[1.08fr_0.92fr]">
           <div className="flow-card rounded-[2rem] border border-white/80 bg-white/88 p-9 shadow-xl shadow-slate-200/45 animate-reveal-up">

@@ -25,7 +25,7 @@ const PhotoPlaceholder = ({ label }: { label: string }) => (
 
 const AboutAdemir = () => {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[linear-gradient(180deg,_#f6f3ee_0%,_#f2f5f9_44%,_#f8fafc_100%)] text-slate-950">
+    <div className="min-h-screen overflow-x-hidden bg-[linear-gradient(180deg,_#f6f1ea_0%,_#f3eee7_48%,_#f7f4ef_100%)] text-slate-950">
       <nav className="sticky top-0 z-50 border-b border-white/60 bg-background/82 backdrop-blur-xl">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <Brand
@@ -50,8 +50,8 @@ const AboutAdemir = () => {
         </div>
       </nav>
 
-      <section className="relative overflow-hidden px-4 pb-16 pt-20 md:pb-24 md:pt-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(199,45,62,0.12),_transparent_26%),radial-gradient(circle_at_top_right,_rgba(12,33,84,0.12),_transparent_30%)]" />
+      <section className="relative overflow-hidden bg-[linear-gradient(180deg,_#f6f1ea_0%,_#f3eee7_100%)] px-4 pb-16 pt-20 md:pb-24 md:pt-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(199,45,62,0.12),_transparent_26%),radial-gradient(circle_at_top_right,_rgba(12,33,84,0.1),_transparent_30%)]" />
         <div className="container mx-auto grid items-end gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="max-w-3xl animate-reveal-up">
             <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary/70">{ademirHero.eyebrow}</div>
@@ -88,11 +88,11 @@ const AboutAdemir = () => {
 
       {ademirSections.map((section, index) => {
         const reverse = index % 2 === 1;
-        const sectionTone = index % 2 === 1 ? 'bg-white' : 'bg-[#f1ece4]';
+        const sectionTone = index % 2 === 1 ? 'bg-[linear-gradient(180deg,_#ffffff_0%,_#faf7f2_100%)]' : 'bg-[linear-gradient(180deg,_#f1e9de_0%,_#f6f0e7_100%)]';
 
         return (
           <section key={section.title} className={`relative px-4 py-14 md:py-20 ${sectionTone}`}>
-            <div className={`absolute inset-x-0 top-0 h-20 ${index % 2 === 1 ? 'section-divider-light' : 'section-divider-dark opacity-15'}`} />
+            <div className={`absolute inset-x-0 top-0 h-20 ${index % 2 === 1 ? 'section-divider-light' : 'section-divider-warm'}`} />
             <div
               className={`container mx-auto grid items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] ${
                 reverse ? 'lg:grid-cols-[1.08fr_0.92fr]' : ''
@@ -118,7 +118,7 @@ const AboutAdemir = () => {
         );
       })}
 
-      <section className="relative bg-slate-950 px-4 py-14 text-white md:py-20">
+      <section className="relative bg-[linear-gradient(180deg,_#162347_0%,_#0f172a_100%)] px-4 py-14 text-white md:py-20">
         <div className="section-divider-light absolute inset-x-0 top-0 h-20 opacity-20" />
         <div className="container mx-auto rounded-[2.2rem] border border-white/70 bg-slate-950 px-8 py-10 text-white shadow-2xl shadow-slate-300/30 md:px-10 md:py-12">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
@@ -140,7 +140,7 @@ const AboutAdemir = () => {
         </div>
       </section>
 
-      <section className="relative bg-[#f3eee7] px-4 pb-20 pt-12">
+      <section className="relative bg-[linear-gradient(180deg,_#f2ebe1_0%,_#f7f4ef_100%)] px-4 pb-20 pt-12">
         <div className="section-divider-dark absolute inset-x-0 top-0 h-20 opacity-15" />
         <div className="container mx-auto">
           <div className="max-w-2xl animate-reveal-up">
