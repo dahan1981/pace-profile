@@ -121,7 +121,7 @@ const Index = () => {
       <section className="relative overflow-hidden px-4 pb-24 pt-28 md:pb-32">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(199,45,62,0.15),_transparent_24%),radial-gradient(circle_at_top_right,_rgba(12,33,84,0.12),_transparent_28%)]" />
         <div className="container relative mx-auto grid gap-14 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl animate-reveal-up">
             <SectionLabel>Método PACE</SectionLabel>
             <h1 className="mt-5 font-display text-5xl font-bold leading-[1.01] text-slate-950 md:text-7xl">
               Uma leitura comportamental que começa antes da resposta.
@@ -148,8 +148,8 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="grid gap-4 lg:grid-cols-12">
-            <div className="rounded-[2.2rem] border border-white/80 bg-white/90 p-8 shadow-xl shadow-slate-200/50 lg:col-span-12">
+          <div className="grid gap-4 lg:grid-cols-12 animate-fade-in-soft">
+            <div className="flow-card rounded-[2.2rem] border border-white/80 bg-white/90 p-8 shadow-xl shadow-slate-200/50 lg:col-span-12">
               <SectionLabel>Ponto de partida</SectionLabel>
               <h2 className="mt-4 max-w-xl font-display text-3xl font-bold leading-tight text-slate-950">
                 O método precisa parecer marca. Não ferramenta improvisada.
@@ -162,21 +162,21 @@ const Index = () => {
             {valueBlocks.map((item) => (
               <div
                 key={item.title}
-                className={`rounded-[1.9rem] border border-white/75 p-6 shadow-lg shadow-slate-200/35 ${item.tone} ${item.span}`}
+                className={`flow-card rounded-[1.9rem] border border-white/75 p-6 shadow-lg shadow-slate-200/35 ${item.tone} ${item.span}`}
               >
                 <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary/68">{item.title}</div>
                 <p className="mt-4 text-sm leading-7 text-slate-600">{item.description}</p>
               </div>
             ))}
 
-            <div className="rounded-[1.9rem] border border-white/75 bg-[linear-gradient(135deg,_rgba(12,33,84,0.94)_0%,_rgba(28,58,128,0.92)_100%)] p-6 text-white shadow-lg shadow-slate-300/30 lg:col-span-8">
+            <div className="flow-card rounded-[1.9rem] border border-white/75 bg-[linear-gradient(135deg,_rgba(12,33,84,0.94)_0%,_rgba(28,58,128,0.92)_100%)] p-6 text-white shadow-lg shadow-slate-300/30 lg:col-span-8">
               <div className="text-xs font-semibold uppercase tracking-[0.22em] text-white/45">Clareza</div>
               <p className="mt-4 max-w-lg text-sm leading-7 text-white/78">
                 Leitura visual mais humana, linguagem simples e um fluxo pensado tanto para pessoa quanto para empresa.
               </p>
             </div>
 
-            <div className="rounded-[1.9rem] border border-white/75 bg-white/80 p-6 shadow-lg shadow-slate-200/35 lg:col-span-4">
+            <div className="flow-card rounded-[1.9rem] border border-white/75 bg-white/80 p-6 shadow-lg shadow-slate-200/35 lg:col-span-4">
               <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary/68">Estrutura</div>
               <p className="mt-4 text-sm leading-7 text-slate-600">
                 Um mapa simples para ler energia dominante, sem perder nuance.
@@ -187,9 +187,9 @@ const Index = () => {
       </section>
 
       <section id="jornada" className="relative bg-slate-950 px-4 py-24 text-white">
-        <div className="absolute left-0 top-0 h-24 w-full bg-[linear-gradient(180deg,_rgba(245,243,238,1)_0%,_rgba(15,23,42,0)_100%)]" />
+        <div className="section-divider-light absolute left-0 top-0 h-24 w-full" />
         <div className="container relative mx-auto grid gap-14 lg:grid-cols-[0.88fr_1.12fr]">
-          <div>
+          <div className="animate-reveal-up">
             <SectionLabel light>Para quem essa experiência existe</SectionLabel>
             <h2 className="mt-4 font-display text-4xl font-bold leading-tight md:text-5xl">
               O mesmo método, com relevância para contextos diferentes.
@@ -200,21 +200,21 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid gap-4">
+          <div className="grid gap-4 animate-fade-in-soft">
             <div className="grid gap-4 md:grid-cols-[1.1fr_0.9fr]">
-              <div className="rounded-[2rem] border border-white/10 bg-white/6 p-7">
+              <div className="flow-card rounded-[2rem] border border-white/10 bg-white/6 p-7">
                 <div className="text-xs font-semibold uppercase tracking-[0.22em] text-white/40">{journeys[0].eyebrow}</div>
                 <h3 className="mt-3 font-display text-3xl font-bold">{journeys[0].title}</h3>
                 <p className="mt-4 text-sm leading-7 text-white/72">{journeys[0].description}</p>
               </div>
-              <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,_rgba(255,255,255,0.12)_0%,_rgba(255,255,255,0.04)_100%)] p-7">
+              <div className="flow-card rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,_rgba(255,255,255,0.12)_0%,_rgba(255,255,255,0.04)_100%)] p-7">
                 <div className="text-xs font-semibold uppercase tracking-[0.22em] text-white/40">{journeys[1].eyebrow}</div>
                 <h3 className="mt-3 font-display text-3xl font-bold">{journeys[1].title}</h3>
                 <p className="mt-4 text-sm leading-7 text-white/72">{journeys[1].description}</p>
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-white/10 bg-white/6 p-7 md:max-w-[70%]">
+            <div className="flow-card rounded-[2rem] border border-white/10 bg-white/6 p-7 md:max-w-[70%]">
               <div className="text-xs font-semibold uppercase tracking-[0.22em] text-white/40">{journeys[2].eyebrow}</div>
               <h3 className="mt-3 font-display text-3xl font-bold">{journeys[2].title}</h3>
               <p className="mt-4 text-sm leading-7 text-white/72">{journeys[2].description}</p>
@@ -225,7 +225,7 @@ const Index = () => {
 
       <section id="processo" className="relative bg-white px-4 py-24">
         <div className="container mx-auto">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl animate-reveal-up">
             <SectionLabel>Como a experiência se move</SectionLabel>
             <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-slate-950 md:text-5xl">
               Um fluxo em sequência, não uma tela jogada com botões.
@@ -235,11 +235,11 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-[0.95fr_1.05fr_0.9fr]">
+          <div className="mt-14 grid gap-6 lg:grid-cols-[0.95fr_1.05fr_0.9fr] animate-fade-in-soft">
             {processSteps.map((step, index) => (
               <div
                 key={step.number}
-                className={`rounded-[2rem] border p-8 ${
+                className={`flow-card rounded-[2rem] border p-8 ${
                   index === 1
                     ? 'border-primary/10 bg-[#f4eee6] lg:translate-y-8'
                     : index === 2
@@ -257,9 +257,9 @@ const Index = () => {
       </section>
 
       <section id="perfis" className="relative bg-[#eee6dc] px-4 py-24">
-        <div className="absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,_rgba(255,255,255,1)_0%,_rgba(238,230,220,0)_100%)]" />
+        <div className="section-divider-light absolute inset-x-0 top-0 h-24" />
         <div className="container relative mx-auto">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl animate-reveal-up">
             <SectionLabel>Perfis PACE</SectionLabel>
             <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-slate-950 md:text-5xl">
               Quatro forças para ler comportamento com mais nuance.
@@ -270,14 +270,14 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-12">
+          <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-12 animate-fade-in-soft">
             {PROFILE_ORDER.map((key, index) => {
               const profile = PROFILES[key];
               const span = index === 0 ? 'xl:col-span-5' : index === 1 ? 'xl:col-span-7' : index === 2 ? 'xl:col-span-7' : 'xl:col-span-5';
               const tone = index % 2 === 0 ? 'bg-white/88' : 'bg-[#f7f3ed]';
 
               return (
-                <div key={key} className={`rounded-[2rem] border border-white/70 p-6 shadow-lg shadow-slate-200/30 ${span} ${tone}`}>
+                <div key={key} className={`flow-card rounded-[2rem] border border-white/70 p-6 shadow-lg shadow-slate-200/30 ${span} ${tone}`}>
                   <ProfileMark profile={profile} size="sm" />
                   <h3 className="mt-4 font-display text-2xl font-bold text-slate-950">{profile.name}</h3>
                   <p className="mt-3 text-sm font-medium text-slate-700">{profile.shortDescription}</p>
@@ -292,7 +292,7 @@ const Index = () => {
       <section className="relative overflow-hidden bg-[linear-gradient(135deg,_rgba(12,33,84,1)_0%,_rgba(24,50,112,1)_56%,_rgba(199,45,62,0.93)_100%)] px-4 py-24 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.08),_transparent_28%)]" />
         <div className="container relative mx-auto grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
+          <div className="animate-reveal-up">
             <SectionLabel light>O que a pessoa leva</SectionLabel>
             <h2 className="mt-4 font-display text-4xl font-bold leading-tight md:text-5xl">
               A devolutiva precisa ser bonita de ver e útil de aplicar.
@@ -300,11 +300,11 @@ const Index = () => {
             <p className="mt-6 max-w-xl text-sm leading-7 text-white/78">
               O resultado não pode parecer um relatório genérico. Ele precisa organizar a leitura, sustentar conversa e abrir caminhos de desenvolvimento.
             </p>
-            <div className="mt-10 grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+            <div className="mt-10 grid gap-4 sm:grid-cols-3 lg:grid-cols-1 animate-fade-in-soft">
               {stats.map(([value, text], index) => (
                 <div
                   key={value + text}
-                  className={`rounded-[1.6rem] border border-white/10 px-5 py-5 ${
+                  className={`flow-card rounded-[1.6rem] border border-white/10 px-5 py-5 ${
                     index === 1 ? 'bg-white/10 lg:ml-6' : 'bg-white/6'
                   }`}
                 >
@@ -315,11 +315,11 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="grid gap-4 lg:grid-cols-2">
+          <div className="grid gap-4 lg:grid-cols-2 animate-fade-in-soft">
             {deliverables.map((item, index) => (
               <div
                 key={item}
-                className={`rounded-[1.5rem] border border-white/10 px-5 py-5 text-sm leading-7 text-white/80 ${
+                className={`flow-card rounded-[1.5rem] border border-white/10 px-5 py-5 text-sm leading-7 text-white/80 ${
                   index === 0 ? 'bg-white/10 lg:col-span-2' : index === 3 ? 'bg-white/10 lg:col-span-2' : 'bg-white/6'
                 }`}
               >
@@ -338,9 +338,10 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="bg-[#f3eee7] px-4 py-24">
+      <section className="relative bg-[#f3eee7] px-4 py-24">
+        <div className="section-divider-dark absolute inset-x-0 top-0 h-20 opacity-20" />
         <div className="container mx-auto grid gap-8 lg:grid-cols-[1.08fr_0.92fr]">
-          <div className="rounded-[2rem] border border-white/80 bg-white/88 p-9 shadow-xl shadow-slate-200/45">
+          <div className="flow-card rounded-[2rem] border border-white/80 bg-white/88 p-9 shadow-xl shadow-slate-200/45 animate-reveal-up">
             <SectionLabel>Sobre o ILAC</SectionLabel>
             <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-slate-950 md:text-5xl">
               Um método fica mais forte quando a história por trás dele também aparece.
@@ -359,14 +360,14 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="grid gap-4">
-            <div className="rounded-[2rem] border border-slate-200 bg-white/74 p-8">
+          <div className="grid gap-4 animate-fade-in-soft">
+            <div className="flow-card rounded-[2rem] border border-slate-200 bg-white/74 p-8">
               <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary/70">Próximo passo</div>
               <p className="mt-4 text-base leading-8 text-slate-600">
                 A home agora conduz com mais respiro, alterna temperatura visual entre seções e cria uma jornada mais contínua.
               </p>
             </div>
-            <div className="rounded-[2rem] border border-slate-200 bg-[#efe6da] p-8">
+            <div className="flow-card rounded-[2rem] border border-slate-200 bg-[#efe6da] p-8">
               <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary/70">Mais presença</div>
               <p className="mt-4 text-base leading-8 text-slate-600">
                 Quando você mandar as fotos do Ademir, a página Sobre vai ganhar o peso humano que falta para fechar o conjunto.
