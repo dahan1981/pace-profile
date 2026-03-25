@@ -1,7 +1,9 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Brand from '@/components/Brand';
 import ProfileMark from '@/components/ProfileMark';
 import { Button } from '@/components/ui/button';
+import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import { PROFILES, PROFILE_ORDER } from '@/data/profiles';
 import { ArrowRight } from 'lucide-react';
 
@@ -80,6 +82,43 @@ const SectionLabel = ({ children, light = false }: { children: string; light?: b
 );
 
 const Index = () => {
+  const [processApi, setProcessApi] = useState<CarouselApi>();
+  const [processIndex, setProcessIndex] = useState(0);
+
+  useEffect(() => {
+    if (!processApi) return;
+
+    const updateIndex = () => {
+      setProcessIndex(processApi.selectedScrollSnap());
+    };
+
+    updateIndex();
+    processApi.on('select', updateIndex);
+    processApi.on('reInit', updateIndex);
+
+    return () => {
+      processApi.off('select', updateIndex);
+    };
+  }, [processApi]);
+
+  useEffect(() => {
+    if (!processApi) return;
+
+    const interval = window.setInterval(() => {
+      const snaps = processApi.scrollSnapList().length;
+      const nextIndex = processApi.selectedScrollSnap() + 1;
+
+      if (nextIndex >= snaps) {
+        processApi.scrollTo(0);
+        return;
+      }
+
+      processApi.scrollTo(nextIndex);
+    }, 4800);
+
+    return () => window.clearInterval(interval);
+  }, [processApi]);
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#f5f3ee] text-slate-950">
       <nav className="fixed top-0 z-50 w-full border-b border-white/60 bg-background/82 backdrop-blur-xl">
@@ -225,23 +264,59 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-[0.95fr_1.05fr_0.9fr] animate-fade-in-soft">
-            {processSteps.map((step, index) => (
-              <div
-                key={step.number}
-                className={`flow-card rounded-[2rem] border p-8 ${
-                  index === 1
-                    ? 'border-primary/10 bg-[#f4eee6] lg:translate-y-8'
-                    : index === 2
-                      ? 'border-slate-200 bg-slate-50'
-                      : 'border-slate-200 bg-white'
-                }`}
-              >
-                <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary/60">{step.number}</div>
-                <h3 className="mt-4 font-display text-3xl font-bold text-slate-950">{step.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-slate-600">{step.description}</p>
+          <div className="mt-14 animate-fade-in-soft">
+            <Carousel
+              setApi={setProcessApi}
+              opts={{
+                align: 'start',
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-0">
+                {processSteps.map((step, index) => (
+                  <CarouselItem key={step.number} className="pl-0 md:basis-[78%] lg:basis-[68%]">
+                    <div
+                      className={`flow-card min-h-[320px] rounded-[2rem] border p-8 md:p-10 ${
+                        index === 1
+                          ? 'border-primary/10 bg-[#f4eee6]'
+                          : index === 2
+                            ? 'border-slate-200 bg-slate-50'
+                            : 'border-slate-200 bg-white'
+                      }`}
+                    >
+                      <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary/60">{step.number}</div>
+                      <h3 className="mt-4 max-w-2xl font-display text-3xl font-bold leading-tight text-slate-950 md:text-4xl">
+                        {step.title}
+                      </h3>
+                      <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-600 md:text-base">
+                        {step.description}
+                      </p>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+
+            <div className="mt-6 flex items-center justify-between gap-4">
+              <div className="flex items-center gap-2">
+                {processSteps.map((step, index) => (
+                  <button
+                    key={step.number}
+                    type="button"
+                    onClick={() => processApi?.scrollTo(index)}
+                    className={`h-2.5 rounded-full transition-all ${
+                      processIndex === index ? 'w-10 bg-primary' : 'w-2.5 bg-slate-300'
+                    }`}
+                    aria-label={`Ir para etapa ${step.number}`}
+                  />
+                ))}
               </div>
-            ))}
+
+              <div className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
+                Etapa {String(processIndex + 1).padStart(2, '0')}
+              </div>
+            </div>
           </div>
         </div>
       </section>
