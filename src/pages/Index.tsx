@@ -443,8 +443,7 @@ const Index = () => {
               Um método fica mais forte quando a história por trás dele também aparece.
             </h2>
             <p className="mt-6 max-w-2xl text-sm leading-7 text-slate-600">
-              A página Sobre abre espaço para apresentar a visão, a origem e a trajetória por trás do projeto.
-              Ela não concorre com a landing principal; ela aprofunda a confiança.
+              Conheça a trajetória, a visão e a base humana que sustentam o ILAC e o método aplicado no projeto.
             </p>
             <div className="mt-8">
               <Link to="/sobre">
