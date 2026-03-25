@@ -1,83 +1,65 @@
 export const ademirHero = {
-  eyebrow: 'Sobre Ademir Soares',
-  title: 'Uma trajetória construída para formar pessoas com mais clareza, método e presença.',
-  description:
-    'Ademir Soares conduz o ILAC a partir de uma visão prática do desenvolvimento humano: menos discurso vazio, mais leitura real de comportamento, direção e transformação consistente.',
-  note:
-    'Esta página foi construída com base no currículo profissional do Ademir e nos materiais institucionais do ILAC.',
+  eyebrow: 'Sobre',
+  title: 'Uma história de formação, método e impacto humano.',
+  subtitle:
+    'Sob sua liderança, o ILAC se posiciona como um espaço de desenvolvimento humano, leitura comportamental e formação com base prática, ética e consistência.',
 };
 
-export const ademirHighlights = [
-  'Mais de 20 anos de atuação em desenvolvimento humano, formação e orientação de pessoas.',
-  'Fundador do Método PACE e liderança do ILAC com foco em leitura comportamental aplicada.',
-  'Atuação em coaching, inteligência emocional, análise comportamental e processos de formação.',
-];
-
-export const ademirStory = [
+export const ademirSections = [
   {
-    title: 'Uma história de desenvolvimento com base humana',
-    body:
-      'Ao longo da sua trajetória, Ademir Soares construiu uma atuação voltada ao amadurecimento pessoal e profissional. Seu trabalho nasce da escuta, da observação do comportamento e da convicção de que desenvolvimento real exige método, repertório e responsabilidade.',
+    eyebrow: 'Uma história de construção',
+    title: 'Desenvolvimento humano com base, presença e responsabilidade.',
+    body: [
+      'A trajetória de Ademir Soares foi construída ao redor de uma ideia simples: desenvolvimento real não nasce de frases prontas, mas de leitura humana, repertório e direção.',
+      'Ao longo dos anos, sua atuação reuniu formação, escuta clínica, experiências em desenvolvimento pessoal e ferramentas aplicadas à transformação de indivíduos, líderes e equipes.',
+      'Essa combinação deu origem a uma forma própria de conduzir pessoas: mais clara, mais humana e menos caricata.',
+    ],
   },
   {
-    title: 'Formação plural, aplicação prática',
-    body:
-      'Sua base une formação em teologia, psicanálise clínica, terapias integrativas, hipnose e certificações ligadas ao coaching e à análise comportamental. Essa combinação se traduz numa leitura ampla, mas sempre aplicada ao contexto concreto de quem busca direção, equilíbrio e performance.',
+    eyebrow: 'O que sustenta essa visão',
+    title: 'Formação plural, aplicação prática.',
+    body: [
+      'Sua base reúne estudos em teologia, psicanálise clínica, hipnose, terapias integrativas, inteligência emocional, coaching e análise comportamental.',
+      'Mais do que acumular títulos, essa formação sustenta uma leitura ampla do comportamento e da maneira como cada pessoa decide, reage, se relaciona e se desenvolve.',
+      'No ILAC, esse repertório se transforma em método, experiência e ferramentas concretas para quem busca crescimento com direção.',
+    ],
   },
   {
-    title: 'O ILAC como extensão dessa visão',
-    body:
-      'No ILAC, essa experiência ganha forma em programas, treinamentos e ferramentas proprietárias. O Método PACE nasce justamente desse desejo de entregar uma leitura comportamental acessível, elegante e útil para indivíduos, coaches, líderes e equipes.',
-  },
-];
-
-export const ademirCredentials = [
-  'Bacharel em Teologia pelo Seminário Teológico Charles Spurgeon.',
-  'Psicanalista clínico com atuação em desenvolvimento humano e escuta aprofundada.',
-  'Terapeuta holístico e hipnoterapeuta com foco em processos de transformação pessoal.',
-  'Certificações por instituições como SLAC e HR Tools International.',
-  'Formações em Professional Life Coach, Executive Coach, Master Coach Trainer e Team Coach.',
-  'Especialização em inteligência emocional e análise comportamental aplicada.',
-];
-
-export const ademirAreas = [
-  {
-    title: 'Formação e mentoria',
-    description:
-      'Condução de turmas, processos formativos e desenvolvimento de profissionais que desejam aplicar comportamento, coaching e leitura humana com mais profundidade.',
-  },
-  {
-    title: 'Liderança e desenvolvimento',
-    description:
-      'Atuação junto a líderes, empresários e equipes que precisam de direção, alinhamento, comunicação mais madura e crescimento sustentável.',
-  },
-  {
-    title: 'Método e ferramenta própria',
-    description:
-      'Desenvolvimento do Método PACE como síntese da sua experiência prática com ação, conexão, constância e estratégia.',
+    eyebrow: 'O nascimento do método',
+    title: 'O PACE surge como síntese de anos de prática.',
+    body: [
+      'O Método PACE nasce como uma maneira clara de traduzir padrões de ação e comportamento sem empobrecer a complexidade humana.',
+      'Ele organiza a leitura em quatro forças essenciais: ação, conexão, constância e estratégia. Em vez de rotular, ajuda a enxergar predominâncias, nuances e combinações possíveis.',
+      'Por isso, a ferramenta serve tanto para quem quer autoconhecimento quanto para coaches, consultores, líderes e equipes que precisam de leitura aplicável.',
+    ],
   },
 ];
 
-export const ademirTimeline = [
-  {
-    label: 'Base',
-    title: 'Construção de uma formação multidisciplinar',
-    description:
-      'Teologia, psicanálise, terapias integrativas e hipnose formam o alicerce de uma escuta mais completa do ser humano.',
-  },
-  {
-    label: 'Especialização',
-    title: 'Certificações em coaching e análise comportamental',
-    description:
-      'Aprofundamento em processos de desenvolvimento individual, executivo, emocional e de equipe.',
-  },
-  {
-    label: 'Aplicação',
-    title: 'Criação de treinamentos, programas e ferramentas próprias',
-    description:
-      'Estruturação do ILAC e do Método PACE como plataformas de impacto, leitura e formação.',
-  },
+export const ademirMilestones = [
+  'Formação em teologia e aprofundamento em escuta e desenvolvimento humano.',
+  'Atuação em psicanálise clínica, hipnose e abordagens terapêuticas integrativas.',
+  'Certificações em coaching, inteligência emocional e análise comportamental.',
+  'Estruturação do ILAC como frente institucional de formação e desenvolvimento.',
+  'Criação do Método PACE como ferramenta autoral de leitura comportamental.',
 ];
 
 export const ademirQuote =
-  'Desenvolvimento humano de verdade não acontece por impulso. Acontece quando método, escuta e direção caminham juntos.';
+  'Quando método e sensibilidade caminham juntos, o desenvolvimento deixa de ser discurso e passa a ter efeito real na vida das pessoas.';
+
+export const ademirLegacy = [
+  {
+    title: 'Formação',
+    description:
+      'Programas e experiências voltados ao amadurecimento pessoal e profissional com linguagem acessível e profundidade real.',
+  },
+  {
+    title: 'Leitura comportamental',
+    description:
+      'Ferramentas e processos que ajudam a compreender padrões, fortalecer decisões e ampliar repertório humano.',
+  },
+  {
+    title: 'Impacto',
+    description:
+      'Uma atuação construída para servir pessoas, líderes, consultores e equipes que precisam de mais clareza, direção e consistência.',
+  },
+];

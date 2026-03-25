@@ -113,7 +113,7 @@ const Index = () => {
             <a href="#experiencia" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Experiência</a>
             <a href="#perfis" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Perfis</a>
             <a href="#solucoes" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Soluções</a>
-            <Link to="/ademir-soares" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Sobre</Link>
+            <Link to="/sobre" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Sobre</Link>
           </div>
           <div className="flex items-center gap-2">
             <Link to="/login">
@@ -148,7 +148,7 @@ const Index = () => {
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
-              <Link to="/ademir-soares">
+              <Link to="/sobre">
                 <Button size="lg" variant="outline" className="h-12 gap-2 border-primary/20 bg-white/70 px-8">
                   Conhecer o ILAC
                 </Button>
