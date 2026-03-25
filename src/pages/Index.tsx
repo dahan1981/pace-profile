@@ -340,13 +340,37 @@ const Index = () => {
               const profile = PROFILES[key];
               const span = index === 0 ? 'xl:col-span-5' : index === 1 ? 'xl:col-span-7' : index === 2 ? 'xl:col-span-7' : 'xl:col-span-5';
               const tone = index % 2 === 0 ? 'bg-white/88' : 'bg-[#f7f3ed]';
+              const accent = profile.color;
 
               return (
-                <div key={key} className={`flow-card rounded-[2rem] border border-white/70 p-6 shadow-lg shadow-slate-200/30 ${span} ${tone}`}>
-                  <ProfileMark profile={profile} size="sm" />
-                  <h3 className="mt-4 font-display text-2xl font-bold text-slate-950">{profile.name}</h3>
-                  <p className="mt-3 text-sm font-medium text-slate-700">{profile.shortDescription}</p>
-                  <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600">{profile.description}</p>
+                <div key={key} className={`flow-card overflow-hidden rounded-[2rem] border border-white/70 shadow-lg shadow-slate-200/30 ${span} ${tone}`}>
+                  <div className="h-1.5 w-full" style={{ backgroundColor: accent }} />
+                  <div className="p-6">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-start gap-4">
+                        <ProfileMark profile={profile} size="sm" />
+                        <div>
+                          <div className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Perfil PACE</div>
+                          <h3 className="mt-2 font-display text-2xl font-bold text-slate-950">{profile.name}</h3>
+                        </div>
+                      </div>
+                      <div className="hidden text-xs font-semibold uppercase tracking-[0.22em] text-slate-400 md:block">
+                        {profile.letter}
+                      </div>
+                    </div>
+
+                    <div className="mt-5 max-w-xl border-l-2 pl-4 text-sm leading-7 text-slate-700" style={{ borderColor: accent }}>
+                      {profileHighlights[key]}
+                    </div>
+
+                    <div className="mt-6 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
+                      <p className="text-sm leading-7 text-slate-600">{profile.description}</p>
+                      <div className="rounded-[1.35rem] bg-white/72 px-4 py-4">
+                        <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Leitura rápida</div>
+                        <p className="mt-3 text-sm leading-7 text-slate-700">{profile.shortDescription}</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               );
             })}
