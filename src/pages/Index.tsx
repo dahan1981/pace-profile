@@ -238,19 +238,19 @@ const Index = () => {
 
           <div className="grid gap-4 animate-fade-in-soft">
             <div className="grid gap-4 md:grid-cols-[1.1fr_0.9fr]">
-              <div className="flow-card rounded-[2rem] border border-white/10 bg-white/6 p-7">
+                <div className="flow-card liquid-glass-blue rounded-[2rem] p-7">
                 <div className="text-xs font-semibold uppercase tracking-[0.22em] text-white/40">{journeys[0].eyebrow}</div>
                 <h3 className="mt-3 font-display text-3xl font-bold">{journeys[0].title}</h3>
                 <p className="mt-4 text-sm leading-7 text-white/72">{journeys[0].description}</p>
               </div>
-              <div className="flow-card rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,_rgba(255,255,255,0.12)_0%,_rgba(255,255,255,0.04)_100%)] p-7">
+                <div className="flow-card liquid-glass-blue rounded-[2rem] p-7">
                 <div className="text-xs font-semibold uppercase tracking-[0.22em] text-white/40">{journeys[1].eyebrow}</div>
                 <h3 className="mt-3 font-display text-3xl font-bold">{journeys[1].title}</h3>
                 <p className="mt-4 text-sm leading-7 text-white/72">{journeys[1].description}</p>
               </div>
             </div>
 
-            <div className="flow-card rounded-[2rem] border border-white/10 bg-white/6 p-7 md:max-w-[70%]">
+              <div className="flow-card liquid-glass-blue rounded-[2rem] p-7 md:max-w-[70%]">
               <div className="text-xs font-semibold uppercase tracking-[0.22em] text-white/40">{journeys[2].eyebrow}</div>
               <h3 className="mt-3 font-display text-3xl font-bold">{journeys[2].title}</h3>
               <p className="mt-4 text-sm leading-7 text-white/72">{journeys[2].description}</p>
