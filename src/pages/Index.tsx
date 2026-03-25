@@ -7,6 +7,13 @@ import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/componen
 import { PROFILES, PROFILE_ORDER } from '@/data/profiles';
 import { ArrowRight } from 'lucide-react';
 
+const profileHighlights: Record<string, string> = {
+  propulsor: 'Move o jogo para frente e acelera decisões.',
+  articulador: 'Cria conexão, engaja pessoas e abre caminhos.',
+  consolidador: 'Sustenta consistência e transforma intenção em entrega.',
+  estrategista: 'Lê cenários, organiza ideias e antecipa rotas.',
+};
+
 const journeys = [
   {
     eyebrow: 'Pessoa',
@@ -364,7 +371,7 @@ const Index = () => {
                     </div>
 
                     <div className="mt-6 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
-                      <p className="text-sm leading-7 text-slate-600">{profile.description}</p>
+                      <p className="text-sm leading-7 text-slate-600">{profile.fullDescription}</p>
                       <div className="rounded-[1.35rem] bg-white/72 px-4 py-4">
                         <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Leitura rápida</div>
                         <p className="mt-3 text-sm leading-7 text-slate-700">{profile.shortDescription}</p>
