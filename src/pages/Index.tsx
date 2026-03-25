@@ -47,27 +47,16 @@ const processSteps = [
   },
 ];
 
-const valueBlocks = [
+const heroSupports = [
   {
     title: 'Leitura clara',
     description:
       'Sem excesso de jargão e sem visual genérico. A proposta é traduzir comportamento em algo legível e memorável.',
-    tone: 'bg-white/90',
-    span: 'lg:col-span-7',
-  },
-  {
-    title: 'Experiência bonita',
-    description:
-      'A forma também comunica valor. O site precisa passar segurança, método e presença desde o primeiro scroll.',
-    tone: 'bg-[#f4eee6]',
-    span: 'lg:col-span-5',
   },
   {
     title: 'Aplicação real',
     description:
       'O que a pessoa recebe precisa servir para devolutiva individual, conversas de liderança e leitura de equipe.',
-    tone: 'bg-white/84',
-    span: 'lg:col-span-4',
   },
 ];
 
@@ -148,8 +137,8 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="grid gap-4 lg:grid-cols-12 animate-fade-in-soft">
-            <div className="flow-card rounded-[2.2rem] border border-white/80 bg-white/90 p-8 shadow-xl shadow-slate-200/50 lg:col-span-12">
+          <div className="grid gap-5 animate-fade-in-soft">
+            <div className="flow-card rounded-[2.2rem] border border-white/80 bg-white/92 p-8 shadow-xl shadow-slate-200/50">
               <SectionLabel>Ponto de partida</SectionLabel>
               <h2 className="mt-4 max-w-xl font-display text-3xl font-bold leading-tight text-slate-950">
                 O método precisa parecer marca. Não ferramenta improvisada.
@@ -159,28 +148,29 @@ const Index = () => {
               </p>
             </div>
 
-            {valueBlocks.map((item) => (
-              <div
-                key={item.title}
-                className={`flow-card rounded-[1.9rem] border border-white/75 p-6 shadow-lg shadow-slate-200/35 ${item.tone} ${item.span}`}
-              >
-                <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary/68">{item.title}</div>
-                <p className="mt-4 text-sm leading-7 text-slate-600">{item.description}</p>
+            <div className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
+              <div className="grid gap-5">
+                {heroSupports.map((item) => (
+                  <div key={item.title} className="flow-card rounded-[1.9rem] border border-white/75 bg-white/84 p-6 shadow-lg shadow-slate-200/35">
+                    <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary/68">{item.title}</div>
+                    <p className="mt-4 text-sm leading-7 text-slate-600">{item.description}</p>
+                  </div>
+                ))}
               </div>
-            ))}
 
-            <div className="flow-card rounded-[1.9rem] border border-white/75 bg-[linear-gradient(135deg,_rgba(12,33,84,0.94)_0%,_rgba(28,58,128,0.92)_100%)] p-6 text-white shadow-lg shadow-slate-300/30 lg:col-span-8">
-              <div className="text-xs font-semibold uppercase tracking-[0.22em] text-white/45">Clareza</div>
-              <p className="mt-4 max-w-lg text-sm leading-7 text-white/78">
-                Leitura visual mais humana, linguagem simples e um fluxo pensado tanto para pessoa quanto para empresa.
-              </p>
-            </div>
-
-            <div className="flow-card rounded-[1.9rem] border border-white/75 bg-white/80 p-6 shadow-lg shadow-slate-200/35 lg:col-span-4">
-              <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary/68">Estrutura</div>
-              <p className="mt-4 text-sm leading-7 text-slate-600">
-                Um mapa simples para ler energia dominante, sem perder nuance.
-              </p>
+              <div className="flow-card rounded-[2rem] border border-white/75 bg-[linear-gradient(135deg,_rgba(12,33,84,0.96)_0%,_rgba(28,58,128,0.94)_100%)] p-7 text-white shadow-lg shadow-slate-300/30">
+                <div className="text-xs font-semibold uppercase tracking-[0.22em] text-white/45">Estrutura</div>
+                <h3 className="mt-4 max-w-sm font-display text-3xl font-bold leading-tight">
+                  Clareza visual e método no mesmo idioma.
+                </h3>
+                <p className="mt-5 max-w-lg text-sm leading-7 text-white/78">
+                  Leitura visual mais humana, linguagem simples e um fluxo pensado tanto para pessoa quanto para empresa.
+                </p>
+                <div className="mt-8 h-px w-full bg-white/12" />
+                <p className="mt-5 max-w-md text-sm leading-7 text-white/66">
+                  Um mapa simples para ler energia dominante, sem perder nuance nem parecer ferramenta genérica.
+                </p>
+              </div>
             </div>
           </div>
         </div>
