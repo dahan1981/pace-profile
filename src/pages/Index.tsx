@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import ProfileMark from '@/components/ProfileMark';
 import { PROFILES, PROFILE_ORDER } from '@/data/profiles';
-import { ArrowRight, BrainCircuit, Building2, ShieldCheck } from 'lucide-react';
+import { ArrowRight, BrainCircuit, Building2 } from 'lucide-react';
 
 const profileColors: Record<string, string> = {
   propulsor: 'bg-propulsor',
@@ -87,12 +87,6 @@ const deliverables = [
   'Material útil tanto para devolutiva individual quanto para equipe.',
 ];
 
-const trustSignals = [
-  'Leitura visual mais humana',
-  'Diagnóstico com linguagem simples',
-  'Fluxo pronto para pessoa e empresa',
-];
-
 const Marker = ({ note, tone }: { note: string; tone: string }) => (
   <div className="mb-5 flex items-center gap-3">
     <div className="relative h-8 w-12">
@@ -135,10 +129,7 @@ const Index = () => {
       <section className="relative px-4 pb-16 pt-28 md:pb-20">
         <div className="container mx-auto grid items-start gap-12 lg:grid-cols-[1.08fr_0.92fr]">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/80 bg-white/78 px-4 py-2 text-sm text-slate-700 shadow-sm backdrop-blur">
-              <ShieldCheck className="h-4 w-4 text-primary" />
-              Diagnóstico comportamental com estética de marca e devolutiva clara
-            </div>
+            <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary/72">Método PACE</div>
 
             <h1 className="mt-6 max-w-4xl font-display text-5xl font-bold leading-[1.02] text-slate-950 md:text-6xl">
               Um site que convida a descobrir.
@@ -159,7 +150,7 @@ const Index = () => {
               </Link>
               <Link to="/ademir-soares">
                 <Button size="lg" variant="outline" className="h-12 gap-2 border-primary/20 bg-white/70 px-8">
-                  Conhecer Ademir Soares
+                  Conhecer o ILAC
                 </Button>
               </Link>
               <a href="#experiencia">
@@ -169,15 +160,10 @@ const Index = () => {
               </a>
             </div>
 
-            <div className="mt-10 flex flex-wrap gap-3">
-              {trustSignals.map((signal) => (
-                <div
-                  key={signal}
-                  className="rounded-full border border-white/80 bg-white/74 px-4 py-2 text-sm text-slate-700 shadow-sm backdrop-blur"
-                >
-                  {signal}
-                </div>
-              ))}
+            <div className="mt-10 max-w-3xl border-l border-primary/15 pl-5">
+              <p className="text-sm leading-7 text-slate-600">
+                Leitura visual mais humana, linguagem simples e um fluxo pensado para pessoa e empresa.
+              </p>
             </div>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-3">

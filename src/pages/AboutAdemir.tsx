@@ -11,7 +11,7 @@ import {
   ademirStory,
   ademirTimeline,
 } from '@/data/ademir';
-import { ArrowLeft, ArrowRight, BookOpen, BriefcaseBusiness, GraduationCap, Sparkles } from 'lucide-react';
+import { ArrowLeft, ArrowRight, BookOpen, BriefcaseBusiness, GraduationCap } from 'lucide-react';
 
 const AboutAdemir = () => {
   return (
@@ -43,11 +43,8 @@ const AboutAdemir = () => {
       <section className="px-4 pb-12 pt-20 md:pb-16 md:pt-24">
         <div className="container mx-auto grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/80 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm backdrop-blur">
-              <Sparkles className="h-4 w-4 text-primary" />
-              {ademirHero.eyebrow}
-            </div>
-            <h1 className="mt-6 max-w-4xl font-display text-5xl font-bold leading-[1.02] text-slate-950 md:text-6xl">
+            <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary/72">{ademirHero.eyebrow}</div>
+            <h1 className="mt-5 max-w-4xl font-display text-5xl font-bold leading-[1.02] text-slate-950 md:text-6xl">
               {ademirHero.title}
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
