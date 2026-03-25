@@ -231,8 +231,8 @@ const Index = () => {
               O mesmo método, com relevância para contextos diferentes.
             </h2>
             <p className="mt-6 max-w-xl text-sm leading-7 text-white/72">
-              A home precisa mostrar amplitude sem ficar difusa. O ILAC fala com quem busca autoconhecimento,
-              com quem conduz processos e com quem precisa ler equipes de forma madura.
+              O ILAC atende quem busca autoconhecimento, quem conduz processos de desenvolvimento e quem precisa
+              compreender equipes com mais profundidade.
             </p>
           </div>
 
@@ -264,10 +264,10 @@ const Index = () => {
           <div className="max-w-3xl animate-reveal-up">
             <SectionLabel>Como a experiência se move</SectionLabel>
             <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-slate-950 md:text-5xl">
-              Um fluxo em sequência, não uma tela jogada com botões.
+              Um percurso claro, envolvente e natural do início ao resultado.
             </h2>
             <p className="mt-5 text-sm leading-7 text-slate-600">
-              Cada seção prepara a próxima: apresenta, envolve, explica, mostra possibilidades e só então chama para a ação.
+              O método se apresenta em ritmo leve, com contexto, clareza e uma leitura que sustenta a decisão de continuar.
             </p>
           </div>
 

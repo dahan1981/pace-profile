@@ -14,7 +14,7 @@ const PhotoPlaceholder = ({ label }: { label: string }) => (
   <div className="flow-card relative overflow-hidden rounded-[2rem] border border-white/70 bg-[linear-gradient(180deg,_rgba(255,255,255,0.95)_0%,_rgba(238,242,247,0.92)_100%)] shadow-xl shadow-slate-200/45">
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(199,45,62,0.12),_transparent_38%),radial-gradient(circle_at_bottom,_rgba(12,33,84,0.12),_transparent_42%)]" />
     <div className="relative flex min-h-[420px] flex-col justify-between p-8">
-      <div className="text-xs font-semibold uppercase tracking-[0.24em] text-primary/55">Espaço para foto</div>
+      <div className="text-xs font-semibold uppercase tracking-[0.24em] text-primary/55">Retrato</div>
       <div>
         <div className="font-display text-4xl font-bold text-slate-950">Ademir Soares</div>
         <p className="mt-3 max-w-sm text-sm leading-7 text-slate-600">{label}</p>
@@ -62,8 +62,7 @@ const AboutAdemir = () => {
               {ademirHero.subtitle}
             </p>
             <div className="mt-10 max-w-2xl border-l border-primary/15 pl-5 text-sm leading-7 text-slate-600">
-              Esta página foi desenhada como um espaço institucional de história e origem. Quando você enviar as fotos do
-              Ademir, os blocos visuais já estão preparados para receber retratos e imagens de trajetória sem refazer a estrutura.
+              Uma trajetória construída com visão, formação, experiência prática e compromisso com desenvolvimento humano.
             </div>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <Link to="/cadastro">
@@ -74,14 +73,14 @@ const AboutAdemir = () => {
               </Link>
               <Link to="/">
                 <Button size="lg" variant="outline" className="border-primary/20 bg-white/75">
-                  Voltar para a landing principal
+                  Voltar ao início
                 </Button>
               </Link>
             </div>
           </div>
 
           <div className="animate-fade-in-soft">
-            <PhotoPlaceholder label="Aqui entra um retrato principal do Ademir, com presença mais institucional e humana." />
+            <PhotoPlaceholder label="Retrato principal com presença institucional, proximidade e força humana." />
           </div>
         </div>
       </section>
