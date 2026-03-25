@@ -129,12 +129,13 @@ const Index = () => {
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#f6f1ea] text-slate-950">
       <nav className="fixed top-0 z-50 w-full border-b border-white/60 bg-background/82 backdrop-blur-xl">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
+        <div className="container mx-auto flex min-h-16 items-center justify-between gap-3 px-4 py-2">
           <Brand
             title="ILAC"
             subtitle="Instituto Latino Americano de Coaching"
-            titleClassName="text-lg"
-            iconClassName="h-8 w-8"
+            titleClassName="text-base sm:text-lg"
+            subtitleClassName="mt-1 hidden text-xs tracking-wide text-muted-foreground md:block"
+            iconClassName="h-7 w-7 sm:h-8 sm:w-8"
           />
           <div className="hidden items-center gap-6 md:flex">
             <a href="#jornada" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Jornada</a>
@@ -142,51 +143,51 @@ const Index = () => {
             <a href="#perfis" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Perfis</a>
             <Link to="/sobre" className="text-sm text-muted-foreground transition-colors hover:text-foreground">Sobre</Link>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
             <Link to="/login">
-              <Button variant="ghost" size="sm">Entrar</Button>
+              <Button variant="ghost" size="sm" className="px-2.5 sm:px-3">Entrar</Button>
             </Link>
             <Link to="/cadastro?type=empresa">
-              <Button size="sm" className="shadow-lg shadow-primary/20">Sou empresa</Button>
+              <Button size="sm" className="px-2.5 text-xs shadow-lg shadow-primary/20 sm:px-3 sm:text-sm">Sou empresa</Button>
             </Link>
           </div>
         </div>
       </nav>
 
-      <section className="relative overflow-hidden bg-[linear-gradient(180deg,_#f6f1ea_0%,_#f3eee7_100%)] px-4 pb-24 pt-28 md:pb-32">
+      <section className="relative overflow-hidden bg-[linear-gradient(180deg,_#f6f1ea_0%,_#f3eee7_100%)] px-4 pb-16 pt-24 sm:pb-20 md:pb-32 md:pt-28">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(199,45,62,0.14),_transparent_24%),radial-gradient(circle_at_top_right,_rgba(12,33,84,0.1),_transparent_30%)]" />
         <div className="container relative mx-auto grid gap-14 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
           <div className="max-w-4xl animate-reveal-up">
             <SectionLabel>Método PACE</SectionLabel>
-            <h1 className="mt-5 font-display text-5xl font-bold leading-[1.01] text-slate-950 md:text-7xl">
+            <h1 className="mt-5 font-display text-4xl font-bold leading-[1.02] text-slate-950 sm:text-5xl md:text-7xl">
               Uma leitura comportamental que começa antes da resposta.
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-600">
+            <p className="mt-6 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
               O ILAC transforma entrada, entrevista e devolutiva em uma experiência mais humana.
               A pessoa entende o processo, responde com mais presença e sai com uma leitura que faz sentido guardar.
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <Link to="/cadastro">
-                <Button size="lg" className="gap-2 px-8 shadow-xl shadow-primary/20">
+                <Button size="lg" className="w-full gap-2 px-6 shadow-xl shadow-primary/20 sm:w-auto sm:px-8">
                   Quero descobrir meu perfil
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
               <Link to="/sobre">
-                <Button size="lg" variant="outline" className="border-primary/20 bg-white/75 px-8">
+                <Button size="lg" variant="outline" className="w-full border-primary/20 bg-white/75 px-6 sm:w-auto sm:px-8">
                   Conhecer o ILAC
                 </Button>
               </Link>
             </div>
-            <div className="mt-12 max-w-2xl border-l border-primary/15 pl-6 text-sm leading-7 text-slate-600">
+            <div className="mt-10 max-w-2xl border-l border-primary/15 pl-4 text-sm leading-7 text-slate-600 sm:mt-12 sm:pl-6">
               O ILAC apresenta o método com clareza, presença e profundidade antes mesmo da primeira resposta.
             </div>
           </div>
 
           <div className="grid gap-5 animate-fade-in-soft">
-            <div className="flow-card rounded-[2.2rem] border border-white/80 bg-white/92 p-8 shadow-xl shadow-slate-200/50">
+            <div className="flow-card rounded-[2rem] border border-white/80 bg-white/92 p-6 shadow-xl shadow-slate-200/50 sm:rounded-[2.2rem] sm:p-8">
               <SectionLabel>Ponto de partida</SectionLabel>
-              <h2 className="mt-4 max-w-xl font-display text-3xl font-bold leading-tight text-slate-950">
+              <h2 className="mt-4 max-w-xl font-display text-2xl font-bold leading-tight text-slate-950 sm:text-3xl">
                 O método precisa parecer marca. Não ferramenta improvisada.
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600">
@@ -197,16 +198,16 @@ const Index = () => {
             <div className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
               <div className="grid gap-5">
                 {heroSupports.map((item) => (
-                  <div key={item.title} className="flow-card rounded-[1.9rem] border border-white/75 bg-white/84 p-6 shadow-lg shadow-slate-200/35">
+                  <div key={item.title} className="flow-card rounded-[1.6rem] border border-white/75 bg-white/84 p-5 shadow-lg shadow-slate-200/35 sm:rounded-[1.9rem] sm:p-6">
                     <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary/68">{item.title}</div>
                     <p className="mt-4 text-sm leading-7 text-slate-600">{item.description}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="flow-card rounded-[2rem] border border-white/75 bg-[linear-gradient(135deg,_rgba(12,33,84,0.96)_0%,_rgba(28,58,128,0.94)_100%)] p-7 text-white shadow-lg shadow-slate-300/30">
+              <div className="flow-card rounded-[1.8rem] border border-white/75 bg-[linear-gradient(135deg,_rgba(12,33,84,0.96)_0%,_rgba(28,58,128,0.94)_100%)] p-6 text-white shadow-lg shadow-slate-300/30 sm:rounded-[2rem] sm:p-7">
                 <div className="text-xs font-semibold uppercase tracking-[0.22em] text-white/45">Estrutura</div>
-                <h3 className="mt-4 max-w-sm font-display text-3xl font-bold leading-tight">
+                <h3 className="mt-4 max-w-sm font-display text-2xl font-bold leading-tight sm:text-3xl">
                   Clareza visual e método no mesmo idioma.
                 </h3>
                 <p className="mt-5 max-w-lg text-sm leading-7 text-white/78">
@@ -222,12 +223,12 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="jornada" className="relative bg-[linear-gradient(180deg,_#162347_0%,_#0f172a_100%)] px-4 py-24 text-white">
+      <section id="jornada" className="relative bg-[linear-gradient(180deg,_#162347_0%,_#0f172a_100%)] px-4 py-16 text-white sm:py-20 md:py-24">
         <div className="section-divider-light absolute left-0 top-0 h-24 w-full" />
         <div className="container relative mx-auto grid gap-14 lg:grid-cols-[0.88fr_1.12fr]">
           <div className="animate-reveal-up">
             <SectionLabel light>Para quem essa experiência existe</SectionLabel>
-            <h2 className="mt-4 font-display text-4xl font-bold leading-tight md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
               O mesmo método, com relevância para contextos diferentes.
             </h2>
             <p className="mt-6 max-w-xl text-sm leading-7 text-white/72">
@@ -238,32 +239,32 @@ const Index = () => {
 
           <div className="grid gap-4 animate-fade-in-soft">
             <div className="grid gap-4 md:grid-cols-[1.1fr_0.9fr]">
-                <div className="flow-card liquid-glass-blue rounded-[2rem] p-7">
+                <div className="flow-card liquid-glass-blue rounded-[1.5rem] p-5 sm:rounded-[2rem] sm:p-7">
                 <div className="text-xs font-semibold uppercase tracking-[0.22em] text-white/40">{journeys[0].eyebrow}</div>
-                <h3 className="mt-3 font-display text-3xl font-bold">{journeys[0].title}</h3>
+                <h3 className="mt-3 font-display text-xl font-bold leading-tight sm:text-3xl">{journeys[0].title}</h3>
                 <p className="mt-4 text-sm leading-7 text-white/72">{journeys[0].description}</p>
               </div>
-                <div className="flow-card liquid-glass-blue rounded-[2rem] p-7">
+                <div className="flow-card liquid-glass-blue rounded-[1.5rem] p-5 sm:rounded-[2rem] sm:p-7">
                 <div className="text-xs font-semibold uppercase tracking-[0.22em] text-white/40">{journeys[1].eyebrow}</div>
-                <h3 className="mt-3 font-display text-3xl font-bold">{journeys[1].title}</h3>
+                <h3 className="mt-3 font-display text-xl font-bold leading-tight sm:text-3xl">{journeys[1].title}</h3>
                 <p className="mt-4 text-sm leading-7 text-white/72">{journeys[1].description}</p>
               </div>
             </div>
 
-              <div className="flow-card liquid-glass-blue rounded-[2rem] p-7 md:max-w-[70%]">
+              <div className="flow-card liquid-glass-blue rounded-[1.5rem] p-5 sm:rounded-[2rem] sm:p-7 md:max-w-[70%]">
               <div className="text-xs font-semibold uppercase tracking-[0.22em] text-white/40">{journeys[2].eyebrow}</div>
-              <h3 className="mt-3 font-display text-3xl font-bold">{journeys[2].title}</h3>
+              <h3 className="mt-3 font-display text-xl font-bold leading-tight sm:text-3xl">{journeys[2].title}</h3>
               <p className="mt-4 text-sm leading-7 text-white/72">{journeys[2].description}</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="processo" className="relative bg-[linear-gradient(180deg,_#ffffff_0%,_#faf7f2_100%)] px-4 py-24">
+      <section id="processo" className="relative bg-[linear-gradient(180deg,_#ffffff_0%,_#faf7f2_100%)] px-4 py-16 sm:py-20 md:py-24">
         <div className="container mx-auto">
           <div className="max-w-3xl animate-reveal-up">
             <SectionLabel>Como a experiência se move</SectionLabel>
-            <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-slate-950 md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-950 sm:text-4xl md:text-5xl">
               Um percurso claro, envolvente e natural do início ao resultado.
             </h2>
             <p className="mt-5 text-sm leading-7 text-slate-600">
@@ -282,9 +283,9 @@ const Index = () => {
             >
               <CarouselContent className="-ml-0">
                 {processSteps.map((step, index) => (
-                  <CarouselItem key={step.number} className="pl-0 md:basis-[78%] lg:basis-[68%]">
+                  <CarouselItem key={step.number} className="pl-0 basis-full md:basis-[78%] lg:basis-[68%]">
                     <div
-                      className={`flow-card min-h-[320px] rounded-[2rem] border p-8 md:p-10 ${
+                      className={`flow-card min-h-[250px] rounded-[1.6rem] border p-5 sm:min-h-[290px] sm:rounded-[2rem] sm:p-7 md:min-h-[320px] md:p-10 ${
                         index === 1
                           ? 'border-primary/10 bg-[#f4eee6]'
                           : index === 2
@@ -293,7 +294,7 @@ const Index = () => {
                       }`}
                     >
                       <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary/60">{step.number}</div>
-                      <h3 className="mt-4 max-w-2xl font-display text-3xl font-bold leading-tight text-slate-950 md:text-4xl">
+                      <h3 className="mt-4 max-w-2xl font-display text-2xl font-bold leading-tight text-slate-950 sm:text-3xl md:text-4xl">
                         {step.title}
                       </h3>
                       <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-600 md:text-base">
@@ -328,12 +329,12 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="perfis" className="relative bg-[linear-gradient(180deg,_#efe7dc_0%,_#ebe2d4_100%)] px-4 py-24">
+      <section id="perfis" className="relative bg-[linear-gradient(180deg,_#efe7dc_0%,_#ebe2d4_100%)] px-4 py-16 sm:py-20 md:py-24">
         <div className="section-divider-warm absolute inset-x-0 top-0 h-24" />
         <div className="container relative mx-auto">
           <div className="max-w-3xl animate-reveal-up">
             <SectionLabel>Perfis PACE</SectionLabel>
-            <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-slate-950 md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-950 sm:text-4xl md:text-5xl">
               Quatro forças para ler comportamento com mais nuance.
             </h2>
             <p className="mt-5 text-sm leading-7 text-slate-600">
@@ -350,15 +351,15 @@ const Index = () => {
               const accent = profile.color;
 
               return (
-                <div key={key} className={`flow-card overflow-hidden rounded-[2rem] border border-white/70 shadow-lg shadow-slate-200/30 ${span} ${tone}`}>
+                <div key={key} className={`flow-card overflow-hidden rounded-[1.6rem] border border-white/70 shadow-lg shadow-slate-200/30 sm:rounded-[2rem] ${span} ${tone}`}>
                   <div className="h-1.5 w-full" style={{ backgroundColor: accent }} />
-                  <div className="p-6">
+                  <div className="p-5 sm:p-6">
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex items-start gap-4">
                         <ProfileMark profile={profile} size="sm" />
                         <div>
                           <div className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Perfil PACE</div>
-                          <h3 className="mt-2 font-display text-2xl font-bold text-slate-950">{profile.name}</h3>
+                          <h3 className="mt-2 font-display text-xl font-bold text-slate-950 sm:text-2xl">{profile.name}</h3>
                         </div>
                       </div>
                       <div className="hidden text-xs font-semibold uppercase tracking-[0.22em] text-slate-400 md:block">
@@ -385,12 +386,12 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[linear-gradient(135deg,_rgba(12,33,84,1)_0%,_rgba(26,52,114,0.98)_54%,_rgba(160,39,51,0.95)_100%)] px-4 py-24 text-white">
+      <section className="relative overflow-hidden bg-[linear-gradient(135deg,_rgba(12,33,84,1)_0%,_rgba(26,52,114,0.98)_54%,_rgba(160,39,51,0.95)_100%)] px-4 py-16 text-white sm:py-20 md:py-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.08),_transparent_28%),radial-gradient(circle_at_bottom_left,_rgba(255,255,255,0.05),_transparent_34%)]" />
         <div className="container relative mx-auto grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="animate-reveal-up">
             <SectionLabel light>O que a pessoa leva</SectionLabel>
-            <h2 className="mt-4 font-display text-4xl font-bold leading-tight md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
               A devolutiva precisa ser bonita de ver e útil de aplicar.
             </h2>
             <p className="mt-6 max-w-xl text-sm leading-7 text-white/78">
@@ -434,12 +435,12 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="relative bg-[linear-gradient(180deg,_#f2ebe1_0%,_#f7f4ef_100%)] px-4 py-24">
+      <section className="relative bg-[linear-gradient(180deg,_#f2ebe1_0%,_#f7f4ef_100%)] px-4 py-16 sm:py-20 md:py-24">
         <div className="section-divider-dark absolute inset-x-0 top-0 h-20 opacity-20" />
         <div className="container mx-auto grid gap-8 lg:grid-cols-[1.08fr_0.92fr]">
           <div className="flow-card rounded-[2rem] border border-white/80 bg-white/88 p-9 shadow-xl shadow-slate-200/45 animate-reveal-up">
             <SectionLabel>Sobre o ILAC</SectionLabel>
-            <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-slate-950 md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-950 sm:text-4xl md:text-5xl">
               Um método fica mais forte quando a história por trás dele também aparece.
             </h2>
             <p className="mt-6 max-w-2xl text-sm leading-7 text-slate-600">
@@ -456,13 +457,13 @@ const Index = () => {
           </div>
 
           <div className="grid gap-4 animate-fade-in-soft">
-            <div className="flow-card rounded-[2rem] border border-slate-200 bg-white/74 p-8">
+            <div className="flow-card rounded-[1.6rem] border border-slate-200 bg-white/74 p-6 sm:rounded-[2rem] sm:p-8">
               <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary/70">Formação</div>
               <p className="mt-4 text-base leading-8 text-slate-600">
                 O ILAC organiza formação, leitura comportamental e desenvolvimento humano em uma experiência mais clara, madura e aplicável.
               </p>
             </div>
-            <div className="flow-card rounded-[2rem] border border-slate-200 bg-[#efe6da] p-8">
+            <div className="flow-card rounded-[1.6rem] border border-slate-200 bg-[#efe6da] p-6 sm:rounded-[2rem] sm:p-8">
               <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary/70">Aplicação</div>
               <p className="mt-4 text-base leading-8 text-slate-600">
                 O método serve tanto para quem busca autoconhecimento quanto para coaches, consultores, liderança e equipes.

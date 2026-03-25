@@ -5,6 +5,7 @@ interface BrandProps {
   subtitle?: string;
   iconClassName?: string;
   titleClassName?: string;
+  subtitleClassName?: string;
   stacked?: boolean;
 }
 
@@ -13,6 +14,7 @@ const Brand = ({
   subtitle,
   iconClassName = 'h-8 w-8',
   titleClassName = 'text-xl',
+  subtitleClassName = 'mt-1 text-xs tracking-wide text-muted-foreground',
   stacked = false,
 }: BrandProps) => {
   return (
@@ -20,7 +22,7 @@ const Brand = ({
       <img src={iconPrincipal} alt="Marca ILAC" className={iconClassName} />
       <div className={stacked ? 'mt-3 text-center' : ''}>
         <div className={`font-display font-bold leading-none text-primary ${titleClassName}`}>{title}</div>
-        {subtitle ? <div className="mt-1 text-xs tracking-wide text-muted-foreground">{subtitle}</div> : null}
+        {subtitle ? <div className={subtitleClassName}>{subtitle}</div> : null}
       </div>
     </div>
   );
