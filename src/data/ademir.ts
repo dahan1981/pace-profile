@@ -1,65 +1,62 @@
 export const ademirHero = {
   eyebrow: 'Sobre',
-  title: 'Uma história de formação, método e impacto humano.',
+  title: 'Uma história de prática, direção e transformação aplicada.',
   subtitle:
-    'Sob sua liderança, o ILAC se posiciona como um espaço de desenvolvimento humano, leitura comportamental e formação com base prática, ética e consistência.',
+    'O ILAC foi construído a partir da vivência prática no desenvolvimento de pessoas, equipes e lideranças dentro do ambiente empresarial.',
 };
 
 export const ademirSections = [
   {
-    eyebrow: 'Uma história de construção',
-    title: 'Desenvolvimento humano com base, presença e responsabilidade.',
+    eyebrow: 'Construção',
+    title: 'Desenvolvimento humano com base prática e direção consistente.',
     body: [
-      'A trajetória de Ademir Soares foi construída ao redor de uma ideia simples: desenvolvimento real não nasce de frases prontas, mas de leitura humana, repertório e direção.',
-      'Ao longo dos anos, sua atuação reuniu formação, escuta clínica, experiências em desenvolvimento pessoal e ferramentas aplicadas à transformação de indivíduos, líderes e equipes.',
-      'Essa combinação deu origem a uma forma própria de conduzir pessoas: mais clara, mais humana e menos caricata.',
+      'O ILAC foi construído a partir da vivência prática no desenvolvimento de pessoas, equipes e lideranças dentro do ambiente empresarial.',
+      'Ao longo de mais de duas décadas, sua atuação se consolidou com um propósito claro: identificar os fatores comportamentais que travam a performance e transformar esse cenário em resultados mais consistentes, sustentáveis e aplicáveis no dia a dia das empresas.',
     ],
   },
   {
     eyebrow: 'O que sustenta essa visão',
-    title: 'Formação plural, aplicação prática.',
+    title: 'Comportamento, clareza, decisão e execução.',
     body: [
-      'Sua base reúne estudos em teologia, psicanálise clínica, hipnose, terapias integrativas, inteligência emocional, coaching e análise comportamental.',
-      'Mais do que acumular títulos, essa formação sustenta uma leitura ampla do comportamento e da maneira como cada pessoa decide, reage, se relaciona e se desenvolve.',
-      'No ILAC, esse repertório se transforma em método, experiência e ferramentas concretas para quem busca crescimento com direção.',
+      'A visão do ILAC parte de uma constatação simples e profunda: empresas não perdem performance por falta de capacidade técnica, mas por falhas na execução, desalinhamento entre equipes e comportamentos que comprometem o resultado.',
+      'Por isso, o foco não está apenas em ensinar, mas em atuar sobre aquilo que sustenta a entrega real: comportamento, clareza, decisão e execução.',
     ],
   },
   {
     eyebrow: 'O nascimento do método',
-    title: 'O PACE surge como síntese de anos de prática.',
+    title: 'Diagnóstico, intervenção e consolidação.',
     body: [
-      'O Método PACE nasce como uma maneira clara de traduzir padrões de ação e comportamento sem empobrecer a complexidade humana.',
-      'Ele organiza a leitura em quatro forças essenciais: ação, conexão, constância e estratégia. Em vez de rotular, ajuda a enxergar predominâncias, nuances e combinações possíveis.',
-      'Por isso, a ferramenta serve tanto para quem quer autoconhecimento quanto para coaches, consultores, líderes e equipes que precisam de leitura aplicável.',
+      'O método nasce da prática, não da teoria isolada. A experiência acumulada ao longo dos anos mostrou que melhorias momentâneas não resolvem problemas estruturais quando a raiz continua intocada.',
+      'Foi a partir dessa leitura da realidade empresarial que o ILAC estruturou sua atuação em três etapas — diagnóstico, intervenção e consolidação — criando um processo capaz de adaptar-se a cada empresa sem perder consistência no resultado.',
     ],
   },
 ];
 
 export const ademirMilestones = [
-  'Formação em teologia e aprofundamento em escuta e desenvolvimento humano.',
-  'Atuação em psicanálise clínica, hipnose e abordagens terapêuticas integrativas.',
-  'Certificações em coaching, inteligência emocional e análise comportamental.',
-  'Estruturação do ILAC como frente institucional de formação e desenvolvimento.',
-  'Criação do Método PACE como ferramenta autoral de leitura comportamental.',
+  'Formação humanística e aprofundamento em escuta, desenvolvimento e compreensão do comportamento humano.',
+  'Atuação em abordagens clínicas e integrativas, ampliando a leitura sobre mente, comportamento e processo humano.',
+  'Especializações e certificações em coaching, inteligência emocional e análise comportamental.',
+  'Estruturação do ILAC como frente institucional voltada à formação, desenvolvimento e transformação aplicada.',
+  'Criação do Método PACE como síntese autoral de leitura comportamental, aplicação prática e desenvolvimento com direção.',
 ];
 
 export const ademirQuote =
-  'Quando método e sensibilidade caminham juntos, o desenvolvimento deixa de ser discurso e passa a ter efeito real na vida das pessoas.';
+  'Quando método, escuta e sensibilidade caminham juntos, o desenvolvimento deixa de ser discurso e passa a gerar transformação real na vida das pessoas.';
 
 export const ademirLegacy = [
   {
     title: 'Formação',
     description:
-      'Programas e experiências voltados ao amadurecimento pessoal e profissional com linguagem acessível e profundidade real.',
+      'Programas, vivências e processos voltados ao desenvolvimento humano e profissional, com profundidade, aplicabilidade e linguagem acessível.',
   },
   {
     title: 'Leitura comportamental',
     description:
-      'Ferramentas e processos que ajudam a compreender padrões, fortalecer decisões e ampliar repertório humano.',
+      'Um repertório metodológico construído para compreender padrões, ampliar consciência, fortalecer decisões e desenvolver pessoas com mais direção.',
   },
   {
     title: 'Impacto',
     description:
-      'Uma atuação construída para servir pessoas, líderes, consultores e equipes que precisam de mais clareza, direção e consistência.',
+      'Uma atuação que hoje serve líderes, equipes, consultores e organizações que buscam mais clareza, consistência e transformação real na prática.',
   },
 ];
