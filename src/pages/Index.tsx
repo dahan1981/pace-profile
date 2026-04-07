@@ -289,7 +289,7 @@ const Index = () => {
           >
              <div className="absolute inset-0 bg-primary/5 rounded-full blur-3xl transform scale-75"></div>
              <div className="relative w-full max-w-md aspect-square bg-slate-100 rounded-3xl overflow-hidden border border-slate-200 shadow-xl">
-               <img src="/ademir.jpg" alt="Ademir Soares" className="w-full h-full object-cover" />
+               <img src="/ademir.jpeg" alt="Ademir Soares" className="w-full h-full object-cover" />
              </div>
           </motion.div>
           
