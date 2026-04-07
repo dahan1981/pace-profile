@@ -195,51 +195,82 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Soluções (InCompany vs Programas) */}
-      <section className="relative bg-[linear-gradient(180deg,_#162347_0%,_#0f172a_100%)] text-white px-4 py-24 sm:py-32">
-        <div className="container mx-auto">
+      {/* Soluções (Sem Cards Padronizados) */}
+      <section className="relative bg-[#050b14] text-white py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-blue-900/20 via-[#050b14] to-[#050b14] z-0"></div>
+        <div className="container mx-auto relative z-10 space-y-32">
           
+          {/* B2B Corporativo - Full Bleed Asymmetrical */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="grid gap-12 lg:grid-cols-2"
+            className="grid lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-24 items-center"
           >
-            <motion.div variants={fadeInUp} className="bg-white/5 border border-white/10 rounded-3xl p-10 md:p-14 backdrop-blur-sm transition-transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20">
+            <motion.div variants={fadeInUp} className="order-2 lg:order-1 relative w-full aspect-[4/5] bg-white/5 rounded-3xl overflow-hidden border border-white/5 hidden lg:flex items-center justify-center p-8 shadow-2xl">
+                <p className="font-display font-medium text-lg text-white/30 border border-dashed border-white/20 p-8 rounded-xl text-center">
+                  [Adicione Foto Equipe/Executivo]
+                </p>
+            </motion.div>
+            
+            <motion.div variants={fadeInUp} className="order-1 lg:order-2 space-y-8">
               <SectionLabel light>B2B / Corporativo</SectionLabel>
-              <h3 className="mt-4 font-display text-4xl font-bold">ILAC InCompany</h3>
-              <p className="mt-6 text-lg text-white/70 leading-relaxed mb-10 min-h-[5rem]">
-                Treinamentos de times, lideranças, sessões executivas e intervenções altamente personalizadas para as dores do seu negócio.
+              <h3 className="font-display text-5xl sm:text-7xl font-bold leading-tight">ILAC InCompany</h3>
+              <p className="text-xl sm:text-2xl text-white/70 font-light leading-relaxed">
+                Treinamentos diretos aos times, lideranças e diretorias. Intervenções altamente personalizadas para destravar gargalos de execução dentro do seu negócio real.
               </p>
-              <ul className="space-y-4 mb-10 text-white/80">
-                <li>✓ Sessões de Coach Executivo</li>
-                <li>✓ Oratória e PNL</li>
-                <li>✓ Análise de Perfil (Método PACE)</li>
+              <ul className="space-y-4 text-white/80 font-medium text-lg">
+                <li className="flex items-center gap-3"><span className="text-primary">•</span> Sessões Executivas de Alta Perfomance</li>
+                <li className="flex items-center gap-3"><span className="text-primary">•</span> Alinhamento Prático de Gestores</li>
+                <li className="flex items-center gap-3"><span className="text-primary">•</span> Perfis e Contratação (Método PACE)</li>
               </ul>
-              <Link to="/incompany">
-                <Button variant="secondary" size="lg" className="w-full py-6 text-lg font-bold">
-                  Ver Soluções InCompany
-                </Button>
-              </Link>
+              <div className="pt-8">
+                <Link to="/incompany">
+                  <Button size="lg" className="rounded-full px-10 py-8 text-lg bg-primary hover:bg-primary/80 transition-all hover:scale-105 group shadow-2xl shadow-primary/20">
+                    Construir Projeto Corporativo
+                    <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-2" />
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          <div className="w-full h-px bg-white/5"></div>
+
+          {/* B2C Carreira - Full Bleed Asymmetrical */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-24 items-center"
+          >
+            <motion.div variants={fadeInUp} className="space-y-8">
+               <SectionLabel light>B2C / Carreira</SectionLabel>
+               <h3 className="font-display text-5xl sm:text-7xl font-bold leading-tight">Formações & Certificações</h3>
+               <p className="text-xl sm:text-2xl text-white/70 font-light leading-relaxed">
+                 O caminho definitivo para desenvolvimento de carreira através de metodologias internacionais estruturadas. Torne-se um agente de mudança credenciado.
+               </p>
+               <ul className="space-y-4 text-white/80 font-medium text-lg">
+                 <li className="flex items-center gap-3"><span className="text-primary">•</span> Formação de Coaches Internacionais</li>
+                 <li className="flex items-center gap-3"><span className="text-primary">•</span> Oratória, Apresentação e Influência</li>
+                 <li className="flex items-center gap-3"><span className="text-primary">•</span> Aprofundamento no Método das 7 Habilidades</li>
+               </ul>
+               <div className="pt-8">
+                 <Link to="/programas">
+                   <Button size="lg" className="rounded-full px-10 py-8 text-lg bg-white text-slate-950 transition-all hover:scale-105 group shadow-2xl">
+                     Explorar Grade de Formações
+                     <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-2" />
+                   </Button>
+                 </Link>
+               </div>
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="bg-gradient-to-br from-primary to-blue-900 border border-primary/20 rounded-3xl p-10 md:p-14 shadow-2xl transition-transform hover:-translate-y-2 hover:shadow-primary/40">
-              <SectionLabel light>B2C / Carreira</SectionLabel>
-              <h3 className="mt-4 font-display text-4xl font-bold text-white">Formações & Certificações</h3>
-              <p className="mt-6 text-lg text-white/90 leading-relaxed mb-10 min-h-[5rem]">
-                Desenvolvimento de carreira com metodologias internacionais de formação de coaches (PLC, ALC, PEC), Analistas PACE e comunicação.
-              </p>
-              <ul className="space-y-4 mb-10 text-white/90 font-medium">
-                <li>✓ Professional Life Coach e Executive</li>
-                <li>✓ Professional Master Coach</li>
-                <li>✓ Oratória e M7HT</li>
-              </ul>
-              <Link to="/programas">
-                <Button className="w-full py-6 text-lg font-bold bg-white text-primary hover:bg-slate-100">
-                  Explorar Formações
-                </Button>
-              </Link>
+            <motion.div variants={fadeInUp} className="relative w-full aspect-[4/5] bg-white/5 rounded-3xl overflow-hidden border border-white/5 hidden lg:flex items-center justify-center p-8 shadow-2xl">
+                <p className="font-display font-medium text-lg text-white/30 border border-dashed border-white/20 p-8 rounded-xl text-center">
+                  [Adicione Foto Turma/Certificado]
+                </p>
             </motion.div>
           </motion.div>
 
