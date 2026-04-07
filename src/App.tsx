@@ -3,7 +3,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+
+import MarketingLayout from "./components/layout/MarketingLayout";
 import Index from "./pages/Index.tsx";
+import Programas from "./pages/Programas.tsx";
+import InCompany from "./pages/InCompany.tsx";
 import Login from "./pages/Login.tsx";
 import Cadastro from "./pages/Cadastro.tsx";
 import Assessment from "./pages/Assessment.tsx";
@@ -23,7 +27,16 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          {/* Public Marketing Routes */}
+          <Route element={<MarketingLayout />}>
+            <Route path="/" element={<Index />} />
+            <Route path="/sobre" element={<AboutAdemir />} />
+            <Route path="/ademir-soares" element={<AboutAdemir />} />
+            <Route path="/programas" element={<Programas />} />
+            <Route path="/incompany" element={<InCompany />} />
+          </Route>
+
+          {/* App / Authentication Routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/avaliacao" element={<Assessment />} />
@@ -31,8 +44,7 @@ const App = () => (
           <Route path="/usuario" element={<UserDashboard />} />
           <Route path="/empresa" element={<EnterpriseDashboard />} />
           <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/sobre" element={<AboutAdemir />} />
-          <Route path="/ademir-soares" element={<AboutAdemir />} />
+          
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
