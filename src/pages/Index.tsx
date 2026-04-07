@@ -54,7 +54,7 @@ const SectionLabel = ({ children, light = false }: { children: string; light?: b
 
 const Index = () => {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#f8f9fa] text-slate-950 pt-20">
+    <div className="min-h-screen overflow-x-hidden bg-[#f8f9fa] text-slate-950">
       
       {/* Hero Section */}
       <section className="relative flex min-h-[90vh] items-center overflow-hidden bg-black text-white px-4 py-20 sm:py-32">

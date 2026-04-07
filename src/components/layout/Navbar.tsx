@@ -46,44 +46,44 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+      className={`fixed top-0 z-50 w-full transition-all duration-500 border-b ${
         isScrolled
-          ? 'bg-white/90 shadow-md backdrop-blur-md'
-          : 'bg-white/80 backdrop-blur-sm'
+          ? 'bg-white shadow-xl border-slate-200 py-1'
+          : 'bg-transparent border-white/10 py-3'
       }`}
     >
-      <div className="container mx-auto flex min-h-20 items-center justify-between px-4 sm:px-6">
+      <div className="container mx-auto flex items-center justify-between px-4 sm:px-6">
         <Link to="/" className="flex-shrink-0">
           <Brand
             title="ILAC"
             subtitle="Instituto Latino Americano de Coaching"
-            titleClassName="text-lg sm:text-xl"
-            subtitleClassName="hidden lg:block mt-0.5 text-[0.65rem] tracking-widest uppercase font-medium text-slate-500"
-            iconClassName="h-8 w-8 sm:h-10 sm:w-10"
+            titleClassName={`text-lg sm:text-2xl transition-colors ${isScrolled ? 'text-primary' : 'text-white'}`}
+            subtitleClassName={`hidden lg:block mt-0 text-[0.6rem] tracking-[0.2em] uppercase font-bold transition-colors ${isScrolled ? 'text-slate-500' : 'text-white/70'}`}
+            iconClassName={`h-8 w-8 sm:h-12 sm:w-12 transition-all ${!isScrolled && 'brightness-0 invert'}`}
           />
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden flex-1 items-center justify-center gap-8 md:flex">
-          <Link to="/" className="text-sm font-semibold text-slate-700 transition hover:text-primary">
+        <div className="hidden flex-1 items-center justify-center gap-10 lg:flex">
+          <Link to="/" className={`text-sm font-semibold tracking-wide transition-colors ${isScrolled ? 'text-slate-700 hover:text-primary' : 'text-white/90 hover:text-white'}`}>
             Início
           </Link>
-          <Link to="/sobre" className="text-sm font-semibold text-slate-700 transition hover:text-primary">
+          <Link to="/sobre" className={`text-sm font-semibold tracking-wide transition-colors ${isScrolled ? 'text-slate-700 hover:text-primary' : 'text-white/90 hover:text-white'}`}>
             Sobre
           </Link>
 
           {/* Programas Dropdown */}
           <div className="group relative py-6">
-            <Link to="/programas" className="flex items-center gap-1 text-sm font-semibold text-slate-700 transition hover:text-primary">
+            <Link to="/programas" className={`flex items-center gap-1 text-sm font-semibold tracking-wide transition-colors ${isScrolled ? 'text-slate-700 hover:text-primary' : 'text-white/90 hover:text-white'}`}>
               Programas <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
             </Link>
-            <div className="pointer-events-none absolute left-0 top-full mt-0 w-72 origin-top-left translate-y-2 opacity-0 shadow-xl transition-all duration-200 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100">
-              <div className="rounded-xl border border-slate-100 bg-white p-2 shadow-2xl">
+            <div className="pointer-events-none absolute left-0 top-full mt-0 w-[340px] origin-top-left translate-y-3 opacity-0 shadow-2xl transition-all duration-300 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100">
+              <div className="rounded-2xl border border-slate-100 bg-white p-3 shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
                 {PROGRAMAS_LINKS.map((link) => (
                   <Link
                     key={link.href}
                     to={link.href}
-                    className="block rounded-lg px-4 py-2.5 text-sm text-slate-600 transition-colors hover:bg-slate-50 hover:text-primary"
+                    className="block rounded-xl px-4 py-3 text-sm font-medium text-slate-600 transition-all hover:bg-slate-50 hover:text-primary hover:pl-5"
                   >
                     {link.name}
                   </Link>
@@ -94,16 +94,16 @@ const Navbar = () => {
 
           {/* InCompany Dropdown */}
           <div className="group relative py-6">
-            <Link to="/incompany" className="flex items-center gap-1 text-sm font-semibold text-slate-700 transition hover:text-primary">
+            <Link to="/incompany" className={`flex items-center gap-1 text-sm font-semibold tracking-wide transition-colors ${isScrolled ? 'text-slate-700 hover:text-primary' : 'text-white/90 hover:text-white'}`}>
               InCompany <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
             </Link>
-            <div className="pointer-events-none absolute left-0 top-full mt-0 w-72 origin-top-left translate-y-2 opacity-0 shadow-xl transition-all duration-200 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100">
-              <div className="rounded-xl border border-slate-100 bg-white p-2 shadow-2xl">
+            <div className="pointer-events-none absolute left-0 top-full mt-0 w-[340px] origin-top-left translate-y-3 opacity-0 shadow-2xl transition-all duration-300 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100">
+              <div className="rounded-2xl border border-slate-100 bg-white p-3 shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
                 {INCOMPANY_LINKS.map((link) => (
                   <Link
                     key={link.href}
                     to={link.href}
-                    className="block rounded-lg px-4 py-2.5 text-sm text-slate-600 transition-colors hover:bg-slate-50 hover:text-primary"
+                    className="block rounded-xl px-4 py-3 text-sm font-medium text-slate-600 transition-all hover:bg-slate-50 hover:text-primary hover:pl-5"
                   >
                     {link.name}
                   </Link>
@@ -114,14 +114,14 @@ const Navbar = () => {
         </div>
 
         {/* CTA */}
-        <div className="hidden shrink-0 items-center gap-3 md:flex">
+        <div className="hidden shrink-0 items-center gap-4 md:flex">
           <Link to="/login">
-            <Button variant="ghost" className="font-semibold text-slate-600">
+            <Button variant="ghost" className={`font-semibold tracking-wide transition-colors ${isScrolled ? 'text-slate-600 hover:text-primary' : 'text-white hover:text-white hover:bg-white/10'}`}>
               Entrar
             </Button>
           </Link>
           <Link to="/cadastro">
-            <Button className="font-semibold px-6 rounded-full shadow-lg shadow-primary/20">
+            <Button className={`font-semibold tracking-wide px-8 py-5 rounded-full shadow-2xl transition-all ${isScrolled ? 'bg-primary hover:bg-primary/90 text-white' : 'bg-white text-primary hover:bg-slate-100'}`}>
               Assine Agora
             </Button>
           </Link>
@@ -129,10 +129,10 @@ const Navbar = () => {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden p-2 text-slate-600"
+          className={`lg:hidden p-2 transition-colors ${isScrolled ? 'text-slate-900' : 'text-white'}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {mobileMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
         </button>
       </div>
 

@@ -1,168 +1,168 @@
-﻿import { Link } from 'react-router-dom';
-import Brand from '@/components/Brand';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import {
-  ademirHero,
-  ademirLegacy,
-  ademirMilestones,
-  ademirQuote,
-  ademirSections,
-} from '@/data/ademir';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { motion, Variants } from 'framer-motion';
 
-const PhotoPlaceholder = ({ label }: { label: string }) => (
-  <div className="flow-card relative overflow-hidden rounded-[1.6rem] border border-white/70 bg-[linear-gradient(180deg,_rgba(255,255,255,0.95)_0%,_rgba(238,242,247,0.92)_100%)] shadow-xl shadow-slate-200/45 sm:rounded-[2rem]">
-    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(199,45,62,0.12),_transparent_38%),radial-gradient(circle_at_bottom,_rgba(12,33,84,0.12),_transparent_42%)]" />
-    <div className="relative flex min-h-[280px] flex-col justify-between p-6 sm:min-h-[360px] sm:p-8 md:min-h-[420px]">
-      <div className="text-xs font-semibold uppercase tracking-[0.24em] text-primary/55">Retrato</div>
-      <div>
-        <div className="font-display text-3xl font-bold text-slate-950 sm:text-4xl">Ademir Soares</div>
-        <p className="mt-3 max-w-sm text-sm leading-7 text-slate-600">{label}</p>
-      </div>
-    </div>
-  </div>
-);
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } }
+};
 
 const AboutAdemir = () => {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[linear-gradient(180deg,_#f6f1ea_0%,_#f3eee7_48%,_#f7f4ef_100%)] text-slate-950">
-      <nav className="sticky top-0 z-50 border-b border-white/60 bg-background/82 backdrop-blur-xl">
-        <div className="container mx-auto flex min-h-16 items-center justify-between gap-3 px-4 py-2">
-          <Brand
-            title="ILAC"
-            subtitle="Instituto Latino Americano de Coaching"
-            titleClassName="text-base sm:text-lg"
-            subtitleClassName="mt-1 hidden text-xs tracking-wide text-muted-foreground md:block"
-            iconClassName="h-7 w-7 sm:h-8 sm:w-8"
-          />
-          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
-            <Link to="/">
-              <Button variant="ghost" size="sm" className="gap-2">
-                <ArrowLeft className="h-4 w-4" />
-                Voltar ao site
-              </Button>
-            </Link>
-            <Link to="/cadastro">
-              <Button size="sm" className="px-2.5 text-xs shadow-lg shadow-primary/20 sm:px-3 sm:text-sm">
-                Conhecer o método
-              </Button>
-            </Link>
-          </div>
+    <div className="bg-[#f8f9fa] text-slate-900 min-h-screen pb-0">
+      
+      {/* Hero Interativo */}
+      <section className="relative flex min-h-[85vh] items-center overflow-hidden bg-slate-950 px-4 pt-32 pb-40 text-white sm:pt-48 border-b-[12px] border-primary">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-blue-900/60 via-slate-950 to-slate-950"></div>
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-[linear-gradient(90deg,_rgba(2,6,23,1)_0%,_rgba(255,255,255,0)_100%)] z-10" />
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-50"></div>
         </div>
-      </nav>
-
-      <section className="relative overflow-hidden bg-[linear-gradient(180deg,_#f6f1ea_0%,_#f3eee7_100%)] px-4 pb-16 pt-20 md:pb-24 md:pt-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(199,45,62,0.12),_transparent_26%),radial-gradient(circle_at_top_right,_rgba(12,33,84,0.1),_transparent_30%)]" />
-        <div className="container mx-auto grid items-end gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="max-w-3xl animate-reveal-up">
-            <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary/70">{ademirHero.eyebrow}</div>
-            <h1 className="mt-5 font-display text-4xl font-bold leading-[1.04] text-slate-950 sm:text-5xl md:text-7xl">
-              {ademirHero.title}
+        
+        <motion.div 
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          className="container mx-auto relative z-10"
+        >
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-3 text-white/50 text-xs font-bold uppercase tracking-[0.3em] mb-8">
+              <span className="w-8 h-px bg-white/30"></span> A História
+            </div>
+            <h1 className="font-display text-5xl sm:text-7xl font-bold leading-[1.05] tracking-tight mb-10">
+              O Poder do Comportamento <br/><span className="text-primary italic">Aplicado.</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
-              {ademirHero.subtitle}
+            <p className="text-xl sm:text-2xl text-white/70 max-w-2xl font-light leading-relaxed mb-12">
+              Transformar pessoas não é um fim em si mesmo. É o único caminho validado para transformar os resultados de uma corporação inteira.
             </p>
-            <div className="mt-10 max-w-2xl border-l border-primary/15 pl-5 text-sm leading-7 text-slate-600">
-              Uma trajetória construída com visão, formação, experiência prática e compromisso com desenvolvimento humano.
-            </div>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <Link to="/cadastro">
-                <Button size="lg" className="w-full gap-2 shadow-lg shadow-primary/20 sm:w-auto">
-                  Conhecer a experiência PACE
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
-              <Link to="/">
-                <Button size="lg" variant="outline" className="w-full border-primary/20 bg-white/75 sm:w-auto">
-                  Voltar ao início
-                </Button>
-              </Link>
-            </div>
           </div>
+        </motion.div>
 
-          <div className="animate-fade-in-soft">
-            <PhotoPlaceholder label="Retrato principal com presença institucional, proximidade e força humana." />
-          </div>
-        </div>
+        {/* Floating placeholder for a Hero portrait/image */}
+        <motion.div 
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="absolute right-0 bottom-0 w-2/5 h-[90%] hidden lg:flex items-end justify-end pointer-events-none"
+        >
+           <div className="w-full h-full bg-white/5 backdrop-blur-sm border-l border-t border-white/10 rounded-tl-[4rem] flex flex-col items-center justify-center p-12 text-center relative overflow-hidden">
+              <div className="absolute inset-0 flex items-center justify-center">
+                 <p className="font-display text-2xl text-white/30 border border-dashed border-white/20 p-8 rounded-3xl">
+                   [Foto Hero Ademir Soares / ILAC]
+                 </p>
+              </div>
+           </div>
+        </motion.div>
       </section>
 
-      {ademirSections.map((section, index) => {
-        const reverse = index % 2 === 1;
-        const sectionTone = index % 2 === 1 ? 'bg-[linear-gradient(180deg,_#ffffff_0%,_#faf7f2_100%)]' : 'bg-[linear-gradient(180deg,_#f1e9de_0%,_#f6f0e7_100%)]';
-
-        return (
-          <section key={section.title} className={`relative px-4 py-14 md:py-20 ${sectionTone}`}>
-            <div className={`absolute inset-x-0 top-0 h-20 ${index % 2 === 1 ? 'section-divider-light' : 'section-divider-warm'}`} />
-            <div
-              className={`container mx-auto grid items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] ${
-                reverse ? 'lg:grid-cols-[1.08fr_0.92fr]' : ''
-              }`}
-            >
-              <div className={`${reverse ? 'lg:order-2' : ''} animate-reveal-up`}>
-                <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary/70">{section.eyebrow}</div>
-                <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold leading-tight text-slate-950 sm:text-4xl md:text-5xl">
-                  {section.title}
-                </h2>
-                <div className="mt-6 space-y-5 max-w-2xl text-base leading-8 text-slate-600">
-                  {section.body.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                </div>
-              </div>
-
-              <div className={`${reverse ? 'lg:order-1' : ''} animate-fade-in-soft`}>
-                <PhotoPlaceholder label={`Espaço reservado para foto ${index + 1} da história do Ademir.`} />
-              </div>
-            </div>
-          </section>
-        );
-      })}
-
-      <section className="relative bg-[linear-gradient(180deg,_#162347_0%,_#0f172a_100%)] px-4 py-14 text-white md:py-20">
-        <div className="section-divider-light absolute inset-x-0 top-0 h-20 opacity-20" />
-        <div className="container mx-auto rounded-[2.2rem] border border-white/70 bg-slate-950 px-8 py-10 text-white shadow-2xl shadow-slate-300/30 md:px-10 md:py-12">
-          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-            <div className="animate-reveal-up">
-              <div className="text-sm font-semibold uppercase tracking-[0.24em] text-white/55">Visão</div>
-              <blockquote className="mt-4 max-w-3xl font-display text-4xl font-bold leading-tight md:text-5xl">
-                “{ademirQuote}”
-              </blockquote>
-            </div>
-            <div className="grid gap-3 animate-fade-in-soft">
-              {ademirMilestones.map((item, index) => (
-                <div key={item} className="flow-card rounded-[1.4rem] border border-white/10 bg-white/6 px-5 py-4">
-                  <div className="text-xs font-semibold uppercase tracking-[0.22em] text-white/40">Marco {index + 1}</div>
-                  <p className="mt-2 text-sm leading-7 text-white/78">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative bg-[linear-gradient(180deg,_#f2ebe1_0%,_#f7f4ef_100%)] px-4 pb-20 pt-12">
-        <div className="section-divider-dark absolute inset-x-0 top-0 h-20 opacity-15" />
+      {/* Visão e Origem (Timeline assimétrica) */}
+      <section className="relative px-4 py-32 sm:py-48 bg-white overflow-hidden">
         <div className="container mx-auto">
-          <div className="max-w-2xl animate-reveal-up">
-            <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary/70">Legado</div>
-            <h2 className="mt-4 font-display text-4xl font-bold leading-tight text-slate-950 md:text-5xl">
-              O que essa trajetória entrega hoje ao ILAC.
-            </h2>
-          </div>
+           <div className="grid lg:grid-cols-[1fr_1.3fr] gap-16 lg:gap-32 items-start">
+              
+              {/* Esquerda: Imagem Fixa ou Grande Placeholder */}
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={fadeInUp}
+                className="relative lg:sticky top-32"
+              >
+                 <div className="w-full aspect-[3/4] bg-slate-100 rounded-[3rem] p-10 flex items-center justify-center border border-slate-200">
+                    <p className="font-display text-xl text-slate-400 border border-dashed border-slate-300 p-6 rounded-2xl text-center">
+                      [Foto Origem / Institucional]
+                    </p>
+                 </div>
+                 
+                 <div className="absolute -bottom-10 -right-10 bg-primary text-white p-10 rounded-[2.5rem] shadow-2xl max-w-xs">
+                    <h3 className="font-display text-5xl font-bold mb-2">20+</h3>
+                    <p className="font-medium text-white/80">Anos transformando comportamentos em escala global.</p>
+                 </div>
+              </motion.div>
 
-            <div className="mt-10 grid gap-4 md:grid-cols-3 animate-fade-in-soft">
-            {ademirLegacy.map((item) => (
-              <div key={item.title} className="flow-card rounded-[1.6rem] border border-white/80 bg-white/84 p-6 shadow-xl shadow-slate-200/45 sm:rounded-[2rem] sm:p-8">
-                <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary/68">{item.title}</div>
-                <p className="mt-4 text-base leading-8 text-slate-600">{item.description}</p>
+              {/* Direita: Textos Densos / História */}
+              <div className="space-y-32 pt-10">
+                 <motion.div 
+                   initial="hidden"
+                   whileInView="visible"
+                   viewport={{ once: true, margin: "-100px" }}
+                   variants={fadeInUp}
+                 >
+                    <div className="text-primary font-bold uppercase tracking-widest text-sm mb-6">A Fundação</div>
+                    <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-8">
+                       Uma tese construída nas trincheiras da rotina empresarial.
+                    </h2>
+                    <div className="space-y-6 text-xl text-slate-600 font-light leading-relaxed">
+                       <p>Ao longo de mais de duas décadas, a atuação sempre foi pautada em observar um denominador comum: a frustração corporativa em contratar talentos brilhantes no currículo que ruíam na execução colaborativa.</p>
+                       <p>O ILAC nasce não apenas como um observador passivo desse cenário, mas como um Instituto focado em criar e homologar metodologias reais para intervir nisso.</p>
+                    </div>
+                 </motion.div>
+
+                 <motion.div 
+                   initial="hidden"
+                   whileInView="visible"
+                   viewport={{ once: true, margin: "-100px" }}
+                   variants={fadeInUp}
+                 >
+                    <div className="text-primary font-bold uppercase tracking-widest text-sm mb-6">Ademir Soares</div>
+                    <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-8">
+                       O Master Coach por trás da arquitetura do ILAC.
+                    </h2>
+                    <div className="space-y-6 text-xl text-slate-600 font-light leading-relaxed">
+                       <p>Como CEO e Master Coach, Ademir consolidou experiência prática desenvolvendo C-levels de empresas multi-nacionais e estruturando imersões profundas desenhadas para quebrar o viés limitante de equipes.</p>
+                       <p>A crença é direta: teoria não muda o resultado de ninguém se não esbarrar na execução. Por isso cada braço do ILAC (Formações ou InCompany) possui o peso de validação acadêmica e selo garantido por resultados de campo.</p>
+                    </div>
+                 </motion.div>
+
+                 <motion.div 
+                   initial="hidden"
+                   whileInView="visible"
+                   viewport={{ once: true, margin: "-100px" }}
+                   variants={fadeInUp}
+                 >
+                    {/* Placeholder para bloco de diploma/certificado */}
+                    <div className="w-full h-64 bg-slate-100 rounded-3xl flex items-center justify-center border border-slate-200 shadow-inner">
+                       <p className="font-display text-lg text-slate-400 border border-dashed border-slate-300 p-4 rounded-xl">
+                         [Foto Certificação/Logos Parceiros Mackenzie]
+                       </p>
+                    </div>
+                 </motion.div>
               </div>
-            ))}
-          </div>
+
+           </div>
         </div>
       </section>
+
+      {/* Frase / Imagem Gigante de Fundo (Parallax Feel) */}
+      <section className="relative px-4 py-40 bg-slate-950 text-center overflow-hidden">
+         <motion.div 
+           initial={{ scale: 1.1, opacity: 0 }}
+           whileInView={{ scale: 1, opacity: 1 }}
+           viewport={{ once: true }}
+           transition={{ duration: 1.5, ease: "easeOut" }}
+           className="absolute inset-0 z-0 bg-slate-900/50"
+         >
+           <div className="w-full h-full border-[20px] border-black flex items-center justify-center">
+             <p className="font-display text-xl text-white/20 uppercase tracking-widest border border-dashed border-white/10 p-10 rounded-3xl">
+                [Background Foto Wide / Turma Full]
+             </p>
+           </div>
+         </motion.div>
+
+         <div className="relative z-10 container mx-auto max-w-5xl">
+            <h2 className="font-display text-5xl sm:text-7xl font-bold text-white leading-[1.1] mb-12 drop-shadow-2xl">
+              "Para chegarmos a novos patamares, os velhos padrões precisam cair."
+            </h2>
+            <Link to="/programas">
+               <Button className="rounded-full px-12 py-8 bg-white text-slate-900 font-bold text-xl hover:bg-primary hover:text-white transition-all hover:scale-105 shadow-2xl">
+                 Venha conhecer nossas metodologias
+               </Button>
+            </Link>
+         </div>
+      </section>
+
     </div>
   );
 };
 
 export default AboutAdemir;
-
