@@ -288,10 +288,8 @@ const Index = () => {
             className="order-2 lg:order-1 relative flex justify-center"
           >
              <div className="absolute inset-0 bg-primary/5 rounded-full blur-3xl transform scale-75"></div>
-             <div className="relative w-full max-w-md aspect-square bg-slate-100 rounded-3xl overflow-hidden border border-slate-200">
-               <div className="absolute inset-0 flex items-center justify-center text-slate-300 font-display font-bold text-2xl px-10 text-center">
-                 "Comportamento não se ajusta com teoria. Se desenvolve com método."
-               </div>
+             <div className="relative w-full max-w-md aspect-square bg-slate-100 rounded-3xl overflow-hidden border border-slate-200 shadow-xl">
+               <img src="/ademir.jpg" alt="Ademir Soares" className="w-full h-full object-cover" />
              </div>
           </motion.div>
           
