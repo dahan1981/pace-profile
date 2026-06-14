@@ -48,10 +48,10 @@ const Programas = () => {
           className="container mx-auto relative z-10 text-center max-w-5xl"
         >
           <div className="text-sm font-semibold uppercase tracking-[0.3em] text-white/50 mb-6">Carreiras & Formações</div>
-          <h1 className="font-display text-5xl sm:text-7xl lg:text-[6rem] font-bold leading-[1.05] tracking-tight mb-8">
+          <h1 className="mb-8 font-display text-[2.85rem] font-bold leading-[0.98] tracking-tight sm:text-6xl lg:text-[6rem]">
             Sua Próxima Evolução <span className="text-primary border-b-4 border-primary">Profissional.</span>
           </h1>
-          <p className="text-lg sm:text-2xl text-white/70 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="mx-auto max-w-3xl text-base font-light leading-7 text-white/70 sm:text-2xl sm:leading-relaxed">
             Esqueça apenas teoria. Desenvolva-se através de métodos certificados que entregam prática real.
           </p>
         </motion.div>
@@ -71,7 +71,7 @@ const Programas = () => {
               viewport={{ once: true, margin: "-150px" }}
               className="relative overflow-hidden"
             >
-              <div className={`container mx-auto px-4 py-24 sm:py-32 grid lg:grid-cols-2 gap-16 lg:gap-24 items-center`}>
+              <div className={`container mx-auto grid items-center gap-10 px-4 py-16 sm:py-24 lg:grid-cols-2 lg:gap-24 lg:py-32`}>
                 
                 {/* Background Large Number */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[30vw] font-bold text-slate-900/[0.03] select-none z-0 pointer-events-none font-display">
@@ -85,15 +85,15 @@ const Programas = () => {
                   <div className="inline-block border border-primary/20 bg-primary/5 text-primary text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full">
                     {prog.tag}
                   </div>
-                  <h2 className="font-display text-4xl sm:text-6xl font-bold leading-tight text-slate-900 tracking-tight">
+                  <h2 className="font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
                     {prog.title}
                   </h2>
-                  <p className="text-xl leading-relaxed text-slate-600 font-light">
+                  <p className="text-lg font-light leading-relaxed text-slate-600 sm:text-xl">
                     {prog.description}
                   </p>
                   <div className="pt-4">
                     <Link to="/cadastro">
-                      <Button size="lg" className="h-16 px-10 rounded-full bg-slate-900 hover:bg-primary text-white text-lg shadow-xl shadow-slate-900/10 transition-all hover:scale-105 group">
+                      <Button size="lg" className="group h-14 w-full rounded-full bg-slate-900 px-8 text-base text-white shadow-xl shadow-slate-900/10 transition-all hover:scale-105 hover:bg-primary sm:h-16 sm:w-auto sm:px-10 sm:text-lg">
                         Tenho interesse
                         <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-2" />
                       </Button>
@@ -104,7 +104,7 @@ const Programas = () => {
                 {/* Bloco de Imagem Placeholder */}
                 <motion.div 
                   variants={isEven ? fadeRight : fadeLeft}
-                  className={`relative z-10 w-full aspect-[4/5] md:aspect-square bg-slate-200 rounded-[2.5rem] overflow-hidden shadow-2xl flex items-center justify-center border border-white ${isEven ? 'lg:order-2' : 'lg:order-1'}`}
+                  className={`relative z-10 flex w-full aspect-[4/5] items-center justify-center overflow-hidden rounded-[2rem] border border-white bg-slate-200 shadow-2xl md:aspect-square lg:rounded-[2.5rem] ${isEven ? 'lg:order-2' : 'lg:order-1'}`}
                 >
                   <div className="absolute inset-0 bg-[linear-gradient(135deg,_rgba(0,0,0,0.03)_0%,_rgba(0,0,0,0.1)_100%)]"></div>
                   
@@ -141,14 +141,14 @@ const Programas = () => {
         className="relative px-4 py-32 bg-slate-100"
       >
         <div className="container mx-auto text-center max-w-4xl">
-          <h2 className="font-display text-4xl sm:text-6xl font-bold text-slate-900 mb-8 tracking-tight">
+          <h2 className="mb-8 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-6xl">
             Pronto para transformar sua carreira no ILAC?
           </h2>
-          <p className="text-xl text-slate-600 mb-12 font-light">
+          <p className="mb-12 text-lg font-light text-slate-600 sm:text-xl">
             Nossas turmas são estruturadas visando certificação sólida e extensões acadêmicas validadas em nível nacional.
           </p>
           <Link to="/cadastro">
-            <Button size="lg" className="rounded-full px-12 py-8 text-xl shadow-2xl shadow-primary/30 transition-transform hover:scale-105 bg-primary">
+            <Button size="lg" className="w-full rounded-full bg-primary px-10 py-6 text-lg shadow-2xl shadow-primary/30 transition-transform hover:scale-105 sm:w-auto sm:px-12 sm:py-8 sm:text-xl">
               Fale com um Consultor Especialista
             </Button>
           </Link>

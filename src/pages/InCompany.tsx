@@ -37,7 +37,7 @@ const InCompany = () => {
     <div className="bg-[#f8f9fa] text-slate-900 min-h-screen pb-0">
       
       {/* Hero Interativo */}
-      <section className="relative overflow-hidden bg-slate-950 px-4 pt-32 pb-40 text-white sm:pt-48 border-b-8 border-primary">
+      <section className="relative overflow-hidden border-b-8 border-primary bg-slate-950 px-4 pb-24 pt-24 text-white sm:pt-40 md:pb-40 md:pt-48">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/60 via-slate-950/90 to-slate-950"></div>
           {/* Efeitos parallax no fundo (linhas corporativas) */}
@@ -54,14 +54,14 @@ const InCompany = () => {
             <div className="inline-block border border-white/20 bg-white/5 backdrop-blur text-white text-xs font-bold uppercase tracking-[0.2em] px-5 py-2 rounded-full mb-8">
               B2B Corporativo
             </div>
-            <h1 className="font-display text-5xl sm:text-7xl font-bold leading-[1.1] tracking-tight mb-8">
+            <h1 className="mb-8 font-display text-[2.85rem] font-bold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl">
               Negócios Escaláveis Dependem de <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Pessoas.</span>
             </h1>
-            <p className="text-xl sm:text-2xl text-white/70 max-w-xl font-light leading-relaxed mb-10">
+            <p className="mb-10 max-w-xl text-base font-light leading-7 text-white/70 sm:text-2xl sm:leading-relaxed">
               O ILAC InCompany entra onde as soluções tradicionais falham: na correção exata do comportamento que freia o faturamento.
             </p>
             <Link to="/cadastro?type=empresa">
-              <Button size="lg" className="rounded-full px-10 py-7 text-lg bg-primary hover:bg-primary/80 transition-all hover:scale-105 group">
+              <Button size="lg" className="group w-full rounded-full bg-primary px-8 py-6 text-base transition-all hover:scale-105 hover:bg-primary/80 sm:w-auto sm:px-10 sm:py-7 sm:text-lg">
                 Desenvolver Minha Empresa
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-2" />
               </Button>
@@ -95,7 +95,7 @@ const InCompany = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="font-display text-4xl sm:text-5xl font-bold text-slate-900"
+              className="font-display text-3xl font-bold text-slate-900 sm:text-5xl"
             >
               Arquitetura de Intervenção
             </motion.h2>
@@ -109,7 +109,7 @@ const InCompany = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8 }}
-                className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-20 items-center bg-slate-50 p-8 md:p-12 lg:p-16 rounded-[3rem] border border-slate-100 shadow-xl"
+                className="grid items-center gap-10 rounded-[2rem] border border-slate-100 bg-slate-50 p-6 shadow-xl md:p-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20 lg:rounded-[3rem] lg:p-16"
               >
                 <div>
                   <div className="flex items-center gap-4 mb-6">
@@ -120,15 +120,15 @@ const InCompany = () => {
                       {service.subtitle}
                     </h4>
                   </div>
-                  <h3 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+                  <h3 className="mb-6 font-display text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">
                     {service.title}
                   </h3>
-                  <p className="text-xl text-slate-600 leading-relaxed font-light mb-10">
+                  <p className="mb-10 text-lg font-light leading-relaxed text-slate-600 sm:text-xl">
                     {service.description}
                   </p>
                   <ul className="space-y-4">
                     {service.bullets.map((bullet, i) => (
-                      <li key={i} className="flex items-center gap-3 text-lg font-medium text-slate-800">
+                      <li key={i} className="flex items-center gap-3 text-base font-medium text-slate-800 sm:text-lg">
                         <CheckCircle2 className="h-6 w-6 text-green-500 shrink-0" />
                         {bullet}
                       </li>
@@ -137,7 +137,7 @@ const InCompany = () => {
                 </div>
                 
                 {/* Imagem Placeholder Gigante à Direita (Sem Cara de Grid) */}
-                <div className="relative w-full aspect-square bg-[#e2e8f0] rounded-[2.5rem] overflow-hidden flex items-center justify-center border border-slate-200">
+                <div className="relative flex w-full aspect-square items-center justify-center overflow-hidden rounded-[2rem] border border-slate-200 bg-[#e2e8f0] lg:rounded-[2.5rem]">
                   <div className="text-center p-8 text-slate-400">
                     <p className="font-display font-medium text-lg border border-dashed border-slate-300 rounded-xl p-6">
                       [Espaço para Foto de {service.subtitle}]
@@ -162,14 +162,14 @@ const InCompany = () => {
           className="container mx-auto relative z-10 max-w-4xl"
         >
           <div className="text-sm font-bold uppercase tracking-[0.3em] text-white/40 mb-6">Próximo Passo</div>
-          <h2 className="font-display text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">
+          <h2 className="mb-8 font-display text-3xl font-bold tracking-tight text-white md:text-6xl">
             Vamos desenhar o projeto ideal para o seu corporativo.
           </h2>
-          <p className="text-xl text-white/60 font-light mb-12">
+          <p className="mb-12 text-lg font-light text-white/60 sm:text-xl">
             Nossos consultores analisarão o seu cenário para apresentar a proposta exata que alavanca sua métrica mais urgente através das suas pessoas.
           </p>
           <Link to="/cadastro?type=empresa">
-            <Button size="lg" className="rounded-full px-12 py-8 text-xl font-bold shadow-2xl transition-transform hover:scale-105 bg-white text-slate-900 hover:bg-slate-100">
+            <Button size="lg" className="w-full rounded-full bg-white px-10 py-6 text-lg font-bold text-slate-900 shadow-2xl transition-transform hover:scale-105 hover:bg-slate-100 sm:w-auto sm:px-12 sm:py-8 sm:text-xl">
               Solicitar Diagnóstico
             </Button>
           </Link>
