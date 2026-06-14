@@ -102,7 +102,9 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Sora', sans-serif;
     letter-spacing: -0.03em;
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
   }
 }
 
