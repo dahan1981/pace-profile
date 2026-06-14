@@ -172,10 +172,10 @@ const Programas = () => {
 
                 <motion.div
                   variants={isEven ? fadeRight : fadeLeft}
-                  className={`relative z-10 grid content-start gap-4 self-stretch rounded-[2rem] border border-slate-200 bg-white p-6 shadow-2xl lg:rounded-[2.5rem] ${isEven ? 'lg:order-2' : 'lg:order-1'}`}
+                  className={`marketing-card-light relative z-10 grid content-start gap-4 self-stretch rounded-[2rem] p-6 shadow-2xl lg:rounded-[2.5rem] ${isEven ? 'lg:order-2' : 'lg:order-1'}`}
                 >
-                  <div className="rounded-[1.5rem] border border-primary/12 bg-primary/5 p-6">
-                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-primary/70">
+                  <div className="marketing-card-light rounded-[1.5rem] p-6 shadow-none">
+                    <div className="marketing-kicker text-primary/70">
                       Leitura rápida
                     </div>
                     <p className="mt-3 text-base leading-7 text-slate-700">
@@ -187,9 +187,9 @@ const Programas = () => {
                   {prog.highlights.map((item, itemIndex) => (
                     <div
                       key={`${prog.id}-${itemIndex}`}
-                      className="rounded-[1.35rem] border border-slate-200 bg-slate-50 p-5"
+                      className="marketing-card-soft rounded-[1.35rem] p-5"
                     >
-                      <div className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                      <div className="marketing-kicker text-slate-500">
                         Destaque {String(itemIndex + 1).padStart(2, '0')}
                       </div>
                       <p className="mt-3 text-base font-medium leading-7 text-slate-800">

@@ -105,8 +105,8 @@ const InCompany = () => {
           </div>
 
           <div className="hidden lg:block">
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-md">
-              <div className="text-sm font-semibold uppercase tracking-[0.18em] text-white/45">
+            <div className="marketing-card-dark rounded-[2rem] p-8">
+              <div className="marketing-kicker text-white/45">
                 Como entra
               </div>
               <h3 className="mt-4 font-display text-4xl font-bold leading-tight text-white">
@@ -114,8 +114,8 @@ const InCompany = () => {
               </h3>
               <div className="mt-8 space-y-4">
                 {heroPoints.map((point, index) => (
-                  <div key={point} className="rounded-[1.4rem] border border-white/8 bg-black/15 p-5">
-                    <div className="text-xs font-semibold uppercase tracking-[0.16em] text-primary/80">
+                  <div key={point} className="marketing-card-dark-soft rounded-[1.4rem] p-5">
+                    <div className="marketing-kicker text-primary/80">
                       Etapa {String(index + 1).padStart(2, '0')}
                     </div>
                     <p className="mt-3 text-base leading-7 text-white/76">{point}</p>
@@ -148,7 +148,7 @@ const InCompany = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.8 }}
-                className="grid items-center gap-10 rounded-[2rem] border border-slate-100 bg-slate-50 p-6 shadow-xl md:p-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20 lg:rounded-[3rem] lg:p-16"
+                className="marketing-card-light grid items-center gap-10 rounded-[2rem] p-6 md:p-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20 lg:rounded-[3rem] lg:p-16"
               >
                 <div>
                   <div className="mb-6 flex items-center gap-4">
@@ -176,8 +176,8 @@ const InCompany = () => {
                 </div>
 
                 <div className="grid gap-4">
-                  <div className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
-                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-primary/70">
+                  <div className="marketing-card-light rounded-[1.75rem] p-6 shadow-none">
+                    <div className="marketing-kicker text-primary/70">
                       Onde atua
                     </div>
                     <p className="mt-3 text-lg font-semibold leading-8 text-slate-900">
@@ -187,9 +187,9 @@ const InCompany = () => {
                   {service.bullets.map((bullet, index) => (
                     <div
                       key={`${service.id}-${index}`}
-                      className="rounded-[1.5rem] border border-slate-200 bg-slate-100/80 p-5"
+                      className="marketing-card-soft rounded-[1.5rem] p-5"
                     >
-                      <div className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                      <div className="marketing-kicker text-slate-500">
                         Entrega {String(index + 1).padStart(2, '0')}
                       </div>
                       <p className="mt-3 text-base font-medium leading-7 text-slate-700">

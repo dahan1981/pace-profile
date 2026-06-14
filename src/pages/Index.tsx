@@ -49,9 +49,7 @@ const solutionTracks = [
       'Para operações que já têm talento, mas ainda perdem ritmo, clareza e consistência na execução.',
     href: '/incompany',
     cta: 'Construir Projeto Corporativo',
-    cardTone: 'border-white/10 bg-white/6',
-    panelTone: 'border-white/8 bg-black/18',
-  },
+    },
   {
     label: 'B2C / Carreira',
     title: 'Formações & Certificações',
@@ -67,8 +65,6 @@ const solutionTracks = [
       'Formação consistente, direção técnica e repertório aplicável para quem quer crescer com base real, não só discurso.',
     href: '/programas',
     cta: 'Explorar Grade de Formações',
-    cardTone: 'border-primary/20 bg-primary/10',
-    panelTone: 'border-white/8 bg-white/6',
   },
 ];
 
@@ -306,7 +302,7 @@ const Index = () => {
               whileInView="visible"
               viewport={{ once: true, margin: '-100px' }}
               variants={staggerContainer}
-              className={`grid gap-8 rounded-[2rem] border p-8 shadow-2xl lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:p-12 ${track.cardTone}`}
+              className="marketing-card-dark grid gap-8 rounded-[2rem] p-8 shadow-2xl lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:p-12"
             >
               <motion.div variants={fadeInUp} className="space-y-8">
                 <SectionLabel light>{track.label}</SectionLabel>
@@ -338,8 +334,8 @@ const Index = () => {
               </motion.div>
 
               <motion.div variants={fadeInUp} className="grid content-start gap-4 self-stretch">
-                <div className="rounded-[1.75rem] border border-white/10 bg-white/6 p-6">
-                  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-white/45">
+                <div className="marketing-card-dark-soft rounded-[1.75rem] p-6">
+                  <div className="marketing-kicker text-white/45">
                     {track.supportTitle}
                   </div>
                   <p className="mt-4 text-base leading-7 text-white/72 sm:text-lg">
@@ -349,9 +345,9 @@ const Index = () => {
                 {track.bullets.map((bullet, index) => (
                   <div
                     key={`${track.title}-${index}`}
-                    className={`rounded-[1.5rem] border p-5 ${track.panelTone}`}
+                    className="marketing-card-dark-soft rounded-[1.5rem] p-5"
                   >
-                    <div className="text-xs font-semibold uppercase tracking-[0.16em] text-primary/80">
+                    <div className="marketing-kicker text-primary/80">
                       Frente {String(index + 1).padStart(2, '0')}
                     </div>
                     <p className="mt-3 text-base font-medium leading-7 text-white/82">
