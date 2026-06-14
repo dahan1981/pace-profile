@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { FormEvent, useMemo, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { RefreshCcw, X } from "lucide-react";
@@ -7,11 +7,37 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
+type LeadType = "empresa" | "individual";
+
+type FormState = {
+  name: string;
+  email: string;
+  phone: string;
+  context: string;
+  role: string;
+  extra: string;
+  need: string;
+};
+
+const INITIAL_FORM_STATE: FormState = {
+  name: "",
+  email: "",
+  phone: "",
+  context: "",
+  role: "",
+  extra: "",
+  need: "",
+};
+
 const Cadastro = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const [form, setForm] = useState<FormState>(INITIAL_FORM_STATE);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [feedback, setFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null);
 
-  const isEnterprise = searchParams.get("type") === "empresa";
+  const formType: LeadType = searchParams.get("type") === "empresa" ? "empresa" : "individual";
+  const isEnterprise = formType === "empresa";
 
   const content = useMemo(
     () =>
@@ -23,6 +49,8 @@ const Cadastro = () => {
             rolePlaceholder: "Seu cargo",
             extraPlaceholder: "Número de funcionários",
             needPlaceholder: "Qual a principal necessidade da sua empresa?",
+            successMessage:
+              "Recebemos seus dados. Nossa equipe vai analisar o contexto da empresa e entrar em contato.",
           }
         : {
             heading:
@@ -31,9 +59,52 @@ const Cadastro = () => {
             rolePlaceholder: "Profissão ou área de atuação",
             extraPlaceholder: "Qual programa despertou seu interesse?",
             needPlaceholder: "O que você busca neste momento?",
+            successMessage:
+              "Recebemos seus dados. Nossa equipe vai entrar em contato para orientar o próximo passo.",
           },
     [isEnterprise],
   );
+
+  const updateField = (field: keyof FormState, value: string) => {
+    setForm((current) => ({ ...current, [field]: value }));
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setFeedback(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          type: formType,
+          ...form,
+        }),
+      });
+
+      const payload = (await response.json().catch(() => null)) as { error?: string } | null;
+
+      if (!response.ok) {
+        throw new Error(payload?.error || "Não foi possível enviar o formulário agora.");
+      }
+
+      setForm(INITIAL_FORM_STATE);
+      setFeedback({ type: "success", message: content.successMessage });
+    } catch (error) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : "Não foi possível enviar o formulário agora.";
+
+      setFeedback({ type: "error", message });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-slate-950 px-4 py-12">
@@ -59,9 +130,11 @@ const Cadastro = () => {
           </h2>
         </div>
 
-        <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <Input
             required
+            value={form.name}
+            onChange={(event) => updateField("name", event.target.value)}
             placeholder="Nome completo"
             className="h-12 rounded-xl border-slate-100 bg-slate-50 text-base placeholder:text-slate-500"
           />
@@ -69,6 +142,8 @@ const Cadastro = () => {
           <Input
             required
             type="email"
+            value={form.email}
+            onChange={(event) => updateField("email", event.target.value)}
             placeholder="Seu melhor email"
             className="h-12 rounded-xl border-slate-100 bg-slate-50 text-base placeholder:text-slate-500"
           />
@@ -80,27 +155,37 @@ const Cadastro = () => {
             <input
               required
               type="tel"
+              value={form.phone}
+              onChange={(event) => updateField("phone", event.target.value)}
               placeholder="+55 (11) 96123-4567"
               className="w-full flex-1 border-none bg-transparent text-base outline-none placeholder:text-slate-500"
             />
           </div>
 
           <Input
+            value={form.context}
+            onChange={(event) => updateField("context", event.target.value)}
             placeholder={content.contextPlaceholder}
             className="h-12 rounded-xl border-slate-100 bg-slate-50 text-base placeholder:text-slate-500"
           />
 
           <Input
+            value={form.role}
+            onChange={(event) => updateField("role", event.target.value)}
             placeholder={content.rolePlaceholder}
             className="h-12 rounded-xl border-slate-100 bg-slate-50 text-base placeholder:text-slate-500"
           />
 
           <Input
+            value={form.extra}
+            onChange={(event) => updateField("extra", event.target.value)}
             placeholder={content.extraPlaceholder}
             className="h-12 rounded-xl border-slate-100 bg-slate-50 text-base placeholder:text-slate-500"
           />
 
           <Textarea
+            value={form.need}
+            onChange={(event) => updateField("need", event.target.value)}
             placeholder={content.needPlaceholder}
             className="min-h-[100px] resize-none rounded-xl border-slate-100 bg-slate-50 text-base placeholder:text-slate-500"
           />
@@ -116,13 +201,26 @@ const Cadastro = () => {
             </div>
           </div>
 
+          {feedback ? (
+            <div
+              className={`rounded-2xl border px-4 py-3 text-sm leading-6 ${
+                feedback.type === "success"
+                  ? "border-emerald-200 bg-emerald-50 text-emerald-700"
+                  : "border-rose-200 bg-rose-50 text-rose-700"
+              }`}
+            >
+              {feedback.message}
+            </div>
+          ) : null}
+
           <div className="pt-2">
             <Button
               type="submit"
               size="lg"
-              className="h-[52px] w-full rounded-xl bg-black text-lg font-bold text-white shadow-lg transition-transform hover:scale-[1.02] hover:bg-slate-800"
+              disabled={isSubmitting}
+              className="h-[52px] w-full rounded-xl bg-black text-lg font-bold text-white shadow-lg transition-transform hover:scale-[1.02] hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              Quero ser contatado
+              {isSubmitting ? "Enviando..." : "Quero ser contatado"}
             </Button>
           </div>
         </form>
