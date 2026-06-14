@@ -1,0 +1,20 @@
+{
+  "name": "ILAC - Instituto Latino Americano de Coaching",
+  "short_name": "ILAC",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f1ea",
+  "theme_color": "#0f274e",
+  "icons": [
+    {
+      "src": "/favicon-pace.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-pace.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
