@@ -92,7 +92,7 @@ const Programas = () => {
                     {prog.description}
                   </p>
                   <div className="pt-4">
-                    <Link to="/cadastro">
+                    <Link to="/cadastro?type=individual">
                       <Button size="lg" className="group h-14 w-full rounded-full bg-slate-900 px-8 text-base text-white shadow-xl shadow-slate-900/10 transition-all hover:scale-105 hover:bg-primary sm:h-16 sm:w-auto sm:px-10 sm:text-lg">
                         Tenho interesse
                         <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-2" />
@@ -147,7 +147,7 @@ const Programas = () => {
           <p className="mb-12 text-lg font-light text-slate-600 sm:text-xl">
             Nossas turmas são estruturadas visando certificação sólida e extensões acadêmicas validadas em nível nacional.
           </p>
-          <Link to="/cadastro">
+          <Link to="/cadastro?type=individual">
             <Button size="lg" className="w-full rounded-full bg-primary px-10 py-6 text-lg shadow-2xl shadow-primary/30 transition-transform hover:scale-105 sm:w-auto sm:px-12 sm:py-8 sm:text-xl">
               Fale com um Consultor Especialista
             </Button>
