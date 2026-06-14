@@ -115,9 +115,6 @@ const Navbar = () => {
 
         {/* CTA */}
         <div className="hidden shrink-0 items-center gap-6 md:flex">
-          <Link to="/login" className={`font-semibold tracking-wide transition-colors ${isScrolled ? 'text-slate-600 hover:text-primary' : 'text-white/90 hover:text-white'}`}>
-            Membros
-          </Link>
           <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer">
             <Button className="font-semibold tracking-wide px-8 py-5 rounded-full shadow-2xl transition-all bg-[#25D366] hover:bg-[#20b958] text-white flex items-center gap-2">
               <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
@@ -163,9 +160,6 @@ const Navbar = () => {
             </div>
 
             <div className="flex flex-col gap-3 pt-4">
-              <Link to="/login" className="w-full text-center py-2 text-slate-700 font-semibold mb-2">
-                Membros
-              </Link>
               <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" className="w-full">
                 <Button className="w-full justify-center bg-[#25D366] hover:bg-[#20b958] text-white flex items-center gap-2">
                   <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
