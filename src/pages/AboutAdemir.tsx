@@ -200,11 +200,11 @@ const AboutAdemir = () => {
           </h2>
           <div className="mx-auto mb-12 grid max-w-4xl gap-4 text-left sm:grid-cols-3">
             {finalPillars.map((item, index) => (
-              <div key={item} className="rounded-[1.4rem] border border-white/10 bg-white/5 p-5">
+              <div key={item} className="rounded-[1.4rem] border border-white/12 bg-white/8 p-5">
                 <div className="text-xs font-semibold uppercase tracking-[0.16em] text-primary/80">
                   Pilar {index + 1}
                 </div>
-                <p className="mt-3 text-base leading-7 text-white/78">{item}</p>
+                <p className="mt-3 text-base leading-7 text-white">{item}</p>
               </div>
             ))}
           </div>
