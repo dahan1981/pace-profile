@@ -25,7 +25,7 @@ const INCOMPANY_SERVICES = [
     bullets: [
       'Treinamentos in-loco e imersões',
       'Dinâmicas de correção de fluxo',
-      'Integração Pós-M&A',
+      'Integração pós-M&A',
     ],
   },
   {
@@ -90,13 +90,12 @@ const InCompany = () => {
               </span>
             </h1>
             <p className="mb-10 max-w-xl text-base font-light leading-7 text-white/70 sm:text-2xl sm:leading-relaxed">
-              O ILAC InCompany entra onde as soluções tradicionais falham: na
-              correção exata do comportamento que freia o faturamento.
+              O ILAC InCompany entra onde as soluções tradicionais falham: na correção exata do comportamento que freia o faturamento.
             </p>
             <Link to="/cadastro?type=empresa">
               <Button
                 size="lg"
-                className="group w-full rounded-full bg-primary px-8 py-6 text-base transition-all hover:scale-105 hover:bg-primary/80 sm:w-auto sm:px-10 sm:py-7 sm:text-lg"
+                className="group w-full rounded-full bg-primary px-8 py-6 text-base transition-all hover:scale-[1.02] hover:bg-primary/80 sm:w-auto sm:px-10 sm:py-7 sm:text-lg"
               >
                 Desenvolver Minha Empresa
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-2" />
@@ -105,21 +104,19 @@ const InCompany = () => {
           </div>
 
           <div className="hidden lg:block">
-            <div className="editorial-panel-dark p-8">
-              <div className="marketing-kicker text-white/45">Como entra</div>
-              <h3 className="mt-4 font-display text-4xl font-bold leading-tight text-white">
-                Leitura precisa do cenário antes da intervenção.
-              </h3>
-              <div className="mt-8">
-                {heroPoints.map((point, index) => (
-                  <div key={point} className="editorial-row-dark py-5 first:pt-0 last:pb-0">
-                    <div className="marketing-kicker text-primary/80">
-                      Etapa {String(index + 1).padStart(2, '0')}
-                    </div>
-                    <p className="mt-3 text-base leading-7 text-white/76">{point}</p>
-                  </div>
-                ))}
+            <div className="editorial-rail-dark py-3">
+              <div className="editorial-rail-item-dark pb-6">
+                <div className="marketing-kicker text-white/45">Como entra</div>
+                <h3 className="mt-4 font-display text-4xl font-bold leading-tight text-white">
+                  Leitura precisa do cenário antes da intervenção.
+                </h3>
               </div>
+              {heroPoints.map((point, index) => (
+                <div key={point} className="editorial-rail-item-dark py-5">
+                  <div className="marketing-kicker text-primary/80">Etapa {String(index + 1).padStart(2, '0')}</div>
+                  <p className="mt-3 text-base leading-7 text-white/80">{point}</p>
+                </div>
+              ))}
             </div>
           </div>
         </motion.div>
@@ -147,16 +144,14 @@ const InCompany = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.8 }}
-                className="grid items-center gap-12 rounded-[2rem] border-t border-slate-200 py-8 first:border-t-0 md:py-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-24 lg:py-16"
+                className="grid items-center gap-12 border-t border-slate-200 py-8 first:border-t-0 md:py-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-24 lg:py-16"
               >
                 <div>
                   <div className="mb-6 flex items-center gap-4">
                     <span className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/20 bg-primary/5 text-xl font-bold text-primary">
                       0{idx + 1}
                     </span>
-                    <h4 className="text-sm font-bold uppercase tracking-widest text-primary">
-                      {service.subtitle}
-                    </h4>
+                    <h4 className="text-sm font-bold uppercase tracking-widest text-primary">{service.subtitle}</h4>
                   </div>
                   <div className="editorial-heading-block mb-6 max-w-2xl">
                     <h3 className="font-display text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">
@@ -176,26 +171,21 @@ const InCompany = () => {
                   </ul>
                 </div>
 
-                <div className="editorial-panel-light p-6 lg:p-8">
-                  <div className="editorial-row-light pb-6">
-                    <div className="marketing-kicker text-primary/70">Onde atua</div>
-                    <p className="mt-3 text-lg font-semibold leading-8 text-slate-900">
-                      {service.subtitle}
-                    </p>
-                  </div>
-                  {service.bullets.map((bullet, index) => (
-                    <div
-                      key={`${service.id}-${index}`}
-                      className="editorial-row-light py-5"
-                    >
-                      <div className="marketing-kicker text-slate-500">
-                        Entrega {String(index + 1).padStart(2, '0')}
-                      </div>
-                      <p className="mt-3 text-lg font-medium leading-8 text-slate-700">
-                        {bullet}
-                      </p>
+                <div className="self-stretch">
+                  <div className="editorial-rail-light py-3">
+                    <div className="editorial-rail-item-light pb-6">
+                      <div className="marketing-kicker text-primary/70">Onde atua</div>
+                      <p className="mt-3 text-lg font-semibold leading-8 text-slate-900">{service.subtitle}</p>
                     </div>
-                  ))}
+                    {service.bullets.map((bullet, index) => (
+                      <div key={`${service.id}-${index}`} className="editorial-rail-item-light py-5">
+                        <div className="marketing-kicker text-slate-500">
+                          Entrega {String(index + 1).padStart(2, '0')}
+                        </div>
+                        <p className="mt-3 text-lg font-medium leading-8 text-slate-700">{bullet}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -212,20 +202,17 @@ const InCompany = () => {
           variants={fadeInUp}
           className="container relative z-10 mx-auto max-w-4xl"
         >
-          <div className="mb-6 text-sm font-bold uppercase tracking-[0.3em] text-white/40">
-            Próximo Passo
-          </div>
+          <div className="mb-6 text-sm font-bold uppercase tracking-[0.3em] text-white/40">Próximo Passo</div>
           <h2 className="mb-8 font-display text-3xl font-bold tracking-tight text-white md:text-6xl">
             Vamos desenhar o projeto ideal para o seu corporativo.
           </h2>
           <p className="mb-12 text-lg font-light text-white/60 sm:text-xl">
-            Nossos consultores analisarão o seu cenário para apresentar a proposta
-            exata que alavanca sua métrica mais urgente através das suas pessoas.
+            Nossos consultores analisarão o seu cenário para apresentar a proposta exata que alavanca sua métrica mais urgente através das suas pessoas.
           </p>
           <Link to="/cadastro?type=empresa">
             <Button
               size="lg"
-              className="w-full rounded-full bg-white px-10 py-6 text-lg font-bold text-slate-900 shadow-2xl transition-transform hover:scale-105 hover:bg-slate-100 sm:w-auto sm:px-12 sm:py-8 sm:text-xl"
+              className="w-full rounded-full bg-white px-10 py-6 text-lg font-bold text-slate-900 transition-transform hover:scale-[1.02] hover:bg-slate-100 sm:w-auto sm:px-12 sm:py-8 sm:text-xl"
             >
               Solicitar Diagnóstico
             </Button>

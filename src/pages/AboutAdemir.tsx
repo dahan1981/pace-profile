@@ -54,8 +54,8 @@ const AboutAdemir = () => {
               <span className="italic text-primary">Aplicado.</span>
             </h1>
             <p className="mb-12 max-w-2xl text-base font-light leading-7 text-white/70 sm:text-2xl sm:leading-relaxed">
-              Transformar pessoas não é um fim em si mesmo. É o único caminho
-              validado para transformar os resultados de uma corporação inteira.
+              Transformar pessoas não é um fim em si mesmo. É o caminho validado para transformar
+              os resultados de uma corporação inteira.
             </p>
           </div>
         </motion.div>
@@ -66,18 +66,16 @@ const AboutAdemir = () => {
           transition={{ duration: 1.2, ease: 'easeOut' }}
           className="absolute bottom-10 right-8 hidden w-[30rem] lg:block"
         >
-          <div className="editorial-panel-dark p-8">
-            <div className="marketing-kicker text-white/45">Em que a história se apoia</div>
-            <div className="mt-5">
-              {foundationPoints.map((point, index) => (
-                <div key={point} className="editorial-row-dark py-5 first:pt-0 last:pb-0">
-                  <div className="marketing-kicker text-primary/80">
-                    Base {String(index + 1).padStart(2, '0')}
-                  </div>
-                  <p className="mt-3 text-base leading-7 text-white/76">{point}</p>
-                </div>
-              ))}
+          <div className="editorial-rail-dark px-2">
+            <div className="py-3 text-white/45">
+              <div className="marketing-kicker">Em que a história se apoia</div>
             </div>
+            {foundationPoints.map((point, index) => (
+              <div key={point} className="editorial-rail-item-dark py-5">
+                <div className="marketing-kicker text-primary/80">Base {String(index + 1).padStart(2, '0')}</div>
+                <p className="mt-3 text-base leading-7 text-white/80">{point}</p>
+              </div>
+            ))}
           </div>
         </motion.div>
       </section>
@@ -90,26 +88,23 @@ const AboutAdemir = () => {
               whileInView="visible"
               viewport={{ once: true, margin: '-100px' }}
               variants={fadeInUp}
-              className="top-0 space-y-6 lg:sticky lg:top-32"
+              className="top-0 space-y-8 lg:sticky lg:top-32"
             >
-              <div className="editorial-panel-light p-8 sm:p-10 lg:rounded-[3rem]">
-                <div className="marketing-kicker text-primary/65">
-                  Síntese institucional
-                </div>
+              <div className="border-l-4 border-primary pl-6">
+                <div className="marketing-kicker text-primary/65">Síntese institucional</div>
                 <h3 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-900 sm:text-4xl">
                   Desenvolvimento humano com consequência prática.
                 </h3>
-                <p className="mt-6 text-lg leading-8 text-slate-600">
-                  O ILAC foi estruturado para transformar comportamento em direção
-                  aplicável, tanto para pessoas quanto para contextos
-                  organizacionais mais exigentes.
+                <p className="mt-6 max-w-lg text-lg leading-8 text-slate-600">
+                  O ILAC foi estruturado para transformar comportamento em direção aplicável, tanto
+                  para pessoas quanto para contextos organizacionais mais exigentes.
                 </p>
               </div>
 
-              <div className="editorial-panel-light ml-auto max-w-[260px] p-6 sm:max-w-xs sm:rounded-[2.5rem] sm:p-8">
+              <div className="editorial-rail-light max-w-[320px] py-5">
                 <div className="marketing-kicker text-primary/60">Histórico</div>
-                <h3 className="mb-2 mt-4 font-display text-4xl font-bold text-primary sm:text-5xl">20+</h3>
-                <p className="font-medium leading-7 text-slate-700">
+                <h3 className="mt-4 font-display text-4xl font-bold text-primary sm:text-5xl">20+</h3>
+                <p className="mt-3 text-base font-medium leading-7 text-slate-700">
                   Anos transformando comportamentos em escala.
                 </p>
               </div>
@@ -130,15 +125,13 @@ const AboutAdemir = () => {
                 </div>
                 <div className="space-y-6 text-lg font-light leading-relaxed text-slate-600 sm:text-xl">
                   <p>
-                    Ao longo de mais de duas décadas, a atuação sempre foi pautada
-                    em observar um denominador comum: a frustração corporativa em
-                    contratar talentos brilhantes no currículo que ruíam na
-                    execução colaborativa.
+                    Ao longo de mais de duas décadas, a atuação sempre foi pautada em observar um
+                    denominador comum: a frustração corporativa em contratar talentos brilhantes no
+                    currículo que ruíam na execução colaborativa.
                   </p>
                   <p>
-                    O ILAC nasce não apenas como observador desse cenário, mas como
-                    um Instituto focado em criar e homologar metodologias reais para
-                    intervir nisso.
+                    O ILAC nasce como uma frente institucional focada em criar e homologar
+                    metodologias reais para intervir nisso.
                   </p>
                 </div>
               </motion.div>
@@ -157,16 +150,13 @@ const AboutAdemir = () => {
                 </div>
                 <div className="space-y-6 text-lg font-light leading-relaxed text-slate-600 sm:text-xl">
                   <p>
-                    Como CEO e Master Coach, Ademir consolidou experiência prática
-                    desenvolvendo C-levels de empresas multinacionais e estruturando
-                    imersões profundas desenhadas para quebrar o viés limitante de
-                    equipes.
+                    Como CEO e Master Coach, Ademir consolidou experiência prática desenvolvendo
+                    C-levels de empresas multinacionais e estruturando imersões profundas desenhadas
+                    para quebrar vieses limitantes de equipes.
                   </p>
                   <p>
-                    A crença é direta: teoria não muda o resultado de ninguém se não
-                    esbarrar na execução. Por isso cada braço do ILAC possui o peso
-                    de validação acadêmica e o selo garantido por resultados de
-                    campo.
+                    A crença é direta: teoria não muda resultado se não esbarrar na execução. Por
+                    isso cada braço do ILAC carrega validação acadêmica e resultado de campo.
                   </p>
                 </div>
               </motion.div>
@@ -176,13 +166,11 @@ const AboutAdemir = () => {
                 whileInView="visible"
                 viewport={{ once: true, margin: '-100px' }}
                 variants={fadeInUp}
-                className="editorial-panel-light grid gap-0 overflow-hidden sm:grid-cols-3"
+                className="editorial-grid-light grid gap-8 py-2 sm:grid-cols-3 sm:gap-0"
               >
                 {milestones.map((item, index) => (
-                  <div key={item} className="editorial-row-light p-6 sm:border-l sm:first:border-l-0 sm:border-l-[rgba(188,204,231,0.9)]">
-                    <div className="marketing-kicker text-primary/70">
-                      Marco {index + 1}
-                    </div>
+                  <div key={item} className="editorial-grid-cell-light sm:px-6">
+                    <div className="marketing-kicker text-primary/70">Marco {index + 1}</div>
                     <p className="mt-4 text-lg leading-8 text-slate-700">{item}</p>
                   </div>
                 ))}
@@ -195,20 +183,18 @@ const AboutAdemir = () => {
       <section className="relative overflow-hidden bg-slate-950 px-4 py-24 text-center sm:py-32 md:py-40">
         <div className="relative z-10 container mx-auto max-w-5xl">
           <h2 className="mb-12 font-display text-[2.8rem] font-bold leading-[1.02] text-white drop-shadow-2xl sm:text-6xl md:text-7xl">
-            "Para chegarmos a novos patamares, os velhos padrões precisam cair."
+            &quot;Para chegarmos a novos patamares, os velhos padrões precisam cair.&quot;
           </h2>
-          <div className="editorial-panel-dark mx-auto mb-12 grid max-w-4xl gap-0 overflow-hidden text-left sm:grid-cols-3">
+          <div className="editorial-grid-dark mx-auto mb-12 grid max-w-4xl gap-8 py-2 text-left sm:grid-cols-3 sm:gap-0">
             {finalPillars.map((item, index) => (
-              <div key={item} className="editorial-row-dark p-5 sm:border-l sm:first:border-l-0 sm:border-l-[rgba(71,96,150,0.42)]">
-                <div className="marketing-kicker text-primary/80">
-                  Pilar {index + 1}
-                </div>
+              <div key={item} className="editorial-grid-cell-dark sm:px-5">
+                <div className="marketing-kicker text-primary/80">Pilar {index + 1}</div>
                 <p className="mt-4 text-base leading-7 text-white">{item}</p>
               </div>
             ))}
           </div>
           <Link to="/programas">
-            <Button className="w-full rounded-full bg-white px-10 py-6 text-lg font-bold text-slate-900 shadow-2xl transition-all hover:scale-105 hover:bg-primary hover:text-white sm:w-auto sm:px-12 sm:py-8 sm:text-xl">
+            <Button className="w-full rounded-full bg-white px-10 py-6 text-lg font-bold text-slate-900 transition-all hover:scale-[1.02] hover:bg-primary hover:text-white sm:w-auto sm:px-12 sm:py-8 sm:text-xl">
               Venha conhecer nossas metodologias
             </Button>
           </Link>

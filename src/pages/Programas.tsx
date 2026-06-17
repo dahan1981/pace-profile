@@ -46,11 +46,7 @@ const PROGRAMAS = [
     title: 'PMC - Professional Master Coach',
     description:
       'A formação de mais alto nível para dominar técnicas e ferramentas avançadas de coaching. Para profissionais que já trilham a estrada e buscam excelência absoluta.',
-    highlights: [
-      'Profundidade técnica',
-      'Maestria em condução',
-      'Excelência profissional',
-    ],
+    highlights: ['Profundidade técnica', 'Maestria em condução', 'Excelência profissional'],
   },
   {
     id: 'pace',
@@ -116,12 +112,10 @@ const Programas = () => {
             Carreiras & Formações
           </div>
           <h1 className="mb-8 font-display text-[2.85rem] font-bold leading-[0.98] tracking-tight sm:text-6xl lg:text-[6rem]">
-            Sua Próxima Evolução{' '}
-            <span className="border-b-4 border-primary text-primary">Profissional.</span>
+            Sua Próxima Evolução <span className="border-b-4 border-primary text-primary">Profissional.</span>
           </h1>
           <p className="mx-auto max-w-3xl text-base font-light leading-7 text-white/70 sm:text-2xl sm:leading-relaxed">
-            Esqueça apenas teoria. Desenvolva-se através de métodos certificados
-            que entregam prática real.
+            Esqueça apenas teoria. Desenvolva-se através de métodos certificados que entregam prática real.
           </p>
         </motion.div>
       </section>
@@ -148,22 +142,18 @@ const Programas = () => {
                   variants={isEven ? fadeLeft : fadeRight}
                   className={`relative z-10 space-y-8 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}
                 >
-                  <div className="text-sm font-bold uppercase tracking-[0.26em] text-primary">
-                    {prog.tag}
-                  </div>
+                  <div className="text-sm font-bold uppercase tracking-[0.26em] text-primary">{prog.tag}</div>
                   <div className="editorial-heading-block max-w-2xl">
                     <h2 className="font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
                       {prog.title}
                     </h2>
                   </div>
-                  <p className="text-lg font-light leading-relaxed text-slate-600 sm:text-xl">
-                    {prog.description}
-                  </p>
+                  <p className="text-lg font-light leading-relaxed text-slate-600 sm:text-xl">{prog.description}</p>
                   <div className="pt-4">
                     <Link to="/cadastro?type=individual">
                       <Button
                         size="lg"
-                        className="group h-14 w-full rounded-full bg-slate-900 px-8 text-base text-white shadow-xl shadow-slate-900/10 transition-all hover:scale-105 hover:bg-primary sm:h-16 sm:w-auto sm:px-10 sm:text-lg"
+                        className="group h-14 w-full rounded-full bg-slate-900 px-8 text-base text-white transition-all hover:scale-[1.02] hover:bg-primary sm:h-16 sm:w-auto sm:px-10 sm:text-lg"
                       >
                         Tenho interesse
                         <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-2" />
@@ -174,29 +164,24 @@ const Programas = () => {
 
                 <motion.div
                   variants={isEven ? fadeRight : fadeLeft}
-                  className={`editorial-panel-light relative z-10 self-stretch p-6 lg:rounded-[2.5rem] lg:p-8 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}
+                  className={`relative z-10 self-stretch ${isEven ? 'lg:order-2' : 'lg:order-1'}`}
                 >
-                  <div className="editorial-row-light pb-6">
-                    <div className="marketing-kicker text-primary/70">Leitura rápida</div>
-                    <p className="mt-4 text-lg leading-8 text-slate-700">
-                      Formação pensada para sair do conceito e entrar em aplicação
-                      concreta, com direção mais madura sobre pessoas, processo e
-                      desenvolvimento.
-                    </p>
-                  </div>
-                  {prog.highlights.map((item, itemIndex) => (
-                    <div
-                      key={`${prog.id}-${itemIndex}`}
-                      className="editorial-row-light py-5"
-                    >
-                      <div className="marketing-kicker text-slate-500">
-                        Destaque {String(itemIndex + 1).padStart(2, '0')}
-                      </div>
-                      <p className="mt-3 text-lg font-medium leading-8 text-slate-800">
-                        {item}
+                  <div className="editorial-rail-light py-3">
+                    <div className="editorial-rail-item-light pb-6">
+                      <div className="marketing-kicker text-primary/70">Leitura rápida</div>
+                      <p className="mt-4 text-lg leading-8 text-slate-700">
+                        Formação pensada para sair do conceito e entrar em aplicação concreta, com direção mais madura sobre pessoas, processo e desenvolvimento.
                       </p>
                     </div>
-                  ))}
+                    {prog.highlights.map((item, itemIndex) => (
+                      <div key={`${prog.id}-${itemIndex}`} className="editorial-rail-item-light py-5">
+                        <div className="marketing-kicker text-slate-500">
+                          Destaque {String(itemIndex + 1).padStart(2, '0')}
+                        </div>
+                        <p className="mt-3 text-lg font-medium leading-8 text-slate-800">{item}</p>
+                      </div>
+                    ))}
+                  </div>
                 </motion.div>
               </div>
 
@@ -222,13 +207,12 @@ const Programas = () => {
             Pronto para transformar sua carreira no ILAC?
           </h2>
           <p className="mb-12 text-lg font-light text-slate-600 sm:text-xl">
-            Nossas turmas são estruturadas visando certificação sólida e extensões
-            acadêmicas validadas em nível nacional.
+            Nossas turmas são estruturadas visando certificação sólida e extensões acadêmicas validadas em nível nacional.
           </p>
           <Link to="/cadastro?type=individual">
             <Button
               size="lg"
-              className="w-full rounded-full bg-primary px-10 py-6 text-lg shadow-2xl shadow-primary/30 transition-transform hover:scale-105 sm:w-auto sm:px-12 sm:py-8 sm:text-xl"
+              className="w-full rounded-full bg-primary px-10 py-6 text-lg transition-transform hover:scale-[1.02] sm:w-auto sm:px-12 sm:py-8 sm:text-xl"
             >
               Fale com um Consultor Especialista
             </Button>

@@ -250,13 +250,13 @@ const Index = () => {
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
             variants={staggerContainer}
-            className="editorial-panel-light grid gap-0 overflow-hidden md:grid-cols-3"
+            className="editorial-grid-light grid gap-8 py-2 md:grid-cols-3 md:gap-0"
           >
             {processSteps.map((step) => (
               <motion.div
                 variants={fadeInUp}
                 key={step.number}
-                className="editorial-row-light flex flex-col p-8 text-left md:border-l md:border-l-[rgba(188,204,231,0.9)] md:first:border-l-0"
+                className="editorial-grid-cell-light flex flex-col text-left md:px-8"
               >
                 <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-full border border-primary/20 bg-primary/5 text-primary">
                   {step.icon}
@@ -272,7 +272,7 @@ const Index = () => {
 
       <section className="relative overflow-hidden bg-[#050b14] py-32 text-white">
         <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-blue-900/20 via-[#050b14] to-[#050b14]" />
-        <div className="container relative z-10 mx-auto space-y-10">
+        <div className="container relative z-10 mx-auto space-y-14">
           {solutionTracks.map((track) => (
             <motion.div
               key={track.title}
@@ -280,7 +280,7 @@ const Index = () => {
               whileInView="visible"
               viewport={{ once: true, margin: '-100px' }}
               variants={staggerContainer}
-              className="editorial-panel-dark grid gap-8 p-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:p-12"
+              className="grid gap-10 border-t border-b border-[rgba(71,96,150,0.42)] py-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:py-12"
             >
               <motion.div variants={fadeInUp} className="space-y-8">
                 <SectionLabel light>{track.label}</SectionLabel>
@@ -311,19 +311,21 @@ const Index = () => {
                 </div>
               </motion.div>
 
-              <motion.div variants={fadeInUp} className="editorial-panel-dark self-stretch p-6 lg:p-8">
-                <div className="editorial-row-dark pb-6">
-                  <div className="marketing-kicker text-white/45">{track.supportTitle}</div>
-                  <p className="mt-4 text-base leading-7 text-white/72 sm:text-lg">{track.supportText}</p>
-                </div>
-                {track.bullets.map((bullet, index) => (
-                  <div key={`${track.title}-${index}`} className="editorial-row-dark py-5">
-                    <div className="marketing-kicker text-primary/80">
-                      Frente {String(index + 1).padStart(2, '0')}
-                    </div>
-                    <p className="mt-3 text-base font-medium leading-7 text-white/82">{bullet}</p>
+              <motion.div variants={fadeInUp} className="self-stretch">
+                <div className="editorial-rail-dark py-3">
+                  <div className="editorial-rail-item-dark pb-6">
+                    <div className="marketing-kicker text-white/45">{track.supportTitle}</div>
+                    <p className="mt-4 text-base leading-7 text-white/72 sm:text-lg">{track.supportText}</p>
                   </div>
-                ))}
+                  {track.bullets.map((bullet, index) => (
+                    <div key={`${track.title}-${index}`} className="editorial-rail-item-dark py-5">
+                      <div className="marketing-kicker text-primary/80">
+                        Frente {String(index + 1).padStart(2, '0')}
+                      </div>
+                      <p className="mt-3 text-base font-medium leading-7 text-white/82">{bullet}</p>
+                    </div>
+                  ))}
+                </div>
               </motion.div>
             </motion.div>
           ))}
@@ -364,13 +366,10 @@ const Index = () => {
               CEO e Master Coach
             </motion.div>
             <motion.p variants={fadeInUp} className="mb-6 text-lg leading-8 text-slate-600">
-              Com mais de duas décadas de experiência atuando diretamente no desenvolvimento de
-              pessoas e empresas, Ademir possui um histórico focado em transformação de comportamento
-              no ambiente corporativo.
+              Com mais de duas décadas de experiência atuando diretamente no desenvolvimento de pessoas e empresas, Ademir possui um histórico focado em transformação de comportamento no ambiente corporativo.
             </motion.p>
             <motion.p variants={fadeInUp} className="mb-10 text-lg leading-8 text-slate-600">
-              Ao longo de 20 anos, o trabalho foi direcionado para um único objetivo: transformar
-              comportamento em performance real e escalável dentro de empresas.
+              Ao longo de 20 anos, o trabalho foi direcionado para um único objetivo: transformar comportamento em performance real e escalável dentro de empresas.
             </motion.p>
             <motion.div variants={fadeInUp}>
               <Link to="/sobre">
@@ -397,19 +396,14 @@ const Index = () => {
             </h2>
           </motion.div>
           <motion.p variants={fadeInUp} className="mb-12 text-xl text-white/70">
-            O objetivo não é ensinar. É gerar transformação aplicável que ressoe em toda a sua cadeia
-            de negócios.
+            O objetivo não é ensinar. É gerar transformação aplicável que ressoe em toda a sua cadeia de negócios.
           </motion.p>
           <motion.div
             variants={staggerContainer}
-            className="editorial-panel-dark mb-16 grid grid-cols-1 gap-0 overflow-hidden text-left md:grid-cols-3"
+            className="editorial-grid-dark mb-16 grid grid-cols-1 gap-8 py-2 text-left md:grid-cols-3 md:gap-0"
           >
             {stats.map(([value, text], index) => (
-              <motion.div
-                variants={fadeInUp}
-                key={index}
-                className="editorial-row-dark p-6 md:border-l md:border-l-[rgba(71,96,150,0.42)] md:first:border-l-0"
-              >
+              <motion.div variants={fadeInUp} key={index} className="editorial-grid-cell-dark md:px-6">
                 <div className="mb-2 font-display text-4xl font-bold text-white">{value}</div>
                 <div className="text-sm leading-relaxed text-white/60">{text}</div>
               </motion.div>
