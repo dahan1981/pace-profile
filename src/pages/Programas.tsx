@@ -172,7 +172,7 @@ const Programas = () => {
 
                 <motion.div
                   variants={isEven ? fadeRight : fadeLeft}
-                  className={`marketing-card-light relative z-10 grid content-start gap-4 self-stretch rounded-[2rem] p-6 shadow-2xl lg:rounded-[2.5rem] ${isEven ? 'lg:order-2' : 'lg:order-1'}`}
+                  className={`marketing-card-light relative z-10 grid content-start gap-4 self-stretch rounded-[2rem] p-6 lg:rounded-[2.5rem] ${isEven ? 'lg:order-2' : 'lg:order-1'}`}
                 >
                   <div className="marketing-card-light rounded-[1.5rem] p-6 shadow-none">
                     <div className="marketing-kicker text-primary/70">

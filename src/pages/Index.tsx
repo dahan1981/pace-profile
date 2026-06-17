@@ -302,7 +302,7 @@ const Index = () => {
               whileInView="visible"
               viewport={{ once: true, margin: '-100px' }}
               variants={staggerContainer}
-              className="marketing-card-dark grid gap-8 rounded-[2rem] p-8 shadow-2xl lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:p-12"
+              className="marketing-card-dark grid gap-8 rounded-[2rem] p-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:p-12"
             >
               <motion.div variants={fadeInUp} className="space-y-8">
                 <SectionLabel light>{track.label}</SectionLabel>
