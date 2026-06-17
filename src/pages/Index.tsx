@@ -49,7 +49,7 @@ const solutionTracks = [
       'Para operações que já têm talento, mas ainda perdem ritmo, clareza e consistência na execução.',
     href: '/incompany',
     cta: 'Construir Projeto Corporativo',
-    },
+  },
   {
     label: 'B2C / Carreira',
     title: 'Formações & Certificações',
@@ -120,25 +120,23 @@ const Index = () => {
             className="max-w-4xl"
           >
             <SectionLabel light>Instituto Latino Americano de Coaching</SectionLabel>
-            <motion.h1
-              variants={fadeInUp}
-              className="mt-6 font-display text-[2.85rem] font-bold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem]"
-            >
-              Transformação em Performance Empresarial.
-            </motion.h1>
+            <motion.div variants={fadeInUp} className="editorial-heading-block mt-6 border-white/70 pl-6 sm:pl-8">
+              <h1 className="font-display text-[2.85rem] font-bold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem]">
+                Transformação em Performance Empresarial.
+              </h1>
+            </motion.div>
             <motion.p
               variants={fadeInUp}
               className="mt-6 max-w-2xl text-base leading-7 text-white/70 sm:mt-8 sm:text-xl sm:leading-8"
             >
-              Empresas contratam pela promessa. Mas demitem pela realidade. O ILAC
-              atua onde a maioria das soluções não alcança:{' '}
-              <strong>o comportamento que sustenta a performance.</strong>
+              Empresas contratam pela promessa. Mas demitem pela realidade. O ILAC atua onde a
+              maioria das soluções não alcança: <strong>o comportamento que sustenta a performance.</strong>
             </motion.p>
             <motion.div variants={fadeInUp} className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link to="/cadastro?type=empresa">
                 <Button
                   size="lg"
-                  className="w-full gap-2 rounded-full bg-primary px-6 py-6 text-base text-white shadow-2xl shadow-primary/30 transition-transform hover:scale-105 sm:w-auto sm:px-8 sm:py-7 sm:text-lg"
+                  className="w-full gap-2 rounded-full bg-primary px-6 py-6 text-base text-white transition-transform hover:scale-[1.02] sm:w-auto sm:px-8 sm:py-7 sm:text-lg"
                 >
                   Conversar com especialista
                   <ArrowRight className="h-5 w-5" />
@@ -148,7 +146,7 @@ const Index = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="w-full rounded-full border-white/20 bg-white/5 px-6 py-6 text-base backdrop-blur-sm hover:bg-white/10 hover:text-white sm:w-auto sm:px-8 sm:py-7 sm:text-lg"
+                  className="w-full rounded-full border-white/20 bg-transparent px-6 py-6 text-base hover:bg-white/10 hover:text-white sm:w-auto sm:px-8 sm:py-7 sm:text-lg"
                 >
                   Conhecer o Instituto
                 </Button>
@@ -174,17 +172,15 @@ const Index = () => {
               >
                 O Erro
               </motion.div>
-              <motion.h2
-                variants={fadeInUp}
-                className="border-l-4 border-destructive pl-5 font-display text-3xl font-bold leading-tight text-slate-900 sm:pl-6 sm:text-5xl"
-              >
-                Empresas tratam sintomas. Mas ignoram a causa.
-              </motion.h2>
+              <motion.div variants={fadeInUp} className="editorial-heading-block border-destructive">
+                <h2 className="font-display text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">
+                  Empresas tratam sintomas. Mas ignoram a causa.
+                </h2>
+              </motion.div>
               <motion.p variants={fadeInUp} className="pl-7 text-lg leading-8 text-slate-600">
-                Treinamentos técnicos, substituição constante de profissionais e
-                ajustes operacionais geram melhora momentânea.
-                <strong> Mas não sustentam resultado.</strong> Porque não atuam no
-                comportamento estratégico e de grupo que de fato alavanca a execução.
+                Treinamentos técnicos, substituição constante de profissionais e ajustes operacionais
+                geram melhora momentânea. <strong>Mas não sustentam resultado.</strong> Porque não
+                atuam no comportamento estratégico e de grupo que de fato alavanca a execução.
               </motion.p>
             </motion.div>
 
@@ -201,12 +197,11 @@ const Index = () => {
               >
                 O Custo
               </motion.div>
-              <motion.h2
-                variants={fadeInUp}
-                className="border-l-4 border-orange-500 pl-5 font-display text-3xl font-bold leading-tight text-slate-900 sm:pl-6 sm:text-5xl"
-              >
-                O impacto financeiro silencioso.
-              </motion.h2>
+              <motion.div variants={fadeInUp} className="editorial-heading-block-warm">
+                <h2 className="font-display text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">
+                  O impacto financeiro silencioso.
+                </h2>
+              </motion.div>
               <motion.ul
                 variants={staggerContainer}
                 className="space-y-3 pl-7 text-lg leading-8 text-slate-600"
@@ -223,8 +218,7 @@ const Index = () => {
                 ))}
               </motion.ul>
               <motion.p variants={fadeInUp} className="pl-7 text-lg font-medium text-slate-900">
-                Melhorar pessoas é mais eficiente e mais econômico do que
-                substituí-las continuamente.
+                Melhorar pessoas é mais eficiente e mais econômico do que substituí-las continuamente.
               </motion.p>
             </motion.div>
           </div>
@@ -241,15 +235,13 @@ const Index = () => {
             className="mx-auto mb-20 max-w-3xl text-center"
           >
             <SectionLabel>O Método ILAC</SectionLabel>
-            <motion.h2
-              variants={fadeInUp}
-              className="mt-4 font-display text-3xl font-bold leading-tight text-slate-900 sm:text-5xl"
-            >
-              Como transformamos cenários de estagnação.
-            </motion.h2>
+            <motion.div variants={fadeInUp} className="editorial-heading-block mt-4 text-left">
+              <h2 className="font-display text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">
+                Como transformamos cenários de estagnação.
+              </h2>
+            </motion.div>
             <motion.p variants={fadeInUp} className="mt-6 text-xl text-slate-600">
-              Cada empresa tem um cenário distinto. Mas a lógica estruturada de
-              transformação é a mesma.
+              Cada empresa tem um cenário distinto. Mas a lógica estruturada de transformação é a mesma.
             </motion.p>
           </motion.div>
 
@@ -258,34 +250,20 @@ const Index = () => {
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
             variants={staggerContainer}
-            className="relative grid gap-8 md:grid-cols-3"
+            className="editorial-panel-light grid gap-0 overflow-hidden md:grid-cols-3"
           >
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, delay: 0.5 }}
-              className="absolute left-10 right-10 top-[40px] z-0 hidden h-0.5 origin-left bg-slate-200 md:block"
-            />
-
             {processSteps.map((step) => (
               <motion.div
                 variants={fadeInUp}
                 key={step.number}
-                className="group relative z-10 flex flex-col items-center bg-transparent text-center"
+                className="editorial-row-light flex flex-col p-8 text-left md:border-l md:border-l-[rgba(188,204,231,0.9)] md:first:border-l-0"
               >
-                <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-full border border-slate-200 bg-white text-primary shadow-xl transition-transform duration-500 group-hover:scale-110 group-hover:border-primary group-hover:bg-primary group-hover:text-white">
+                <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-full border border-primary/20 bg-primary/5 text-primary">
                   {step.icon}
                 </div>
-                <div className="mb-3 text-sm font-bold tracking-widest text-primary">
-                  PASSO {step.number}
-                </div>
-                <h3 className="mb-4 font-display text-2xl font-bold text-slate-900">
-                  {step.title}
-                </h3>
-                <p className="max-w-sm text-lg leading-relaxed text-slate-600">
-                  {step.description}
-                </p>
+                <div className="mb-3 text-sm font-bold tracking-widest text-primary">PASSO {step.number}</div>
+                <h3 className="mb-4 font-display text-2xl font-bold text-slate-900">{step.title}</h3>
+                <p className="max-w-sm text-lg leading-relaxed text-slate-600">{step.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -302,13 +280,13 @@ const Index = () => {
               whileInView="visible"
               viewport={{ once: true, margin: '-100px' }}
               variants={staggerContainer}
-              className="marketing-card-dark grid gap-8 rounded-[2rem] p-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:p-12"
+              className="editorial-panel-dark grid gap-8 p-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:p-12"
             >
               <motion.div variants={fadeInUp} className="space-y-8">
                 <SectionLabel light>{track.label}</SectionLabel>
-                <h3 className="font-display text-4xl font-bold leading-tight sm:text-6xl">
-                  {track.title}
-                </h3>
+                <div className="editorial-heading-block border-white/25 pl-6 sm:pl-8">
+                  <h3 className="font-display text-4xl font-bold leading-tight sm:text-6xl">{track.title}</h3>
+                </div>
                 <p className="text-lg font-light leading-relaxed text-white/72 sm:text-2xl">
                   {track.description}
                 </p>
@@ -324,7 +302,7 @@ const Index = () => {
                   <Link to={track.href}>
                     <Button
                       size="lg"
-                      className="group w-full rounded-full bg-primary px-8 py-6 text-base shadow-2xl shadow-primary/20 transition-all hover:scale-105 hover:bg-primary/80 sm:w-auto sm:px-10 sm:py-8 sm:text-lg"
+                      className="group w-full rounded-full bg-primary px-8 py-6 text-base transition-all hover:scale-[1.02] hover:bg-primary/80 sm:w-auto sm:px-10 sm:py-8 sm:text-lg"
                     >
                       {track.cta}
                       <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-2" />
@@ -333,26 +311,17 @@ const Index = () => {
                 </div>
               </motion.div>
 
-              <motion.div variants={fadeInUp} className="grid content-start gap-4 self-stretch">
-                <div className="marketing-card-dark-soft rounded-[1.75rem] p-6">
-                  <div className="marketing-kicker text-white/45">
-                    {track.supportTitle}
-                  </div>
-                  <p className="mt-4 text-base leading-7 text-white/72 sm:text-lg">
-                    {track.supportText}
-                  </p>
+              <motion.div variants={fadeInUp} className="editorial-panel-dark self-stretch p-6 lg:p-8">
+                <div className="editorial-row-dark pb-6">
+                  <div className="marketing-kicker text-white/45">{track.supportTitle}</div>
+                  <p className="mt-4 text-base leading-7 text-white/72 sm:text-lg">{track.supportText}</p>
                 </div>
                 {track.bullets.map((bullet, index) => (
-                  <div
-                    key={`${track.title}-${index}`}
-                    className="marketing-card-dark-soft rounded-[1.5rem] p-5"
-                  >
+                  <div key={`${track.title}-${index}`} className="editorial-row-dark py-5">
                     <div className="marketing-kicker text-primary/80">
                       Frente {String(index + 1).padStart(2, '0')}
                     </div>
-                    <p className="mt-3 text-base font-medium leading-7 text-white/82">
-                      {bullet}
-                    </p>
+                    <p className="mt-3 text-base font-medium leading-7 text-white/82">{bullet}</p>
                   </div>
                 ))}
               </motion.div>
@@ -364,14 +333,13 @@ const Index = () => {
       <section className="relative overflow-hidden bg-white px-4 py-20 sm:py-32">
         <div className="container mx-auto grid items-center gap-12 lg:grid-cols-[1fr_1fr]">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="order-2 relative flex justify-center lg:order-1"
           >
-            <div className="absolute inset-0 scale-75 rounded-full bg-primary/5 blur-3xl" />
-            <div className="relative aspect-square w-full max-w-md overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-xl">
+            <div className="relative aspect-square w-full max-w-md overflow-hidden rounded-3xl border border-slate-200 bg-slate-100">
               <img src="/ademir.jpeg" alt="Ademir Soares" className="h-full w-full object-cover" />
             </div>
           </motion.div>
@@ -384,12 +352,11 @@ const Index = () => {
             className="order-1 lg:order-2"
           >
             <SectionLabel>Quem Conduz</SectionLabel>
-            <motion.h2
-              variants={fadeInUp}
-              className="mt-4 font-display text-3xl font-bold leading-tight text-slate-900 sm:text-5xl"
-            >
-              Ademir Soares
-            </motion.h2>
+            <motion.div variants={fadeInUp} className="editorial-heading-block mt-4 max-w-2xl">
+              <h2 className="font-display text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">
+                Ademir Soares
+              </h2>
+            </motion.div>
             <motion.div
               variants={fadeInUp}
               className="mb-6 mt-2 text-sm font-semibold uppercase tracking-wide text-primary"
@@ -397,14 +364,13 @@ const Index = () => {
               CEO e Master Coach
             </motion.div>
             <motion.p variants={fadeInUp} className="mb-6 text-lg leading-8 text-slate-600">
-              Com mais de duas décadas de experiência atuando diretamente no
-              desenvolvimento de pessoas e empresas, Ademir possui um histórico
-              focado em transformação de comportamento no ambiente corporativo.
+              Com mais de duas décadas de experiência atuando diretamente no desenvolvimento de
+              pessoas e empresas, Ademir possui um histórico focado em transformação de comportamento
+              no ambiente corporativo.
             </motion.p>
             <motion.p variants={fadeInUp} className="mb-10 text-lg leading-8 text-slate-600">
-              Ao longo de 20 anos, o trabalho foi direcionado para um único
-              objetivo: transformar comportamento em performance real e escalável
-              dentro de empresas.
+              Ao longo de 20 anos, o trabalho foi direcionado para um único objetivo: transformar
+              comportamento em performance real e escalável dentro de empresas.
             </motion.p>
             <motion.div variants={fadeInUp}>
               <Link to="/sobre">
@@ -425,26 +391,24 @@ const Index = () => {
           variants={staggerContainer}
           className="container relative z-10 mx-auto max-w-4xl"
         >
-          <motion.h2
-            variants={fadeInUp}
-            className="mb-8 font-display text-3xl font-bold text-white sm:text-6xl"
-          >
-            Performance não se resolve com mais teoria. Resolve-se com Ação
-            Direcionada.
-          </motion.h2>
+          <motion.div variants={fadeInUp} className="editorial-heading-block border-white/25 pl-6 text-left sm:pl-8">
+            <h2 className="mb-8 font-display text-3xl font-bold text-white sm:text-6xl">
+              Performance não se resolve com mais teoria. Resolve-se com Ação Direcionada.
+            </h2>
+          </motion.div>
           <motion.p variants={fadeInUp} className="mb-12 text-xl text-white/70">
-            O objetivo não é ensinar. É gerar transformação aplicável que ressoe
-            em toda a sua cadeia de negócios.
+            O objetivo não é ensinar. É gerar transformação aplicável que ressoe em toda a sua cadeia
+            de negócios.
           </motion.p>
           <motion.div
             variants={staggerContainer}
-            className="mb-16 grid grid-cols-1 gap-6 text-left md:grid-cols-3"
+            className="editorial-panel-dark mb-16 grid grid-cols-1 gap-0 overflow-hidden text-left md:grid-cols-3"
           >
             {stats.map(([value, text], index) => (
               <motion.div
                 variants={fadeInUp}
                 key={index}
-                className="border-l-2 border-primary/50 py-2 pl-6"
+                className="editorial-row-dark p-6 md:border-l md:border-l-[rgba(71,96,150,0.42)] md:first:border-l-0"
               >
                 <div className="mb-2 font-display text-4xl font-bold text-white">{value}</div>
                 <div className="text-sm leading-relaxed text-white/60">{text}</div>
@@ -453,10 +417,7 @@ const Index = () => {
           </motion.div>
           <motion.div variants={fadeInUp}>
             <Link to="/cadastro?type=empresa">
-              <Button
-                size="lg"
-                className="w-full rounded-full px-12 py-8 text-xl font-bold shadow-2xl shadow-primary/20 md:w-auto"
-              >
+              <Button size="lg" className="w-full rounded-full px-12 py-8 text-xl font-bold md:w-auto">
                 Vamos Conversar
               </Button>
             </Link>
