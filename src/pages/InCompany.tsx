@@ -144,6 +144,7 @@ const InCompany = () => {
             {INCOMPANY_SERVICES.map((service, idx) => (
               <motion.div
                 key={service.id}
+                id={service.id}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-100px' }}
