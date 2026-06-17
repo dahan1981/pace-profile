@@ -66,13 +66,11 @@ const AboutAdemir = () => {
           transition={{ duration: 1.2, ease: 'easeOut' }}
           className="absolute bottom-10 right-8 hidden w-[30rem] lg:block"
         >
-          <div className="marketing-card-dark rounded-[2rem] p-8">
-            <div className="marketing-kicker text-white/45">
-              Em que a história se apoia
-            </div>
-            <div className="mt-5 space-y-4">
+          <div className="editorial-panel-dark p-8">
+            <div className="marketing-kicker text-white/45">Em que a história se apoia</div>
+            <div className="mt-5">
               {foundationPoints.map((point, index) => (
-                <div key={point} className="marketing-card-dark-soft rounded-[1.4rem] p-5">
+                <div key={point} className="editorial-row-dark py-5 first:pt-0 last:pb-0">
                   <div className="marketing-kicker text-primary/80">
                     Base {String(index + 1).padStart(2, '0')}
                   </div>
@@ -94,7 +92,7 @@ const AboutAdemir = () => {
               variants={fadeInUp}
               className="top-0 space-y-6 lg:sticky lg:top-32"
             >
-              <div className="marketing-card-light rounded-[2rem] p-8 sm:p-10 lg:rounded-[3rem]">
+              <div className="editorial-panel-light p-8 sm:p-10 lg:rounded-[3rem]">
                 <div className="marketing-kicker text-primary/65">
                   Síntese institucional
                 </div>
@@ -108,10 +106,10 @@ const AboutAdemir = () => {
                 </p>
               </div>
 
-              <div className="marketing-accent-card ml-auto max-w-[260px] rounded-[2rem] p-6 text-white sm:max-w-xs sm:rounded-[2.5rem] sm:p-8">
-                <div className="marketing-kicker text-white/55">Histórico</div>
-                <h3 className="mb-2 mt-4 font-display text-4xl font-bold sm:text-5xl">20+</h3>
-                <p className="font-medium leading-7 text-white/82">
+              <div className="editorial-panel-light ml-auto max-w-[260px] p-6 sm:max-w-xs sm:rounded-[2.5rem] sm:p-8">
+                <div className="marketing-kicker text-primary/60">Histórico</div>
+                <h3 className="mb-2 mt-4 font-display text-4xl font-bold text-primary sm:text-5xl">20+</h3>
+                <p className="font-medium leading-7 text-slate-700">
                   Anos transformando comportamentos em escala.
                 </p>
               </div>
@@ -124,12 +122,12 @@ const AboutAdemir = () => {
                 viewport={{ once: true, margin: '-100px' }}
                 variants={fadeInUp}
               >
-                <div className="mb-6 text-sm font-bold uppercase tracking-widest text-primary">
-                  A Fundação
+                <div className="mb-6 text-sm font-bold uppercase tracking-widest text-primary">A Fundação</div>
+                <div className="editorial-heading-block mb-8 max-w-3xl">
+                  <h2 className="font-display text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">
+                    Uma tese construída nas trincheiras da rotina empresarial.
+                  </h2>
                 </div>
-                <h2 className="mb-8 font-display text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">
-                  Uma tese construída nas trincheiras da rotina empresarial.
-                </h2>
                 <div className="space-y-6 text-lg font-light leading-relaxed text-slate-600 sm:text-xl">
                   <p>
                     Ao longo de mais de duas décadas, a atuação sempre foi pautada
@@ -151,12 +149,12 @@ const AboutAdemir = () => {
                 viewport={{ once: true, margin: '-100px' }}
                 variants={fadeInUp}
               >
-                <div className="mb-6 text-sm font-bold uppercase tracking-widest text-primary">
-                  Ademir Soares
+                <div className="mb-6 text-sm font-bold uppercase tracking-widest text-primary">Ademir Soares</div>
+                <div className="editorial-heading-block mb-8 max-w-3xl">
+                  <h2 className="font-display text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">
+                    O Master Coach por trás da arquitetura do ILAC.
+                  </h2>
                 </div>
-                <h2 className="mb-8 font-display text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">
-                  O Master Coach por trás da arquitetura do ILAC.
-                </h2>
                 <div className="space-y-6 text-lg font-light leading-relaxed text-slate-600 sm:text-xl">
                   <p>
                     Como CEO e Master Coach, Ademir consolidou experiência prática
@@ -178,10 +176,10 @@ const AboutAdemir = () => {
                 whileInView="visible"
                 viewport={{ once: true, margin: '-100px' }}
                 variants={fadeInUp}
-                className="grid gap-4 sm:grid-cols-3"
+                className="editorial-panel-light grid gap-0 overflow-hidden sm:grid-cols-3"
               >
                 {milestones.map((item, index) => (
-                  <div key={item} className="marketing-card-soft rounded-[1.75rem] p-6">
+                  <div key={item} className="editorial-row-light p-6 sm:border-l sm:first:border-l-0 sm:border-l-[rgba(188,204,231,0.9)]">
                     <div className="marketing-kicker text-primary/70">
                       Marco {index + 1}
                     </div>
@@ -199,9 +197,9 @@ const AboutAdemir = () => {
           <h2 className="mb-12 font-display text-[2.8rem] font-bold leading-[1.02] text-white drop-shadow-2xl sm:text-6xl md:text-7xl">
             "Para chegarmos a novos patamares, os velhos padrões precisam cair."
           </h2>
-          <div className="mx-auto mb-12 grid max-w-4xl gap-4 text-left sm:grid-cols-3">
+          <div className="editorial-panel-dark mx-auto mb-12 grid max-w-4xl gap-0 overflow-hidden text-left sm:grid-cols-3">
             {finalPillars.map((item, index) => (
-              <div key={item} className="marketing-card-dark-soft rounded-[1.6rem] p-5">
+              <div key={item} className="editorial-row-dark p-5 sm:border-l sm:first:border-l-0 sm:border-l-[rgba(71,96,150,0.42)]">
                 <div className="marketing-kicker text-primary/80">
                   Pilar {index + 1}
                 </div>

@@ -80,7 +80,7 @@ const InCompany = () => {
           className="container relative z-10 mx-auto grid items-center gap-12 lg:grid-cols-2"
         >
           <div>
-            <div className="mb-8 inline-block rounded-full border border-white/20 bg-white/5 px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-white backdrop-blur">
+            <div className="mb-8 text-sm font-bold uppercase tracking-[0.26em] text-white/70">
               B2B Corporativo
             </div>
             <h1 className="mb-8 font-display text-[2.85rem] font-bold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl">
@@ -105,16 +105,14 @@ const InCompany = () => {
           </div>
 
           <div className="hidden lg:block">
-            <div className="marketing-card-dark rounded-[2rem] p-8">
-              <div className="marketing-kicker text-white/45">
-                Como entra
-              </div>
+            <div className="editorial-panel-dark p-8">
+              <div className="marketing-kicker text-white/45">Como entra</div>
               <h3 className="mt-4 font-display text-4xl font-bold leading-tight text-white">
                 Leitura precisa do cenário antes da intervenção.
               </h3>
-              <div className="mt-8 space-y-4">
+              <div className="mt-8">
                 {heroPoints.map((point, index) => (
-                  <div key={point} className="marketing-card-dark-soft rounded-[1.4rem] p-5">
+                  <div key={point} className="editorial-row-dark py-5 first:pt-0 last:pb-0">
                     <div className="marketing-kicker text-primary/80">
                       Etapa {String(index + 1).padStart(2, '0')}
                     </div>
@@ -149,20 +147,22 @@ const InCompany = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.8 }}
-                className="marketing-card-light grid items-center gap-10 rounded-[2rem] p-6 md:p-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20 lg:rounded-[3rem] lg:p-16"
+                className="grid items-center gap-12 rounded-[2rem] border-t border-slate-200 py-8 first:border-t-0 md:py-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-24 lg:py-16"
               >
                 <div>
                   <div className="mb-6 flex items-center gap-4">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-xl font-bold text-white shadow-lg shadow-primary/30">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/20 bg-primary/5 text-xl font-bold text-primary">
                       0{idx + 1}
                     </span>
                     <h4 className="text-sm font-bold uppercase tracking-widest text-primary">
                       {service.subtitle}
                     </h4>
                   </div>
-                  <h3 className="mb-6 font-display text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">
-                    {service.title}
-                  </h3>
+                  <div className="editorial-heading-block mb-6 max-w-2xl">
+                    <h3 className="font-display text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">
+                      {service.title}
+                    </h3>
+                  </div>
                   <p className="mb-10 text-lg font-light leading-relaxed text-slate-600 sm:text-xl">
                     {service.description}
                   </p>
@@ -176,11 +176,9 @@ const InCompany = () => {
                   </ul>
                 </div>
 
-                <div className="grid gap-4">
-                  <div className="marketing-card-light rounded-[1.75rem] p-6 shadow-none">
-                    <div className="marketing-kicker text-primary/70">
-                      Onde atua
-                    </div>
+                <div className="editorial-panel-light p-6 lg:p-8">
+                  <div className="editorial-row-light pb-6">
+                    <div className="marketing-kicker text-primary/70">Onde atua</div>
                     <p className="mt-3 text-lg font-semibold leading-8 text-slate-900">
                       {service.subtitle}
                     </p>
@@ -188,12 +186,12 @@ const InCompany = () => {
                   {service.bullets.map((bullet, index) => (
                     <div
                       key={`${service.id}-${index}`}
-                      className="marketing-card-soft rounded-[1.5rem] p-5"
+                      className="editorial-row-light py-5"
                     >
                       <div className="marketing-kicker text-slate-500">
                         Entrega {String(index + 1).padStart(2, '0')}
                       </div>
-                      <p className="mt-3 text-base font-medium leading-7 text-slate-700">
+                      <p className="mt-3 text-lg font-medium leading-8 text-slate-700">
                         {bullet}
                       </p>
                     </div>

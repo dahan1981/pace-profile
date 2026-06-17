@@ -126,7 +126,7 @@ const Programas = () => {
         </motion.div>
       </section>
 
-      <section className="relative z-20">
+      <section className="relative z-20 bg-white">
         {PROGRAMAS.map((prog, index) => {
           const isEven = index % 2 === 0;
 
@@ -139,7 +139,7 @@ const Programas = () => {
               viewport={{ once: true, margin: '-150px' }}
               className="relative overflow-hidden"
             >
-              <div className="container mx-auto grid items-start gap-10 px-4 py-16 sm:py-24 lg:grid-cols-2 lg:gap-24 lg:py-32">
+              <div className="container mx-auto grid items-start gap-12 px-4 py-16 sm:py-24 lg:grid-cols-2 lg:gap-28 lg:py-32">
                 <div className="pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2 select-none font-display text-[30vw] font-bold text-slate-900/[0.03]">
                   {String(index + 1).padStart(2, '0')}
                 </div>
@@ -148,12 +148,14 @@ const Programas = () => {
                   variants={isEven ? fadeLeft : fadeRight}
                   className={`relative z-10 space-y-8 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}
                 >
-                  <div className="inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-xs font-bold uppercase tracking-widest text-primary">
+                  <div className="text-sm font-bold uppercase tracking-[0.26em] text-primary">
                     {prog.tag}
                   </div>
-                  <h2 className="font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-                    {prog.title}
-                  </h2>
+                  <div className="editorial-heading-block max-w-2xl">
+                    <h2 className="font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+                      {prog.title}
+                    </h2>
+                  </div>
                   <p className="text-lg font-light leading-relaxed text-slate-600 sm:text-xl">
                     {prog.description}
                   </p>
@@ -172,13 +174,11 @@ const Programas = () => {
 
                 <motion.div
                   variants={isEven ? fadeRight : fadeLeft}
-                  className={`marketing-card-light relative z-10 grid content-start gap-4 self-stretch rounded-[2rem] p-6 lg:rounded-[2.5rem] ${isEven ? 'lg:order-2' : 'lg:order-1'}`}
+                  className={`editorial-panel-light relative z-10 self-stretch p-6 lg:rounded-[2.5rem] lg:p-8 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}
                 >
-                  <div className="marketing-card-light rounded-[1.5rem] p-6 shadow-none">
-                    <div className="marketing-kicker text-primary/70">
-                      Leitura rápida
-                    </div>
-                    <p className="mt-3 text-base leading-7 text-slate-700">
+                  <div className="editorial-row-light pb-6">
+                    <div className="marketing-kicker text-primary/70">Leitura rápida</div>
+                    <p className="mt-4 text-lg leading-8 text-slate-700">
                       Formação pensada para sair do conceito e entrar em aplicação
                       concreta, com direção mais madura sobre pessoas, processo e
                       desenvolvimento.
@@ -187,12 +187,12 @@ const Programas = () => {
                   {prog.highlights.map((item, itemIndex) => (
                     <div
                       key={`${prog.id}-${itemIndex}`}
-                      className="marketing-card-soft rounded-[1.35rem] p-5"
+                      className="editorial-row-light py-5"
                     >
                       <div className="marketing-kicker text-slate-500">
                         Destaque {String(itemIndex + 1).padStart(2, '0')}
                       </div>
-                      <p className="mt-3 text-base font-medium leading-7 text-slate-800">
+                      <p className="mt-3 text-lg font-medium leading-8 text-slate-800">
                         {item}
                       </p>
                     </div>
