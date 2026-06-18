@@ -129,7 +129,7 @@ const Index = () => {
               variants={fadeInUp}
               className="mt-5 max-w-[19rem] text-[0.96rem] leading-7 text-white/70 sm:mt-8 sm:max-w-2xl sm:text-xl sm:leading-8"
             >
-              Empresas contratam pela promessa. Mas demitem pela realidade. O ILAC atua onde a
+              Empresas contratam pela competência e demitem pelo comportamento. O ILAC atua onde a
               maioria das soluções não alcança: <strong>o comportamento que sustenta a performance.</strong>
             </motion.p>
             <motion.div variants={fadeInUp} className="mt-10 flex flex-col gap-4 sm:flex-row">
