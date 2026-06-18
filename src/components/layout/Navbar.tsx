@@ -47,13 +47,13 @@ const Navbar = () => {
           : 'border-white/10 bg-transparent py-3'
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between px-4 sm:px-6">
-        <Link to="/" className="flex-shrink-0">
+      <div className="container mx-auto flex min-w-0 items-center justify-between px-4 sm:px-6">
+        <Link to="/" className="min-w-0 flex-shrink">
           <Brand
             title="ILAC"
             subtitle="Instituto Latino Americano de Coaching"
-            titleClassName={`text-lg transition-colors sm:text-2xl ${isScrolled ? 'text-primary' : 'text-white'}`}
-            subtitleClassName={`mt-0 hidden text-[0.6rem] font-bold uppercase tracking-[0.2em] transition-colors lg:block ${isScrolled ? 'text-slate-500' : 'text-white/70'}`}
+            titleClassName={`text-base transition-colors sm:text-2xl ${isScrolled ? 'text-primary' : 'text-white'}`}
+            subtitleClassName={`mt-0 hidden max-w-[210px] text-[0.56rem] font-bold uppercase leading-[1.35] tracking-[0.16em] transition-colors lg:block lg:max-w-none lg:text-[0.6rem] lg:tracking-[0.2em] ${isScrolled ? 'text-slate-500' : 'text-white/70'}`}
             iconClassName={`h-8 w-8 transition-all sm:h-12 sm:w-12 ${!isScrolled && 'brightness-0 invert'}`}
           />
         </Link>
@@ -129,6 +129,7 @@ const Navbar = () => {
         </div>
 
         <button
+          type="button"
           className={`p-2 transition-colors lg:hidden ${isScrolled ? 'text-slate-900' : 'text-white'}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >

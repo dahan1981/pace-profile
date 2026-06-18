@@ -80,16 +80,16 @@ const InCompany = () => {
           className="container relative z-10 mx-auto grid items-center gap-12 lg:grid-cols-2"
         >
           <div>
-            <div className="mb-8 text-sm font-bold uppercase tracking-[0.26em] text-white/70">
+            <div className="mb-8 max-w-[17rem] text-[0.58rem] font-bold uppercase leading-[1.4] tracking-[0.18em] text-white/70 sm:max-w-none sm:text-sm sm:tracking-[0.26em]">
               B2B Corporativo
             </div>
-            <h1 className="mb-8 font-display text-[2.85rem] font-bold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl">
+            <h1 className="mb-8 max-w-[10ch] font-display text-[2.2rem] font-bold leading-[0.94] tracking-tight sm:max-w-none sm:text-6xl md:text-7xl">
               Negócios Escaláveis Dependem de{' '}
               <span className="bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
                 Pessoas.
               </span>
             </h1>
-            <p className="mb-10 max-w-xl text-base font-light leading-7 text-white/70 sm:text-2xl sm:leading-relaxed">
+            <p className="mb-10 max-w-[19rem] text-[0.96rem] font-light leading-7 text-white/70 sm:max-w-xl sm:text-2xl sm:leading-relaxed">
               O ILAC InCompany entra onde as soluções tradicionais falham: na correção exata do comportamento que freia o faturamento.
             </p>
             <Link to="/cadastro?type=empresa">

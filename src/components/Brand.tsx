@@ -18,9 +18,9 @@ const Brand = ({
   stacked = false,
 }: BrandProps) => {
   return (
-    <div className={stacked ? 'flex flex-col items-center' : 'flex items-center gap-3'}>
+    <div className={stacked ? 'flex min-w-0 flex-col items-center' : 'flex min-w-0 items-center gap-3'}>
       <img src={iconPrincipal} alt="Marca ILAC" className={iconClassName} />
-      <div className={stacked ? 'mt-3 text-center' : ''}>
+      <div className={stacked ? 'mt-3 min-w-0 text-center' : 'min-w-0'}>
         <div className={`font-display font-bold leading-none text-primary ${titleClassName}`}>{title}</div>
         {subtitle ? <div className={subtitleClassName}>{subtitle}</div> : null}
       </div>

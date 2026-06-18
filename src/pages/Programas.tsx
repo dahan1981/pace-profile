@@ -108,13 +108,13 @@ const Programas = () => {
           variants={fadeInUp}
           className="container relative z-10 mx-auto max-w-5xl text-center"
         >
-          <div className="mb-6 text-sm font-semibold uppercase tracking-[0.3em] text-white/50">
+          <div className="mx-auto mb-6 max-w-[17rem] text-[0.58rem] font-semibold uppercase leading-[1.4] tracking-[0.18em] text-white/50 sm:max-w-none sm:text-sm sm:tracking-[0.3em]">
             Carreiras & Formações
           </div>
-          <h1 className="mb-8 font-display text-[2.85rem] font-bold leading-[0.98] tracking-tight sm:text-6xl lg:text-[6rem]">
+          <h1 className="mx-auto mb-8 max-w-[10ch] font-display text-[2.2rem] font-bold leading-[0.94] tracking-tight sm:max-w-none sm:text-6xl lg:text-[6rem]">
             Sua Próxima Evolução <span className="border-b-4 border-primary text-primary">Profissional.</span>
           </h1>
-          <p className="mx-auto max-w-3xl text-base font-light leading-7 text-white/70 sm:text-2xl sm:leading-relaxed">
+          <p className="mx-auto max-w-[19rem] text-[0.96rem] font-light leading-7 text-white/70 sm:max-w-3xl sm:text-2xl sm:leading-relaxed">
             Esqueça apenas teoria. Desenvolva-se através de métodos certificados que entregam prática real.
           </p>
         </motion.div>

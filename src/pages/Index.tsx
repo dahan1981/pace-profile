@@ -96,7 +96,7 @@ const SectionLabel = ({
 }) => (
   <motion.div
     variants={fadeInUp}
-    className={`text-sm font-semibold uppercase tracking-[0.24em] ${
+    className={`max-w-[17rem] text-[0.58rem] font-semibold uppercase leading-[1.4] tracking-[0.18em] sm:max-w-none sm:text-sm sm:tracking-[0.24em] ${
       light ? 'text-white/55' : 'text-primary/72'
     }`}
   >
@@ -120,14 +120,14 @@ const Index = () => {
             className="max-w-4xl"
           >
             <SectionLabel light>Instituto Latino Americano de Coaching</SectionLabel>
-            <motion.div variants={fadeInUp} className="editorial-heading-block mt-6 border-white/70 pl-6 sm:pl-8">
-              <h1 className="font-display text-[2.85rem] font-bold leading-[0.98] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem]">
+            <motion.div variants={fadeInUp} className="editorial-heading-block mt-5 max-w-[18rem] border-white/70 pl-4 sm:mt-6 sm:max-w-none sm:pl-8">
+              <h1 className="max-w-[10ch] font-display text-[2.2rem] font-bold leading-[0.94] tracking-tight sm:max-w-none sm:text-6xl md:text-7xl lg:text-[5.5rem]">
                 Transformação em Performance Empresarial.
               </h1>
             </motion.div>
             <motion.p
               variants={fadeInUp}
-              className="mt-6 max-w-2xl text-base leading-7 text-white/70 sm:mt-8 sm:text-xl sm:leading-8"
+              className="mt-5 max-w-[19rem] text-[0.96rem] leading-7 text-white/70 sm:mt-8 sm:max-w-2xl sm:text-xl sm:leading-8"
             >
               Empresas contratam pela promessa. Mas demitem pela realidade. O ILAC atua onde a
               maioria das soluções não alcança: <strong>o comportamento que sustenta a performance.</strong>
