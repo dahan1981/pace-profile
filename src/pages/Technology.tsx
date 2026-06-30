@@ -12,7 +12,6 @@ import {
   MonitorSmartphone,
   Rocket,
   ServerCog,
-  Sparkles,
 } from 'lucide-react';
 import Brand from '@/components/Brand';
 import { Button } from '@/components/ui/button';
@@ -168,15 +167,7 @@ const Technology = () => {
               variants={staggerContainer}
               className="mx-auto max-w-6xl"
             >
-              <motion.div
-                variants={fadeInUp}
-                className="inline-flex items-center gap-2 border-l border-primary/80 pl-4 text-[0.62rem] font-bold uppercase tracking-[0.24em] text-white/70 sm:text-xs"
-              >
-                <Sparkles className="h-3.5 w-3.5 text-primary" />
-                Braço tecnológico do ILAC
-              </motion.div>
-
-              <motion.div variants={fadeInUp} className="mt-8 grid gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
+              <motion.div variants={fadeInUp} className="grid gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
                 <div className="space-y-8">
                   <div className="editorial-heading-block border-primary/80 pl-4 sm:pl-6">
                     <h1 className="max-w-[10ch] font-display text-[2.45rem] font-bold leading-[0.92] text-white sm:max-w-none sm:text-6xl lg:text-[5.5rem]">
@@ -243,9 +234,9 @@ const Technology = () => {
               whileInView="visible"
               viewport={{ once: true, margin: '-100px' }}
               variants={staggerContainer}
-              className="mb-16 grid gap-10 lg:grid-cols-[0.72fr_1.28fr]"
+              className="mb-16 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start"
             >
-              <div>
+              <div className="max-w-xl">
                 <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary/72">Frentes</div>
                 <div className="editorial-heading-block mt-5 max-w-xl">
                   <h2 className="font-display text-3xl font-bold leading-tight sm:text-5xl">
@@ -253,7 +244,7 @@ const Technology = () => {
                   </h2>
                 </div>
               </div>
-              <p className="max-w-3xl text-lg leading-8 text-slate-600 sm:text-xl">
+              <p className="max-w-3xl text-lg leading-8 text-slate-600 sm:text-xl lg:pt-1">
                 Não é um braço experimental. É uma frente pensada para desenvolver presença digital, estrutura de produto e inteligência operacional com o mesmo critério de clareza e consistência do ILAC principal.
               </p>
             </motion.div>
