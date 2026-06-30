@@ -14,6 +14,7 @@ import {
   ServerCog,
 } from 'lucide-react';
 import Brand from '@/components/Brand';
+import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 
 const fadeInUp: Variants = {
@@ -110,6 +111,18 @@ const architectureItems = [
   { icon: Code2, title: 'Código evolutivo', text: 'Base preparada para manutenção, expansão e continuidade.' },
 ];
 
+const sectionBridgeClassNames = {
+  darkToWhite: 'bg-[linear-gradient(180deg,#07111f_0%,#0b1727_8%,#ffffff_100%)]',
+  whiteToDark: 'bg-[linear-gradient(180deg,#ffffff_0%,#eef3f8_28%,#091524_100%)]',
+  darkToSoft: 'bg-[linear-gradient(180deg,#091524_0%,#15243a_14%,#f7f9fc_100%)]',
+  softToWhite: 'bg-[linear-gradient(180deg,#f7f9fc_0%,#ffffff_100%)]',
+  whiteToCta: 'bg-[linear-gradient(180deg,#ffffff_0%,#eaf0f8_32%,#020617_100%)]',
+} as const;
+
+const SectionBridge = ({ variant }: { variant: keyof typeof sectionBridgeClassNames }) => (
+  <div aria-hidden="true" className={`h-14 sm:h-20 ${sectionBridgeClassNames[variant]}`} />
+);
+
 const Technology = () => {
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#07111f] text-white">
@@ -181,7 +194,7 @@ const Technology = () => {
 
                   <div className="flex flex-col gap-4 sm:flex-row">
                     <a href="https://wa.me/5521979951415" target="_blank" rel="noopener noreferrer">
-                      <Button className="h-14 w-full rounded-full bg-primary px-7 text-base text-white hover:bg-primary/90 sm:w-auto">
+                      <Button className="h-14 w-full rounded-full bg-primary px-7 text-base text-white shadow-lg shadow-primary/20 transition duration-300 hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/25 sm:w-auto">
                         Conversar sobre tecnologia
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
@@ -189,7 +202,7 @@ const Technology = () => {
                     <a href="#entregas">
                       <Button
                         variant="outline"
-                        className="h-14 w-full rounded-full border-white/12 bg-transparent px-7 text-base text-white hover:bg-white/8 hover:text-white sm:w-auto"
+                        className="h-14 w-full rounded-full border-white/12 bg-transparent px-7 text-base text-white transition duration-300 hover:-translate-y-0.5 hover:bg-white/8 hover:text-white sm:w-auto"
                       >
                         Ver frentes de entrega
                       </Button>
@@ -226,6 +239,8 @@ const Technology = () => {
             </motion.div>
           </div>
         </section>
+
+        <SectionBridge variant="darkToWhite" />
 
         <section id="entregas" className="bg-white px-4 py-20 text-slate-950 sm:py-28">
           <div className="container mx-auto">
@@ -281,6 +296,8 @@ const Technology = () => {
           </div>
         </section>
 
+        <SectionBridge variant="whiteToDark" />
+
         <section id="estrutura" className="bg-[#091524] px-4 py-20 text-white sm:py-28">
           <div className="container mx-auto">
             <motion.div
@@ -321,6 +338,8 @@ const Technology = () => {
             </motion.div>
           </div>
         </section>
+
+        <SectionBridge variant="darkToSoft" />
 
         <section id="processo" className="bg-[#f7f9fc] px-4 py-20 text-slate-950 sm:py-28">
           <div className="container mx-auto">
@@ -368,6 +387,8 @@ const Technology = () => {
           </div>
         </section>
 
+        <SectionBridge variant="softToWhite" />
+
         <section className="bg-white px-4 py-20 text-slate-950 sm:py-28">
           <div className="container mx-auto">
             <motion.div
@@ -411,14 +432,18 @@ const Technology = () => {
           </div>
         </section>
 
-        <section className="border-t border-white/10 bg-slate-950 px-4 py-20 text-white sm:py-28">
+        <SectionBridge variant="whiteToCta" />
+
+        <section className="relative overflow-hidden bg-slate-950 px-4 py-20 text-white sm:py-28">
+          <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          <div aria-hidden="true" className="absolute -right-40 top-16 h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
           <div className="container mx-auto">
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-100px' }}
               variants={staggerContainer}
-              className="grid gap-12 border-y border-white/12 py-12 lg:grid-cols-[1.08fr_0.92fr]"
+              className="relative grid gap-12 border-y border-white/12 py-12 lg:grid-cols-[1.08fr_0.92fr]"
             >
               <motion.div variants={fadeInUp}>
                 <div className="text-sm font-semibold uppercase tracking-[0.24em] text-white/45">Próximo passo</div>
@@ -448,7 +473,7 @@ const Technology = () => {
 
                 <div className="flex flex-col gap-4 sm:flex-row">
                   <a href="https://wa.me/5521979951415" target="_blank" rel="noopener noreferrer">
-                    <Button className="h-14 w-full rounded-full bg-primary px-7 text-base text-white hover:bg-primary/90 sm:w-auto">
+                    <Button className="h-14 w-full rounded-full bg-primary px-7 text-base text-white shadow-lg shadow-primary/20 transition duration-300 hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/25 sm:w-auto">
                       Falar com o ILAC Tec
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -456,7 +481,7 @@ const Technology = () => {
                   <a href="/">
                     <Button
                       variant="outline"
-                      className="h-14 w-full rounded-full border-white/12 bg-transparent px-7 text-base text-white hover:bg-white/8 hover:text-white sm:w-auto"
+                      className="h-14 w-full rounded-full border-white/12 bg-transparent px-7 text-base text-white transition duration-300 hover:-translate-y-0.5 hover:bg-white/8 hover:text-white sm:w-auto"
                     >
                       Voltar ao ILAC
                     </Button>
@@ -467,6 +492,7 @@ const Technology = () => {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 };
