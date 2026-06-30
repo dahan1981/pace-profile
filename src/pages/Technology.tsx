@@ -238,8 +238,7 @@ const Technology = () => {
               className="mb-16 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start"
             >
               <div className="max-w-xl">
-                <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary/72">Frentes</div>
-                <div className="editorial-heading-block mt-5 max-w-xl">
+                <div className="editorial-heading-block max-w-xl">
                   <h2 className="font-display text-3xl font-bold leading-tight sm:text-5xl">
                     O que o ILAC Tec constrói na prática.
                   </h2>
@@ -292,8 +291,7 @@ const Technology = () => {
               className="grid gap-14 lg:grid-cols-[1fr_1fr]"
             >
               <motion.div variants={fadeInUp}>
-                <div className="text-sm font-semibold uppercase tracking-[0.24em] text-white/45">Estrutura</div>
-                <div className="editorial-heading-block mt-5 border-white/24">
+                <div className="editorial-heading-block border-white/24">
                   <h2 className="font-display text-3xl font-bold leading-tight text-white sm:text-5xl">
                     Design claro na frente. Base técnica sólida por trás.
                   </h2>
@@ -333,8 +331,7 @@ const Technology = () => {
               className="mb-16 grid gap-10 lg:grid-cols-[0.75fr_1.25fr]"
             >
               <div>
-                <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary/72">Processo</div>
-                <div className="editorial-heading-block mt-5">
+                <div className="editorial-heading-block">
                   <h2 className="font-display text-3xl font-bold leading-tight sm:text-5xl">
                     Como o ILAC Tec conduz um projeto.
                   </h2>
@@ -379,8 +376,7 @@ const Technology = () => {
               className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr]"
             >
               <motion.div variants={fadeInUp}>
-                <div className="text-sm font-semibold uppercase tracking-[0.24em] text-primary/72">Cobertura</div>
-                <div className="editorial-heading-block mt-5 max-w-2xl">
+                <div className="editorial-heading-block max-w-2xl">
                   <h2 className="font-display text-3xl font-bold leading-tight sm:text-5xl">
                     Uma frente para construir do site até a inteligência de operação.
                   </h2>
@@ -423,8 +419,7 @@ const Technology = () => {
               className="relative grid gap-12 border-y border-white/12 py-12 lg:grid-cols-[1.08fr_0.92fr]"
             >
               <motion.div variants={fadeInUp}>
-                <div className="text-sm font-semibold uppercase tracking-[0.24em] text-white/45">Próximo passo</div>
-                <div className="editorial-heading-block mt-5 border-white/24">
+                <div className="editorial-heading-block border-white/24">
                   <h2 className="font-display text-3xl font-bold leading-tight text-white sm:text-5xl">
                     Se a tecnologia precisa sustentar a presença ou a operação, o ILAC Tec entra.
                   </h2>
