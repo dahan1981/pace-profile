@@ -67,18 +67,23 @@ const serviceTracks = [
 
 const processSteps = [
   {
-    title: 'Diagnóstico',
-    text: 'Entendimento do objetivo, gargalo operacional, fluxo de atendimento e maturidade digital do projeto.',
+    title: 'Fechamento',
+    text: 'Aprovação da proposta, alinhamento do escopo e coleta das referências principais da marca.',
     icon: MessageSquareMore,
   },
   {
-    title: 'Arquitetura',
-    text: 'Definição de estrutura, stack, escopo de telas, integrações e prioridade de entrega antes de construir.',
+    title: 'Planejamento',
+    text: 'Definição das seções, hierarquia das páginas, conteúdo e fluxo principal da experiência.',
     icon: Layers3,
   },
   {
-    title: 'Entrega aplicada',
-    text: 'Desenvolvimento, refinamento visual, testes e publicação com foco em uso real, não em demo bonita.',
+    title: 'Desenvolvimento',
+    text: 'Criação visual e implementação técnica da interface, integrações e estrutura necessária do projeto.',
+    icon: Code2,
+  },
+  {
+    title: 'Revisão e entrega',
+    text: 'Envio da primeira versão, ajustes finais, revisão da experiência e publicação do site pronto para uso.',
     icon: Rocket,
   },
 ];
@@ -347,7 +352,7 @@ const Technology = () => {
               whileInView="visible"
               viewport={{ once: true, margin: '-100px' }}
               variants={staggerContainer}
-              className="editorial-grid-light grid gap-8 py-2 md:grid-cols-3 md:gap-0"
+              className="editorial-grid-light grid gap-8 py-2 md:grid-cols-2 md:gap-0 xl:grid-cols-4"
             >
               {processSteps.map((step, index) => {
                 const Icon = step.icon;
