@@ -68,6 +68,48 @@ const solutionTracks = [
   },
 ];
 
+const identityPillars = [
+  {
+    title: 'Missão',
+    text: 'Transformar vidas por meio da educação, do coaching, da análise comportamental, inteligência emocional da consultoria e do desenvolvimento de líderes, capacitando pessoas e organizações a alcançarem excelência, propósito e resultados sustentáveis.',
+  },
+  {
+    title: 'Visão',
+    text: 'Ser a principal referência na América Latina em desenvolvimento humano, formação de líderes, análise comportamental e educação profissional, reconhecida pela excelência, inovação, credibilidade e impacto positivo na sociedade.',
+  },
+  {
+    title: 'Propósito',
+    text: 'Desenvolver pessoas para transformar organizações e impactar positivamente a sociedade.',
+  },
+];
+
+const values = [
+  'Deus acima de tudo.',
+  'Ética e integridade.',
+  'Excelência.',
+  'Respeito à dignidade humana.',
+  'Desenvolvimento contínuo.',
+  'Inovação.',
+  'Base científica e melhoria contínua.',
+  'Liderança servidora.',
+  'Transparência.',
+  'Responsabilidade social.',
+  'Valorização das pessoas.',
+  'Compromisso com resultados.',
+  'Cooperação e trabalho em equipe.',
+  'Transformação de vidas.',
+  'Propósito e paixão por servir.',
+];
+
+const actionAreas = [
+  'Educação',
+  'Coaching',
+  'Análise comportamental',
+  'Inteligência emocional',
+  'Consultoria',
+  'Desenvolvimento de líderes',
+];
+
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -225,6 +267,62 @@ const Index = () => {
         </div>
       </section>
 
+      <section id="quem-somos" className="relative overflow-hidden border-y border-slate-200 bg-[#f7f9fc] px-4 py-20 sm:py-32">
+        <div className="container mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            variants={staggerContainer}
+            className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr]"
+          >
+            <motion.div variants={fadeInUp}>
+              <SectionLabel>Quem somos</SectionLabel>
+              <div className="editorial-heading-block mt-5 max-w-2xl">
+                <h2 className="font-display text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">
+                  "Transformando pessoas. Desenvolvendo líderes. Construindo futuros."
+                </h2>
+              </div>
+              <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-600">
+                Desenvolver pessoas para transformar organizações e impactar positivamente a sociedade.
+              </p>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="border-y border-slate-200">
+              <div className="divide-y divide-slate-200">
+                {identityPillars.map((item) => (
+                  <div key={item.title} className="grid gap-5 py-6 sm:grid-cols-[9rem_1fr]">
+                    <div className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-primary/72">
+                      {item.title}
+                    </div>
+                    <p className="text-base leading-8 text-slate-700 sm:text-lg">{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            variants={staggerContainer}
+            className="mt-16 grid gap-10 border-t border-slate-200 pt-12 lg:grid-cols-[0.45fr_1.55fr]"
+          >
+            <motion.div variants={fadeInUp}>
+              <h3 className="font-display text-2xl font-bold text-slate-950">Valores</h3>
+            </motion.div>
+            <motion.div variants={fadeInUp} className="grid gap-x-10 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+              {values.map((value) => (
+                <div key={value} className="border-b border-slate-200 pb-3 text-sm font-medium leading-7 text-slate-700">
+                  {value}
+                </div>
+              ))}
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
       <section className="relative overflow-hidden border-y border-slate-200 bg-slate-50 px-4 py-20 sm:py-32">
         <div className="container mx-auto">
           <motion.div
@@ -266,6 +364,43 @@ const Index = () => {
                 <p className="max-w-sm text-lg leading-relaxed text-slate-600">{step.description}</p>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </section>
+
+      <section id="o-que-fazemos" className="relative overflow-hidden bg-white px-4 py-20 sm:py-32">
+        <div className="container mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            variants={staggerContainer}
+            className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr]"
+          >
+            <motion.div variants={fadeInUp}>
+              <SectionLabel>O que fazemos</SectionLabel>
+              <div className="editorial-heading-block mt-5 max-w-3xl">
+                <h2 className="font-display text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">
+                  Desenvolvimento humano, liderança e educação profissional com aplicação real.
+                </h2>
+              </div>
+              <p className="mt-8 max-w-3xl text-lg leading-8 text-slate-600 sm:text-xl">
+                Transformar vidas por meio da educação, do coaching, da análise comportamental, inteligência emocional da consultoria e do desenvolvimento de líderes.
+              </p>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="border-y border-slate-200">
+              <div className="divide-y divide-slate-200">
+                {actionAreas.map((area, index) => (
+                  <div key={area} className="grid gap-5 py-5 sm:grid-cols-[4rem_1fr] sm:items-center">
+                    <div className="font-display text-lg font-bold text-primary">
+                      {String(index + 1).padStart(2, '0')}
+                    </div>
+                    <div className="text-lg font-semibold text-slate-900">{area}</div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
