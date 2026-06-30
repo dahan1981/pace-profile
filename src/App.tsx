@@ -17,6 +17,7 @@ import UserDashboard from "./pages/UserDashboard.tsx";
 import EnterpriseDashboard from "./pages/EnterpriseDashboard.tsx";
 import AdminDashboard from "./pages/AdminDashboard.tsx";
 import AboutAdemir from "./pages/AboutAdemir.tsx";
+import Technology from "./pages/Technology.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -46,6 +47,7 @@ const App = () => (
           <Route path="/usuario" element={<UserDashboard />} />
           <Route path="/empresa" element={<EnterpriseDashboard />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/tecnologia" element={<Technology />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>
