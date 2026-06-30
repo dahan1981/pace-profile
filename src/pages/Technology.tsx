@@ -111,18 +111,6 @@ const architectureItems = [
   { icon: Code2, title: 'Código evolutivo', text: 'Base preparada para manutenção, expansão e continuidade.' },
 ];
 
-const sectionBridgeClassNames = {
-  darkToWhite: 'bg-[linear-gradient(180deg,#07111f_0%,#0b1727_8%,#ffffff_100%)]',
-  whiteToDark: 'bg-[linear-gradient(180deg,#ffffff_0%,#eef3f8_28%,#091524_100%)]',
-  darkToSoft: 'bg-[linear-gradient(180deg,#091524_0%,#15243a_14%,#f7f9fc_100%)]',
-  softToWhite: 'bg-[linear-gradient(180deg,#f7f9fc_0%,#ffffff_100%)]',
-  whiteToCta: 'bg-[linear-gradient(180deg,#ffffff_0%,#eaf0f8_32%,#020617_100%)]',
-} as const;
-
-const SectionBridge = ({ variant }: { variant: keyof typeof sectionBridgeClassNames }) => (
-  <div aria-hidden="true" className={`h-14 sm:h-20 ${sectionBridgeClassNames[variant]}`} />
-);
-
 const Technology = () => {
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#07111f] text-white">
@@ -240,9 +228,7 @@ const Technology = () => {
           </div>
         </section>
 
-        <SectionBridge variant="darkToWhite" />
-
-        <section id="entregas" className="bg-white px-4 py-20 text-slate-950 sm:py-28">
+        <section id="entregas" className="border-t border-slate-200 bg-white px-4 py-20 text-slate-950 sm:py-28">
           <div className="container mx-auto">
             <motion.div
               initial="hidden"
@@ -296,9 +282,7 @@ const Technology = () => {
           </div>
         </section>
 
-        <SectionBridge variant="whiteToDark" />
-
-        <section id="estrutura" className="bg-[#091524] px-4 py-20 text-white sm:py-28">
+        <section id="estrutura" className="border-t border-white/10 bg-[#091524] px-4 py-20 text-white sm:py-28">
           <div className="container mx-auto">
             <motion.div
               initial="hidden"
@@ -339,9 +323,7 @@ const Technology = () => {
           </div>
         </section>
 
-        <SectionBridge variant="darkToSoft" />
-
-        <section id="processo" className="bg-[#f7f9fc] px-4 py-20 text-slate-950 sm:py-28">
+        <section id="processo" className="border-t border-slate-200 bg-[#f7f9fc] px-4 py-20 text-slate-950 sm:py-28">
           <div className="container mx-auto">
             <motion.div
               initial="hidden"
@@ -387,9 +369,7 @@ const Technology = () => {
           </div>
         </section>
 
-        <SectionBridge variant="softToWhite" />
-
-        <section className="bg-white px-4 py-20 text-slate-950 sm:py-28">
+        <section className="border-t border-slate-200 bg-white px-4 py-20 text-slate-950 sm:py-28">
           <div className="container mx-auto">
             <motion.div
               initial="hidden"
@@ -432,10 +412,7 @@ const Technology = () => {
           </div>
         </section>
 
-        <SectionBridge variant="whiteToCta" />
-
-        <section className="relative overflow-hidden bg-slate-950 px-4 py-20 text-white sm:py-28">
-          <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        <section className="relative overflow-hidden border-t border-white/10 bg-slate-950 px-4 py-20 text-white sm:py-28">
           <div aria-hidden="true" className="absolute -right-40 top-16 h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
           <div className="container mx-auto">
             <motion.div
