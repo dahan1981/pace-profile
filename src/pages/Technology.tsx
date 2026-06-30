@@ -18,11 +18,11 @@ import Brand from '@/components/Brand';
 import { Button } from '@/components/ui/button';
 
 const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 32 },
+  hidden: { opacity: 0, y: 28 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -30,7 +30,7 @@ const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.12 },
+    transition: { staggerChildren: 0.1 },
   },
 };
 
@@ -40,24 +40,28 @@ const serviceTracks = [
     description:
       'Landing pages, páginas de venda, sites institucionais e estruturas de captação com identidade forte e foco em conversão.',
     icon: Globe,
+    tag: 'Presença digital',
   },
   {
     title: 'Aplicativos e plataformas',
     description:
       'Apps, áreas logadas, painéis internos e produtos digitais desenhados para operação, escala e experiência limpa.',
     icon: MonitorSmartphone,
+    tag: 'Produto',
   },
   {
     title: 'Sistemas sob medida',
     description:
       'Fluxos internos, gestão, cadastros, dashboards e automações conectadas ao funcionamento real do negócio.',
     icon: ServerCog,
+    tag: 'Operação',
   },
   {
     title: 'IAs e automações',
     description:
       'Assistentes, agentes, automações inteligentes e integração com dados para reduzir atrito e aumentar velocidade.',
     icon: Bot,
+    tag: 'Inteligência',
   },
 ];
 
@@ -65,14 +69,17 @@ const processSteps = [
   {
     title: 'Diagnóstico',
     text: 'Entendimento do objetivo, gargalo operacional, fluxo de atendimento e maturidade digital do projeto.',
+    icon: MessageSquareMore,
   },
   {
     title: 'Arquitetura',
     text: 'Definição de estrutura, stack, escopo de telas, integrações e prioridade de entrega antes de construir.',
+    icon: Layers3,
   },
   {
     title: 'Entrega aplicada',
     text: 'Desenvolvimento, refinamento visual, testes e publicação com foco em uso real, não em demo bonita.',
+    icon: Rocket,
   },
 ];
 
@@ -90,10 +97,24 @@ const proofPoints = [
   'Execução guiada por clareza de negócio e não só estética.',
 ];
 
+const executionRows = [
+  ['Sites & landing pages', 'Presença forte', 'Marca, conversão e clareza comercial.'],
+  ['Apps & áreas logadas', 'Fluxo utilizável', 'Jornadas pensadas para uso recorrente.'],
+  ['Sistemas & painéis', 'Rotina organizada', 'Processos internos com dados visíveis.'],
+  ['IA & automações', 'Escala operacional', 'Atendimento, análise e tarefas assistidas.'],
+];
+
+const architectureItems = [
+  { icon: Layers3, title: 'Arquitetura de produto', text: 'Escopo, prioridade e estrutura antes da implementação.' },
+  { icon: LayoutDashboard, title: 'Experiência de uso', text: 'Fluxos limpos, legibilidade e hierarquia visual de verdade.' },
+  { icon: Database, title: 'Dados e integrações', text: 'Banco, automações, serviços externos e operação conectada.' },
+  { icon: Code2, title: 'Código evolutivo', text: 'Base preparada para manutenção, expansão e continuidade.' },
+];
+
 const Technology = () => {
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#07111f] text-white">
-      <header className="sticky top-0 z-40 border-b border-white/10 bg-[#07111f]/85 backdrop-blur-xl">
+      <header className="sticky top-0 z-40 border-b border-white/10 bg-[#07111f]/90 backdrop-blur-xl">
         <div className="container mx-auto flex min-w-0 items-center justify-between gap-4 px-4 py-4 sm:px-6">
           <a href="/" className="min-w-0 flex-shrink">
             <Brand
@@ -136,12 +157,9 @@ const Technology = () => {
       </header>
 
       <main>
-        <section className="relative overflow-hidden px-4 pb-20 pt-24 sm:pb-28 sm:pt-28">
-          <div className="absolute inset-0">
-            <div className="absolute left-[-8%] top-[12%] h-56 w-56 rounded-full bg-primary/18 blur-3xl sm:h-80 sm:w-80" />
-            <div className="absolute bottom-[8%] right-[-10%] h-64 w-64 rounded-full bg-cyan-400/12 blur-3xl sm:h-[26rem] sm:w-[26rem]" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(58,118,255,0.14),transparent_36%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_28%)]" />
-          </div>
+        <section className="relative overflow-hidden border-b border-white/10 px-4 pb-20 pt-24 sm:pb-28 sm:pt-28">
+          <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(10,22,39,0.98),rgba(5,9,16,1)_58%,rgba(10,28,46,0.98))]" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:72px_72px] opacity-30" />
 
           <div className="container relative z-10 mx-auto">
             <motion.div
@@ -152,16 +170,16 @@ const Technology = () => {
             >
               <motion.div
                 variants={fadeInUp}
-                className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-4 py-2 text-[0.62rem] font-bold uppercase tracking-[0.24em] text-white/70 sm:text-xs"
+                className="inline-flex items-center gap-2 border-l border-primary/80 pl-4 text-[0.62rem] font-bold uppercase tracking-[0.24em] text-white/70 sm:text-xs"
               >
                 <Sparkles className="h-3.5 w-3.5 text-primary" />
                 Braço tecnológico do ILAC
               </motion.div>
 
-              <motion.div variants={fadeInUp} className="mt-8 grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+              <motion.div variants={fadeInUp} className="mt-8 grid gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
                 <div className="space-y-8">
                   <div className="editorial-heading-block border-primary/80 pl-4 sm:pl-6">
-                    <h1 className="max-w-[10ch] font-display text-[2.45rem] font-bold leading-[0.92] tracking-tight text-white sm:max-w-none sm:text-6xl lg:text-[5.5rem]">
+                    <h1 className="max-w-[10ch] font-display text-[2.45rem] font-bold leading-[0.92] text-white sm:max-w-none sm:text-6xl lg:text-[5.5rem]">
                       Tecnologia com forma de marca e estrutura de negócio.
                     </h1>
                   </div>
@@ -188,35 +206,29 @@ const Technology = () => {
                   </div>
                 </div>
 
-                <motion.div variants={fadeInUp} className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-4 shadow-[0_24px_80px_rgba(0,0,0,0.26)] backdrop-blur">
-                  <div className="rounded-[1.5rem] border border-white/8 bg-[#0d1726] p-5">
-                    <div className="mb-5 flex items-center justify-between gap-4 border-b border-white/8 pb-4">
-                      <div>
-                        <div className="text-[0.62rem] font-bold uppercase tracking-[0.24em] text-white/38">
-                          Painel de execução
-                        </div>
-                        <div className="mt-2 text-xl font-semibold text-white">Entrega com direção</div>
+                <motion.div variants={fadeInUp} className="border-y border-white/16 py-5">
+                  <div className="mb-5 flex items-end justify-between gap-4 border-b border-white/12 pb-5">
+                    <div>
+                      <div className="text-[0.62rem] font-bold uppercase tracking-[0.24em] text-white/40">
+                        Painel de execução
                       </div>
-                      <div className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-300">
-                        Operação ativa
-                      </div>
+                      <div className="mt-2 text-xl font-semibold text-white">Entrega com direção</div>
                     </div>
+                    <div className="border border-emerald-400/25 px-3 py-1 text-xs font-semibold text-emerald-300">
+                      Operação ativa
+                    </div>
+                  </div>
 
-                    <div className="grid gap-3 sm:grid-cols-2">
-                      {[
-                        ['Sites & landing pages', 'Presença forte'],
-                        ['Apps & áreas logadas', 'Fluxo utilizável'],
-                        ['Sistemas & painéis', 'Rotina organizada'],
-                        ['IA & automações', 'Escala operacional'],
-                      ].map(([label, value]) => (
-                        <div key={label} className="rounded-[1.25rem] border border-white/8 bg-white/[0.03] p-4">
-                          <div className="text-[0.62rem] font-bold uppercase tracking-[0.22em] text-white/35">
-                            {label}
-                          </div>
-                          <div className="mt-3 text-lg font-semibold text-white">{value}</div>
+                  <div className="divide-y divide-white/12">
+                    {executionRows.map(([label, value, detail]) => (
+                      <div key={label} className="grid gap-3 py-4 sm:grid-cols-[0.7fr_0.7fr_1fr] sm:items-center">
+                        <div className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-white/42">
+                          {label}
                         </div>
-                      ))}
-                    </div>
+                        <div className="text-lg font-semibold text-white">{value}</div>
+                        <p className="text-sm leading-6 text-white/58">{detail}</p>
+                      </div>
+                    ))}
                   </div>
                 </motion.div>
               </motion.div>
@@ -251,7 +263,7 @@ const Technology = () => {
               whileInView="visible"
               viewport={{ once: true, margin: '-100px' }}
               variants={staggerContainer}
-              className="grid gap-6 md:grid-cols-2"
+              className="grid border-t border-slate-200 md:grid-cols-2"
             >
               {serviceTracks.map((item) => {
                 const Icon = item.icon;
@@ -259,20 +271,18 @@ const Technology = () => {
                   <motion.div
                     key={item.title}
                     variants={fadeInUp}
-                    className="rounded-[2rem] border border-[rgba(177,201,239,0.92)] bg-white p-7"
+                    className="group border-b border-slate-200 py-9 md:px-8 md:odd:border-r"
                   >
                     <div className="flex items-start justify-between gap-6">
-                      <div className="space-y-4">
+                      <div>
                         <div className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-primary/68">
-                          Frente tecnológica
+                          {item.tag}
                         </div>
-                        <h3 className="font-display text-2xl font-bold text-slate-950">{item.title}</h3>
+                        <h3 className="mt-4 font-display text-2xl font-bold text-slate-950">{item.title}</h3>
                       </div>
-                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-primary/18 bg-primary/6 text-primary">
-                        <Icon className="h-6 w-6" />
-                      </div>
+                      <Icon className="h-7 w-7 shrink-0 text-primary" />
                     </div>
-                    <p className="mt-6 text-base leading-8 text-slate-600">{item.description}</p>
+                    <p className="mt-6 max-w-xl text-base leading-8 text-slate-600">{item.description}</p>
                   </motion.div>
                 );
               })}
@@ -301,20 +311,17 @@ const Technology = () => {
                 </p>
               </motion.div>
 
-              <motion.div variants={fadeInUp} className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-5">
-                <div className="grid gap-3 sm:grid-cols-2">
-                  {[
-                    { icon: Layers3, title: 'Arquitetura de produto', text: 'Escopo, prioridade e estrutura antes da implementação.' },
-                    { icon: LayoutDashboard, title: 'Experiência de uso', text: 'Fluxos limpos, legibilidade e hierarquia visual de verdade.' },
-                    { icon: Database, title: 'Dados e integrações', text: 'Banco, automações, serviços externos e operação conectada.' },
-                    { icon: Code2, title: 'Código evolutivo', text: 'Base preparada para manutenção, expansão e continuidade.' },
-                  ].map((card) => {
-                    const Icon = card.icon;
+              <motion.div variants={fadeInUp} className="border-y border-white/14">
+                <div className="divide-y divide-white/12">
+                  {architectureItems.map((item) => {
+                    const Icon = item.icon;
                     return (
-                      <div key={card.title} className="rounded-[1.35rem] border border-white/8 bg-[#0e1b2d] p-5">
+                      <div key={item.title} className="grid gap-5 py-6 sm:grid-cols-[3rem_1fr]">
                         <Icon className="h-6 w-6 text-primary" />
-                        <h3 className="mt-4 text-lg font-semibold text-white">{card.title}</h3>
-                        <p className="mt-3 text-sm leading-7 text-white/62">{card.text}</p>
+                        <div>
+                          <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+                          <p className="mt-3 text-sm leading-7 text-white/62">{item.text}</p>
+                        </div>
                       </div>
                     );
                   })}
@@ -353,18 +360,19 @@ const Technology = () => {
               variants={staggerContainer}
               className="editorial-grid-light grid gap-8 py-2 md:grid-cols-3 md:gap-0"
             >
-              {processSteps.map((step, index) => (
-                <motion.div key={step.title} variants={fadeInUp} className="editorial-grid-cell-light md:px-8">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-primary/15 bg-primary/6 text-primary">
-                    {index === 0 ? <MessageSquareMore className="h-6 w-6" /> : index === 1 ? <Layers3 className="h-6 w-6" /> : <Rocket className="h-6 w-6" />}
-                  </div>
-                  <div className="mt-5 text-[0.68rem] font-bold uppercase tracking-[0.22em] text-primary/68">
-                    Etapa {String(index + 1).padStart(2, '0')}
-                  </div>
-                  <h3 className="mt-3 font-display text-2xl font-bold text-slate-950">{step.title}</h3>
-                  <p className="mt-4 text-base leading-8 text-slate-600">{step.text}</p>
-                </motion.div>
-              ))}
+              {processSteps.map((step, index) => {
+                const Icon = step.icon;
+                return (
+                  <motion.div key={step.title} variants={fadeInUp} className="editorial-grid-cell-light md:px-8">
+                    <Icon className="h-7 w-7 text-primary" />
+                    <div className="mt-5 text-[0.68rem] font-bold uppercase tracking-[0.22em] text-primary/68">
+                      Etapa {String(index + 1).padStart(2, '0')}
+                    </div>
+                    <h3 className="mt-3 font-display text-2xl font-bold text-slate-950">{step.title}</h3>
+                    <p className="mt-4 text-base leading-8 text-slate-600">{step.text}</p>
+                  </motion.div>
+                );
+              })}
             </motion.div>
           </div>
         </section>
@@ -396,14 +404,14 @@ const Technology = () => {
                 </div>
               </motion.div>
 
-              <motion.div variants={fadeInUp} className="rounded-[2rem] border border-slate-200 bg-[#fbfcfe] p-6 sm:p-7">
-                <div className="space-y-5">
+              <motion.div variants={fadeInUp} className="border-y border-slate-200">
+                <div className="divide-y divide-slate-200">
                   {productRows.map(([label, text]) => (
-                    <div key={label} className="border-b border-slate-200/90 pb-5 last:border-b-0 last:pb-0">
+                    <div key={label} className="grid gap-4 py-6 sm:grid-cols-[8rem_1fr]">
                       <div className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-primary/68">
                         {label}
                       </div>
-                      <p className="mt-3 text-base leading-8 text-slate-700">{text}</p>
+                      <p className="text-base leading-8 text-slate-700">{text}</p>
                     </div>
                   ))}
                 </div>
@@ -412,14 +420,14 @@ const Technology = () => {
           </div>
         </section>
 
-        <section className="bg-slate-950 px-4 py-20 text-white sm:py-28">
+        <section className="border-t border-white/10 bg-slate-950 px-4 py-20 text-white sm:py-28">
           <div className="container mx-auto">
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-100px' }}
               variants={staggerContainer}
-              className="grid gap-10 rounded-[2rem] border border-white/10 bg-white/[0.03] p-7 sm:p-10 lg:grid-cols-[1.1fr_0.9fr]"
+              className="grid gap-12 border-y border-white/12 py-12 lg:grid-cols-[1.08fr_0.92fr]"
             >
               <motion.div variants={fadeInUp}>
                 <div className="text-sm font-semibold uppercase tracking-[0.24em] text-white/45">Próximo passo</div>
