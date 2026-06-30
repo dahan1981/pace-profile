@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Target, Shield, Zap } from 'lucide-react';
+import { ArrowRight, Instagram, Target, Shield, Zap } from 'lucide-react';
 import { motion, Variants } from 'framer-motion';
 
 const stats = [
@@ -108,6 +108,17 @@ const actionAreas = [
   'Inteligência emocional',
   'Consultoria',
   'Desenvolvimento de líderes',
+];
+
+const instagramPosts = [
+  { src: '/instagram/ilac-instagram-01.jpg', shortcode: 'DR3GH5GEbd9', alt: 'Post do Instagram do ILAC sobre análise comportamental' },
+  { src: '/instagram/ilac-instagram-02.jpg', shortcode: 'DRxFoT6iS2t', alt: 'Post do Instagram do ILAC sobre perfis comportamentais' },
+  { src: '/instagram/ilac-instagram-03.jpg', shortcode: 'DQ_z9ZvEUwi', alt: 'Post do Instagram do ILAC sobre comportamento e repetição' },
+  { src: '/instagram/ilac-instagram-04.jpg', shortcode: 'DQ7hcFmCSxW', alt: 'Post do Instagram do ILAC sobre perfil comportamental' },
+  { src: '/instagram/ilac-instagram-05.jpg', shortcode: 'DQxUqYBiV9L', alt: 'Post do Instagram do ILAC sobre responsabilidade e comportamento' },
+  { src: '/instagram/ilac-instagram-06.jpg', shortcode: 'DQwpoKFkal8', alt: 'Post do Instagram do ILAC sobre propósito e identidade' },
+  { src: '/instagram/ilac-instagram-07.jpg', shortcode: 'DQpBc6OkXb2', alt: 'Post do Instagram do ILAC sobre aula de comunicação' },
+  { src: '/instagram/ilac-instagram-08.jpg', shortcode: 'DJoojC1vz46', alt: 'Post do Instagram do ILAC sobre estratégia comercial' },
 ];
 
 const fadeInUp: Variants = {
@@ -552,6 +563,61 @@ const Index = () => {
             </Link>
           </motion.div>
         </motion.div>
+      </section>
+
+      <section className="relative overflow-hidden bg-white px-4 py-20 sm:py-32">
+        <div className="container mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            variants={staggerContainer}
+            className="mb-12 grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end"
+          >
+            <motion.div variants={fadeInUp}>
+              <div className="flex items-center gap-3 text-sm font-semibold text-primary">
+                <Instagram className="h-5 w-5" />
+                @ilaccoach
+              </div>
+              <div className="editorial-heading-block mt-5 max-w-2xl">
+                <h2 className="font-display text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">
+                  O ILAC também acontece no Instagram.
+                </h2>
+              </div>
+            </motion.div>
+
+            <motion.p variants={fadeInUp} className="max-w-3xl text-lg leading-8 text-slate-600 sm:text-xl">
+              Conteúdos, reflexões e bastidores sobre comportamento, liderança, desenvolvimento humano e análise comportamental.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            variants={staggerContainer}
+            className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4"
+          >
+            {instagramPosts.map((post) => (
+              <motion.a
+                key={post.shortcode}
+                variants={fadeInUp}
+                href={`https://www.instagram.com/p/${post.shortcode}/`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block overflow-hidden border border-slate-200 bg-slate-100"
+              >
+                <img
+                  src={post.src}
+                  alt={post.alt}
+                  loading="lazy"
+                  className="aspect-square w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                />
+                <div className="absolute inset-0 bg-slate-950/0 transition duration-300 group-hover:bg-slate-950/18" />
+              </motion.a>
+            ))}
+          </motion.div>
+        </div>
       </section>
     </div>
   );
