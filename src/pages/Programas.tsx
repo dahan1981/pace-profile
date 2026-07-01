@@ -10,6 +10,7 @@ const PROGRAMAS = [
     title: 'PLC - Professional Life Coach',
     description:
       'Formação completa em coaching focada em desenvolvimento pessoal e transição de vida. Você dominará metodologias de intervenção atuais para alavancar vidas e promover mudanças estruturais duradouras.',
+    logoSrc: '/programas/professional-life-coach.png',
     highlights: [
       'Base metodológica sólida',
       'Aplicação prática desde o início',
@@ -22,6 +23,7 @@ const PROGRAMAS = [
     title: 'ALC - Advanced Leader Coach',
     description:
       'Programa de imersão avançado para líderes que buscam transformar equipes através da metodologia coaching, elevando a performance do setor com processos de autossuficiência e feedback prático.',
+    logoSrc: '/programas/advanced-leader-coach.png',
     highlights: [
       'Liderança aplicada ao cotidiano',
       'Feedback com estrutura',
@@ -34,6 +36,7 @@ const PROGRAMAS = [
     title: 'PEC - Professional Executive Coach',
     description:
       'Certificação focada no ambiente corporativo e no desenvolvimento de executivos de alta performance, C-levels e diretorias de alto impacto.',
+    logoSrc: '/programas/professional-executive-coach.png',
     highlights: [
       'Ambiente executivo real',
       'Decisão e posicionamento',
@@ -46,6 +49,7 @@ const PROGRAMAS = [
     title: 'PMC - Professional Master Coach',
     description:
       'A formação de mais alto nível para dominar técnicas e ferramentas avançadas de coaching. Para profissionais que já trilham a estrada e buscam excelência absoluta.',
+    logoSrc: '/programas/professional-master-coach.png',
     highlights: ['Profundidade técnica', 'Maestria em condução', 'Excelência profissional'],
   },
   {
@@ -142,7 +146,19 @@ const Programas = () => {
                   variants={isEven ? fadeLeft : fadeRight}
                   className={`relative z-10 space-y-8 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}
                 >
-                  <div className="text-sm font-bold uppercase tracking-[0.26em] text-primary">{prog.tag}</div>
+                  <div className="flex items-start justify-between gap-6">
+                    <div className="text-sm font-bold uppercase tracking-[0.26em] text-primary">{prog.tag}</div>
+                    {prog.logoSrc && (
+                      <div className="shrink-0 rounded-full border border-primary/15 bg-white p-2 shadow-[0_18px_50px_rgba(15,23,42,0.12)]">
+                        <img
+                          src={prog.logoSrc}
+                          alt={`Selo ${prog.title}`}
+                          loading="lazy"
+                          className="h-16 w-16 rounded-full object-contain sm:h-20 sm:w-20"
+                        />
+                      </div>
+                    )}
+                  </div>
                   <div className="editorial-heading-block max-w-2xl">
                     <h2 className="font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
                       {prog.title}
