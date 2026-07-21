@@ -323,9 +323,9 @@ const Index = () => {
             <motion.div variants={fadeInUp}>
               <h3 className="font-display text-2xl font-bold text-slate-950">Valores</h3>
             </motion.div>
-            <motion.div variants={fadeInUp} className="grid gap-x-10 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+            <motion.div variants={fadeInUp} className="flex flex-wrap gap-2.5 sm:grid sm:grid-cols-2 sm:gap-x-10 sm:gap-y-4 lg:grid-cols-3">
               {values.map((value) => (
-                <div key={value} className="border-b border-slate-200 pb-3 text-sm font-medium leading-7 text-slate-700">
+                <div key={value} className="rounded-full border border-slate-200 bg-white px-3.5 py-2 text-[0.72rem] font-semibold leading-5 text-slate-700 shadow-sm shadow-slate-200/40 sm:rounded-none sm:border-x-0 sm:border-t-0 sm:bg-transparent sm:px-0 sm:pb-3 sm:pt-0 sm:text-sm sm:font-medium sm:leading-7 sm:shadow-none">
                   {value}
                 </div>
               ))}
