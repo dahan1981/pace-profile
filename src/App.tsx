@@ -1,59 +1,9 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
-
-import MarketingLayout from "./components/layout/MarketingLayout";
-import ScrollToTop from "./components/layout/ScrollToTop";
-import Index from "./pages/Index.tsx";
-import Programas from "./pages/Programas.tsx";
-import InCompany from "./pages/InCompany.tsx";
-import Login from "./pages/Login.tsx";
-import Cadastro from "./pages/Cadastro.tsx";
-import Assessment from "./pages/Assessment.tsx";
-import Result from "./pages/Result.tsx";
-import UserDashboard from "./pages/UserDashboard.tsx";
-import EnterpriseDashboard from "./pages/EnterpriseDashboard.tsx";
-import AdminDashboard from "./pages/AdminDashboard.tsx";
-import AboutAdemir from "./pages/AboutAdemir.tsx";
-import Technology from "./pages/Technology.tsx";
-import NotFound from "./pages/NotFound.tsx";
-
-const queryClient = new QueryClient();
-
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          {/* Public Marketing Routes */}
-          <Route element={<MarketingLayout />}>
-            <Route path="/" element={<Index />} />
-            <Route path="/sobre" element={<AboutAdemir />} />
-            <Route path="/ademir-soares" element={<AboutAdemir />} />
-            <Route path="/programas" element={<Programas />} />
-            <Route path="/incompany" element={<InCompany />} />
-          </Route>
-
-          {/* App / Authentication Routes */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/cadastro" element={<Cadastro />} />
-          <Route path="/avaliacao" element={<Assessment />} />
-          <Route path="/resultado" element={<Result />} />
-          <Route path="/usuario" element={<UserDashboard />} />
-          <Route path="/empresa" element={<EnterpriseDashboard />} />
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/tecnologia" element={<Technology />} />
-          
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <main className="flex min-h-screen items-center justify-center bg-black px-6 text-center text-white">
+    <h1 className="font-sans text-2xl font-semibold tracking-tight sm:text-4xl">
+      Indisponível no momento
+    </h1>
+  </main>
 );
 
 export default App;
